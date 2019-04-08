@@ -1,0 +1,12 @@
+body {
+     margin: 0; 
+     padding: 0; 
+     overflow: hidden;
+     background-color: FFF6e6;
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    color: darkred;
+}
