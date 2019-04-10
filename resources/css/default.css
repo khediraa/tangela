@@ -1,0 +1,19 @@
+body {
+     margin: 0; 
+     padding: 0; 
+     overflow: hidden;
+     background-color: rgb(250, 227, 186);
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    text-align: center; 
+    color: white;
+    transition: color .2s linear;
+}
+
+h1:hover {
+    color: rgb(0, 214, 46);
+    transition: color .2s linear;
+}
