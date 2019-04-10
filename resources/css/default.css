@@ -10,4 +10,10 @@ h1 {
     font-size: 60px;
     text-align: center; 
     color: darkred;
+    transition: color .2s linear;
+}
+
+h1:hover {
+    color: rgb(0, 214, 46);
+    transition: color .2s linear;
 }
