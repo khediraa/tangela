@@ -17,3 +17,9 @@ h1:hover {
     color: rgb(0, 214, 46);
     transition: color .2s linear;
 }
+
+.style1{
+    background-color:red;
+    color:white;
+    font-size:99px;
+}
