@@ -26,11 +26,16 @@ h1:hover {
 
 .bicycle {
     background-color: rgb(166, 151, 248);
-    width: 30%;
+    width: 25%;
     padding: 10px;
     border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px; 
 }
 
 .bicycle h2 {
     margin-top: 0px;
 }
+
+
