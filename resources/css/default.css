@@ -1,6 +1,6 @@
 body {
-     margin: 0; 
-     padding: 0; 
+     margin: 0;
+     padding: 0;
      overflow: hidden;
      background-color: rgb(250, 227, 186);
 }
@@ -8,7 +8,7 @@ body {
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 60px;
-    text-align: center; 
+    text-align: center;
     color: white;
     transition: color .2s linear;
 }

@@ -1,0 +1,26 @@
+body{
+  background-color: rgba(225, 225, 255, 0.5);
+}
+h1 {
+    font-family: helvetica;
+    padding-left: 70px;
+    padding-top: 0px;
+
+    font-size: 75px;
+    text-align: left;
+    color: rgba(255,0,0,0.9);
+    transition: color .2s linear;
+}
+
+h1:hover {
+    color: rgb(0, 214, 46);
+    transition: color .2s linear;
+}
+
+p{
+
+}
+
+button{
+  align-self: right;
+}
