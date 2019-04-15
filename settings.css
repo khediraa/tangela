@@ -1,45 +1,85 @@
 body{
   background-color: rgba(225, 225, 255, 0.5);
 }
-h1 {
-    font-family: helvetica;
-    padding-left: 70px;
-    padding-top: 0px;
 
+.top{
+  margin-left: 10%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.top h1 {
+    font-family: helvetica;
+    padding-top: 0px;
     font-size: 75px;
     text-align: left;
     color: rgba(0,0,240,0.65);
     transition: color .2s linear;
 }
 
-h1:hover {
+.top h1:hover {
     color: rgba(0, 214, 46,1);
     transition: color .2s linear;
 }
 
-h2 {
-    font-family: helvetica;
-    padding-left: 100px;
-    padding-top: 0px;
-
-    font-size: 45px;
-    text-align: left;
-    color: rgba(0,0,240,0.35);
+.search{
+  margin-left:10%;
+  margin-right:10%;
 }
 
-p{
+.sleft{
+
+  text-align: left;
+}
+.sright{
+  text-align:right;
+}
+
+.search p{
+
+  font-family: helvetica;
+  font-size: 30px;
+  color: rgba(0,0,0,0.35);
+
+}
+
+
+
+.desc{
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: rgba(225, 225, 255, 0.7);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.desc p{
   font-family: helvetica;
   padding-left: 100px;
   padding-right: 600px;
   text-align: left;
 }
 
-button{
-  align-self: right;
+.desc h2{
   font-family: helvetica;
-
+  padding-left: 100px;
+  padding-top: 0px;
+  font-size: 45px;
+  text-align: left;
+  color: rgba(0,0,240,0.35);
 }
-div{
-  padding-right: 600px;
+
+button{
+  background-color: rgba(0,0,240,0.65);
+  font-size: 200%;
+  color: white;
+  font-family: helvetica;
+  margin-left: 40%;
+}
+
+.rent_button{
   text-align:right;
+  background-color: rgba(225, 225, 255, 0.7);
+  margin-left: 10%;
+  margin-right: 20%;
 }
