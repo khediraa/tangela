@@ -1,0 +1,106 @@
+body {
+     margin: 10; 
+     padding: 0; 
+     overflow: hidden;
+     background-color: darkslategray;
+}
+
+h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 60px;
+    text-align: left; 
+    color: limegreen;
+}
+
+.center {
+    margin-top: 18%;
+}
+
+.center h1 {
+    text-align: center;
+    font-weight: normal;
+}
+
+.show {
+    width: 80%;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: auto;
+    padding: 10px;
+}
+
+.pic {
+    width: 40%;
+    height: 400px;
+    float: left;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    border: 2px solid limegreen ;
+    color: limegreen;
+    text-align: center;
+}
+
+.description {
+    padding-top: 5%;
+    padding-left: 55%;
+    height: 200px;
+}
+
+h2 {
+    margin-top: 0;
+    text-indent: 50;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    text-align: left;
+    text-decoration: underline;
+    color: limegreen;
+}
+
+info {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    text-align: left;
+    color: limegreen;
+}
+
+choices {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 25px;
+    text-align: left;
+    color: limegreen;
+}
+
+.rentbutton {
+    position: fixed;
+    right: 150px;
+    bottom: 180px;
+}
+.rentbutton a:link, .rentbutton a:visited {
+    background-color: limegreen;
+    border: none;
+    color: darkslategray;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 12px;
+    font-size: 25px;
+}
+
+.rentbutton a:hover, .rentbutton a:active {
+    background-color: orange;
+    color: black;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.back a:link, .back a:visited {
+    color: limegreen;
+    text-decoration: none;
+    font-size: 60px;
+}
+
+.back a:hover, .back a:active {
+    color: black;
+}
