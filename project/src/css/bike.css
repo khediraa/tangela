@@ -1,0 +1,35 @@
+.bicycle {
+    background-color: rgb(166, 151, 248);
+    width: 25%;
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px; 
+    overflow: hidden;
+}
+
+.bicycle h2 {
+    margin-top: 0px;
+}
+
+.bicycle p {
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.bicycle button {
+    background-color: rgb(231, 112, 0);
+    border-radius: 6px;
+    border: none;
+    padding: 5px 10px;
+    float: right;
+}
+
+.bicycle button:hover {
+    background-color: rgb(255, 135, 22);
+}
+
+.bicycle button:active {
+    background-color: rgb(231, 112, 0);
+}

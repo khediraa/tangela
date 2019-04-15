@@ -2,7 +2,7 @@ body {
      margin: 0; 
      padding: 0; 
      overflow: hidden;
-     background-color: rgb(250, 227, 186);
+     background-color: rgb(247, 247, 247);
 }
 
 h1 {
@@ -23,3 +23,5 @@ h1:hover {
     color:white;
     font-size:99px;
 }
+
+
