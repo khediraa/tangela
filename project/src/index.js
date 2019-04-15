@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Bike from './Bike.js';
+import App from "./App.js"
+import "./Bikes.js"
 
-ReactDOM.render(<Bike />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));

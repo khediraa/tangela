@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import "./css/bike.css";
 
-function Bike(props) {
-    return (
-        <article className="bicycle">
-        <h2>title</h2>
-        <p>city</p>
-        <p>available from yyyy/mm/dd to yyyy/mm/dd</p>
-        <p>price: XX kr / day</p>
-        <button>Yes please!</button>
-    </article>
-    );
+class Bike extends Component {
+    render() {
+        return (
+            <article className="bicycle">
+                <h2>{this.props.title}</h2>
+                <p>{this.props.city}</p>
+                <p>available from {this.props.startDate} to {this.props.endDate}</p>
+                <p>price: {this.props.price} kr / day</p>
+                <button>Yes please!</button>
+            </article>
+        ); 
+    }
 }
+
 
 export default Bike;
 
