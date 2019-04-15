@@ -23,15 +23,15 @@ body{
 }
 
 .search{
-  margin-left:10%;
-  margin-right:10%;
+  width: 80%;
 }
 
 .sleft{
-
+  width: 40%;
   text-align: left;
 }
 .sright{
+  float: right;
   text-align:right;
 }
 
