@@ -75,7 +75,7 @@ body{
   color: rgba(0,0,240,0.35);
 }
 
-button{
+a{
   background-color: rgba(0,0,240,0.65);
   font-size: 200%;
   color: white;
