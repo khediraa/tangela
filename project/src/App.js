@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import {bikes} from "./Bikes.js";
+import * as Bikes from "./Bikes.js";
 import Bike from "./Bike.js";
 
 class App extends Component {
     render() {
+        var bike = Bikes.getBike(0);
         return (
-            <Bike title={bikes[0].title} city={bikes[0].city} startDate={bikes[0].startDate} endDate={bikes[0].endDate} price={bikes[0].price} />
+            <Bike title={bike.title} city={bike.city} startDate={bike.startDate} endDate={bike.endDate} price={bike.price} />
         );
     }
 }
