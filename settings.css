@@ -23,19 +23,25 @@ body{
 }
 
 .search{
+
   width: 80%;
+  height: 100px;
+  margin: auto;
 }
 
 .sleft{
+
   width: 40%;
+  float:left;
   text-align: left;
 }
 .sright{
+
   float: right;
   text-align:right;
 }
 
-.search p{
+.sleft p, .sright p{
 
   font-family: helvetica;
   font-size: 30px;
