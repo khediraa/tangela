@@ -10,11 +10,11 @@ export function getBike(id) {
 export function rentBike(id, startDate, endDate) {
   var dateArray = [];
   var currentDate = startDate;
-  
+
   //Put all dates between startDate and endDate in an array.
   while (currentDate <= endDate) {
-      dateArray.push(DateToString(new Date(currentDate)));
-      currentDate = currentDate.addDays(1);
+    dateArray.push(DateToString(new Date(currentDate)));
+    currentDate = currentDate.addDays(1);
   }
 
   //If all dates are not available for the bike, return false.
@@ -35,14 +35,13 @@ export function rentBike(id, startDate, endDate) {
   return true;
 }
 
-
 function DateToString(date) {
   return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 }
 
 /* Returns a new Date object for a specified number of days after the current date. */
-Date.prototype.addDays = function(days) {
-    var date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
+Date.prototype.addDays = function (days) {
+  var date = new Date(this.valueOf());
+  date.setDate(date.getDate() + days);
+  return date;
 }
