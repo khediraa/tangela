@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as Bikes from "./Bikes.js";
+//import * as Bikes from "./Bikes.js";
 import "./css/bike.css";
 
 class Bike extends Component {
@@ -10,9 +10,9 @@ class Bike extends Component {
     }
 
     handleClick() {
-        Bikes.rentBike(0);
+        //Bikes.rentBike(0);
         this.setState({rented: true})
-        console.log(Bikes.getBike(0));
+        //console.log(Bikes.getBike(0));
     }
 
     render() {
