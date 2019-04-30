@@ -6,6 +6,11 @@ export function getBike(id) {
   return bikes[id];
 }
 
+/* Returns all bikes */
+export function getAllBikes() {
+  return bikes;
+}
+
 /* Removes the rented days from the bike specified by id*/
 export function rentBike(id, startDate, endDate) {
   var dateArray = [];
