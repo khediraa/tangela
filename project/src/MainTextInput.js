@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./css/default.css";
+import "./css/mainTextInput.css";
 
 class MainTextInput extends Component {
     constructor(props) {
@@ -24,7 +24,8 @@ class MainTextInput extends Component {
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Searched:
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    <input type="text" value={this.state.value} onChange={this.handleChange}
+                        placeholder="Placeholder" />
                 </label>
                 <input type="submit" value="Submit" />
             </form>
