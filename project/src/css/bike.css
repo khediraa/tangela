@@ -1,6 +1,7 @@
 .bicycle {
     background-color: rgb(166, 151, 248);
-    width: 25%;
+    height: 450px;
+    width: 55%;
     padding: 15px;
     border-radius: 10px;
     margin-left: auto;
