@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import "./css/mainTextInput.css";
-import {DatePicker, RangeDatePicker} from '@y0c/react-datepicker';
+//import {DatePicker, RangeDatePicker} from '@y0c/react-datepicker';
 
-import '@y0c/react-datepicker/assets/styles/calendar.scss';
+//import '@y0c/react-datepicker/assets/styles/calendar.scss';
 
 //import 'moment/locale/ko';
+
+import 'react-dates/initialize';
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+
+
 
 class MainTextInput extends Component {
     constructor(props) {
         super(props);
-        this.state = {value: '', from:new Date()};
+        this.state = {value: ''};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,7 +37,7 @@ class MainTextInput extends Component {
 
 
     handleSubmit(event) {
-        alert('Searched: ' + this.state.value + this.state.from );
+        alert('Searched: ' + 'CITY: ' +  this.state.value + 'START DATE: ' + this.state.startDate.toString() + 'END DATE: '+ this.state.endDate.toString() );
         event.preventDefault();
     }
 
@@ -45,7 +51,24 @@ class MainTextInput extends Component {
                                                                                     this.handleChange(event);}}
                         placeholder="City" />
 
-                    <RangeDatePicker selected={this.state.from} onChange={this.handleCalendarChange} />
+
+                    <DateRangePicker
+                    startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+                    startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+                    endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+                    endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+                    onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+                    focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                    onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+                  />
+                  <label>
+                  Type
+                  <select>
+                  <option value="mtb">Mountain Bike</option>
+                  <option value="hybrid">Hybrid Bike</option>
+                  <option selected value="citybike">City Bike</option>
+                </select>
+                </label>
                 </label>
                 <input type="submit" value="Submit" />
             </form>
