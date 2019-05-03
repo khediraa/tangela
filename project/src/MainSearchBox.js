@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "./css/mainSearchBox.css";
-import MainTextInput from "./MainTextInput.js";
 
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
