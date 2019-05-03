@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./css/bike.css";
-
+import Calender from "./Calender.js";
 class Bike extends Component {
     constructor(props) {
         super(props);
@@ -29,7 +29,7 @@ class Bike extends Component {
                 <button onClick={this.handleClick}>
                     Yes please!
                 </button>
-                
+                <Calender></Calender>
             </article>
         }
         return article;
