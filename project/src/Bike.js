@@ -28,7 +28,8 @@ class Bike extends Component {
                 <p>price: {this.props.price} kr / day</p>
                 <button onClick={this.handleClick}>
                     Yes please!
-                        </button>
+                </button>
+                
             </article>
         }
         return article;
