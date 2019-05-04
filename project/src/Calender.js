@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'react-dates/initialize';
 import { DateRangePicker} from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import * as BikeHandler from "./BikeHandler.js"; 
 
 class Calender extends Component {
     constructor(props) {
@@ -12,6 +13,10 @@ class Calender extends Component {
 
     handleClick() {
         this.setState({ rented: true })
+    }
+
+    handleChange(){
+        BikeHandler.rentBike(this.props.id, this.state.startDate, this.state.endDate);
     }
 
     render() {

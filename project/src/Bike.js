@@ -29,7 +29,7 @@ class Bike extends Component {
                 <button onClick={this.handleClick}>
                     Yes please!
                 </button>
-                <Calender></Calender>
+                <Calender id={this.props.id}/>
             </article>
         }
         return article;
