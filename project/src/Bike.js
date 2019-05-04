@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import "./css/bike.css";
-import Calender from "./Calender.js";
+import 'react-dates/initialize';
+import * as BikeHandler from "./BikeHandler.js";
+import { DateRangePicker} from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css'; 
 class Bike extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +13,17 @@ class Bike extends Component {
 
     handleClick() {
         this.setState({ rented: true })
+        console.log(this.state.startDate);
     }
+
+    handleChange(){
+        BikeHandler.rentBike(this.props.id, this.state.startDate, this.state.endDate);
+    } 
+    
+    handleCalenderChange(startDate, endDate) {
+        this.setState({startDate, endDate});
+    }
+    
 
     render() {
         let article;
@@ -29,7 +42,15 @@ class Bike extends Component {
                 <button onClick={this.handleClick}>
                     Yes please!
                 </button>
-                <Calender id={this.props.id}/>
+                <DateRangePicker
+                    startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+                    startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+                    endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+                    endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+                    onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+                    focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                    onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+                />
             </article>
         }
         return article;
