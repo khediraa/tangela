@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from "./App.js";
-import BikeList from './ItemList';
+import {BrowserRouter as Router} from 'react-router-dom';
+import Routes from './Routes'
 
-ReactDOM.render(<BikeList />, document.getElementById("root"));
+ReactDOM.render(
+    <Router>
+        <Routes />
+    </Router>, 
+    document.getElementById("root"));

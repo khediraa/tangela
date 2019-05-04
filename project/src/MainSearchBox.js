@@ -4,6 +4,9 @@ import "./css/mainSearchBox.css";
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import ItemList from './ItemList';
+
+import {Route, Link} from 'react-router-dom';
 
 class MainSearchBox extends Component {
 
@@ -27,8 +30,9 @@ class MainSearchBox extends Component {
   }
 
   handleSubmit(event) {
-    alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
-    + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike );
+    // alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
+    // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike );
+    this.props.history.push('/Items');
     event.preventDefault();
   }
 
@@ -66,7 +70,9 @@ class MainSearchBox extends Component {
 
         </label>
         </label>
-        <input type="submit" value="Submit" />
+        <Link to='/Items' >
+          <input type="submit" value="Submit" />
+        </Link>
         </form>
 
         </div>

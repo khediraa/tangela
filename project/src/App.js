@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-//import * as Bikes from "./Bikes.js";
-import Bike from "./Bike.js";
-import * as BikeHandler from "./BikeHandler.js";
-import MainPage from "./MainPage.js";
+// import React, { Component } from 'react';
+// import MainPage from "./MainPage.js";
+// import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// import ItemList from  './ItemList'
 
-class App extends Component {
+// class App extends Component {
+//     render() {
+//         return (
+//           <BrowserRouter>
+//             <Switch>
+//               <Route exact path='/' component={MainPage} />
+//               <Route path='/itemList' component={ItemList} />
+//             </Switch>
+//           </BrowserRouter>
+//         );
+//     }
+// }
 
-    render() {
-        var bike = BikeHandler.getBike("b1");
-        return (
-          <div>
-            <MainPage></MainPage>
-          </div>
-        );
-    }
-}
-
-export default App;
+// export default App;
