@@ -18,7 +18,7 @@ class Bike extends Component {
     }
 
     /*isBlocked = day => {
-        const availableDates = ["05/17/2019", "05/18/2019", "05/19/2019"] //"2019-08-09", "2019-08-10", "2019-08-11", "2019-08-12"
+        const availableDates = ["2019-08-09", "2019-08-10"] //"2019-08-09", "2019-08-10", "2019-08-11", "2019-08-12"
         return !availableDates.some(date => day.isSame(date), 'day')
     }*/
 
