@@ -27,12 +27,13 @@ class MainSearchBox extends Component {
   handleSelect(event){
     const target = event.target;
     this.setState({bike: target.value});
+    console.log(this.state);
   }
 
   handleSubmit(event) {
     // alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
     // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike );
-    this.props.history.push('/Items');
+    // this.props.history.push('/Items');
     event.preventDefault();
   }
 

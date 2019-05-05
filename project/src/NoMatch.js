@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Error() {
+function NoMatch() {
     return (
         <div>
             <h1>404 Not Found</h1>
@@ -8,4 +8,4 @@ function Error() {
     );
 }
 
-export default Error;
+export default NoMatch;
