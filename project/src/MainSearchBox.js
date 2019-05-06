@@ -12,7 +12,7 @@ class MainSearchBox extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {city: '', bike:''};
+    this.state = {city: '', bike_type:''};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,13 +26,13 @@ class MainSearchBox extends Component {
 
   handleSelect(event){
     const target = event.target;
-    this.setState({bike: target.value});
+    this.setState({bike_type: target.value});
     console.log(this.state);
   }
 
   handleSubmit(event) {
     // alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
-    // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike );
+    // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike_type );
     // this.props.history.push('/Items');
     event.preventDefault();
   }
@@ -40,16 +40,17 @@ class MainSearchBox extends Component {
   render(){
     const calendarChange =  title => (...args) => console.log(title,args);
     return(
-      <div id="search">
+      <div class="search">
       <h1> BOOK </h1>
 
       <form onSubmit={this.handleSubmit}>
-      <label>
+      <div class="city_and_submit">
       <input type="text" value={this.state.city} onChange={event => {event.preventDefault();
         this.handleChange(event);}}
         placeholder="City" />
+        </div>
 
-
+        <div class="date">
         <DateRangePicker
         startDate={this.state.startDate} // momentPropTypes.momentObj or null,
         startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
@@ -60,21 +61,23 @@ class MainSearchBox extends Component {
         onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
         minimumNights={0}
         />
+        </div>
 
+        <div class="type">
         <label>
-        Type
-
-        <select type="text" value={this.state.bike} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
+        <p> Type </p>
+        <select type="text" value={this.state.bike_type} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
         <option value="mtb">Mountain Bike</option>
         <option value="hybrid">Hybrid Bike</option>
         <option selected value="citybike">City Bike</option>
         </select>
-
         </label>
-        </label>
+        </div>
+        <div class="city_and_submit">
         <Link to='/Items' >
-          <input type="submit" value="Submit" />
+        <input type="submit" value="Search" />
         </Link>
+        </div>
         </form>
 
         </div>
