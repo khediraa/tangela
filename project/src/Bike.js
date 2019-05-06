@@ -17,10 +17,10 @@ class Bike extends Component {
         //let campaignEndDate= '11/10/2018';
     }
 
-    /*isBlocked = day => {
-        const availableDates = ["2019-08-09", "2019-08-10"] //"2019-08-09", "2019-08-10", "2019-08-11", "2019-08-12"
-        return !availableDates.some(date => day.isSame(date), 'day')
-    }*/
+    isBlocked = day => {
+        const availableDates = ['2019-08-09', '2019-08-10'] //"2019-08-09", "2019-08-10", "2019-08-11", "2019-08-12"
+        return !availableDates.some(date => day.isSame(date, 'day'))
+    }
 
     blocksDay(day) {
         return day.isSame(moment(), "day");
@@ -64,8 +64,8 @@ class Bike extends Component {
                     onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
                     focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                     onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-                    //isDayBlocked={this.isBlocked}
-                    isOutsideRange={this.blocksDay}
+                    isDayBlocked={this.isBlocked}
+                    //isOutsideRange={this.blocksDay}
 
                 />
             </article>
