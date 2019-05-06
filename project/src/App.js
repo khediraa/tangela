@@ -4,6 +4,9 @@ import MainPage from "./MainPage";
 import ItemList from './ItemList';
 import NoMatch from './NoMatch';
 import BikePage from './BikePage';
+import PaymentPage from './PaymentPage';
+import ConfirmationPage from './ConfirmationPage';
+
 
 class App extends Component {
     render() {
@@ -14,6 +17,8 @@ class App extends Component {
                     <Route exact path='/Home' component={MainPage} />
                     <Route exact path='/Items' component={ItemList} />
                     <Route exact path='/BikePage' component={BikePage} />
+                    <Route exact path='/PaymentPage' component={PaymentPage} />
+                    <Route exact path='/ConfirmationPage' component={ConfirmationPage} />
                     <Route component={NoMatch} />
                 </Switch>
             </div>
