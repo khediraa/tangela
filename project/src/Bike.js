@@ -65,7 +65,7 @@ class Bike extends Component {
                     focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                     onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
                     isDayBlocked={this.isBlocked}
-                    //isOutsideRange={this.blocksDay}
+                    minimumNights={0}
 
                 />
             </article>
