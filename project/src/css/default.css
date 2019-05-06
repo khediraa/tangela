@@ -1,14 +1,19 @@
 body {
-     margin: 0; 
-     padding: 0; 
-     overflow: hidden;
-     background-color: rgb(247, 247, 247);
+     margin: 0px;
+     padding: 0;
+     overflow-y: hidden;
+     background-color: green;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     font-size: 12px;
+     width: 100%;
+     height: auto;
+     cursor: default;
 }
 
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 60px;
-    text-align: center; 
+    font-size: 14px;
+    text-align: center;
     color: white;
     transition: color .2s linear;
 }
@@ -24,4 +29,46 @@ h1:hover {
     font-size:99px;
 }
 
+#main_container{
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
 
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 100px;
+  overflow:hidden;
+}
+
+#search_box{
+  width: 40%;
+  background-color: blue;
+  margin-left: 10%;
+  margin-top: 7%;
+
+}
+
+#search_box p{
+  font-size: 15px;
+}
+
+.search_box_header{
+  padding-left:2%;
+  padding-top: 2%;
+  text-align: center
+}
+
+.input_group{
+  display: flex;
+  padding-left: 1%;
+}
+.input_group label{
+  font-size: 15px;
+
+  float:left;
+  display: block;
+}
+
+.input_group input{
+  font-size: 15px;
+  align-self: flex-end;
+}

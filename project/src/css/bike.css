@@ -12,11 +12,13 @@
 
 .bicycle h2 {
     margin-top: 0px;
+    font-size: 12px;
 }
 
 .bicycle p {
     margin-bottom: 5px;
     margin-top: 0;
+    font-size: 12px;
 }
 
 .bicycle button {
