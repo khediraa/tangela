@@ -1,6 +1,7 @@
 .bicycle {
     background-color: rgb(166, 151, 248);
-    width: 25%;
+    height: 450px;
+    width: 55%;
     padding: 15px;
     border-radius: 10px;
     margin-left: auto;
@@ -11,11 +12,13 @@
 
 .bicycle h2 {
     margin-top: 0px;
+    font-size: 12px;
 }
 
 .bicycle p {
     margin-bottom: 5px;
     margin-top: 0;
+    font-size: 12px;
 }
 
 .bicycle button {
