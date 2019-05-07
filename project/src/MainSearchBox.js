@@ -64,9 +64,9 @@ class MainSearchBox extends Component {
         Type
 
         <select type="text" value={this.state.bike} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
-        <option value="mtb">Mountain Bike</option>
-        <option value="hybrid">Hybrid Bike</option>
-        <option selected value="citybike">City Bike</option>
+        <option selected value="mtb">Mountain Bike</option>
+        <option value="hybridb">Hybrid Bike</option>
+        <option value="cityb">City Bike</option>
         </select>
 
         </label>

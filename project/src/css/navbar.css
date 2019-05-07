@@ -1,0 +1,9 @@
+#navbar {
+    position: sticky;
+    width: 98%;
+    top: 0px;
+    vertical-align: top;
+    background-color: #1ff;
+    text-align: center;
+    padding: 15px 15px 15px 15px;
+  }
