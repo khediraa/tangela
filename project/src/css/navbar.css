@@ -1,9 +1,32 @@
 #navbar {
+    list-style-type:none; 
     position: sticky;
-    width: 98%;
-    top: 0px;
-    vertical-align: top;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
     background-color: #1ff;
-    text-align: center;
-    padding: 15px 15px 15px 15px;
+    font-size: 25px;
   }
+
+#navbar img {
+  float: left;
+  width: 55px;
+  height: 55px;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: red;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  height: 100%;
+}
+
+li a:hover {
+  background-color: #19f;
+}
