@@ -5,7 +5,7 @@ import './css/itemListComponent.css';
 function ItemListComponent({title, price}) {
     return (
         <div className="itemListComponent">
-            <h4 className="title"><a href=""></a>{title}</h4>
+            <h4 className="title"><a href="http://google.com">{title}</a></h4>
             <h6>{price} kr/day</h6>
         </div>
     );
