@@ -6,8 +6,28 @@ import NoMatch from './NoMatch';
 import BikePage from './BikePage';
 import PaymentPage from './PaymentPage';
 import ConfirmationPage from './ConfirmationPage';
+import {Elements, StripeProvider} from 'react-stripe-elements';
+
+class App extends Component {
+  render() {
+    return (
+      <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
+        <div className="example">
+          <h1>React Stripe Elements Example</h1>
+          <Elements>
+            <PaymentPage />
+          </Elements>
+        </div>
+      </StripeProvider>
+    );
+  }
+}
+
+export default App;
 
 
+
+/** 
 class App extends Component {
     render() {
         return (
@@ -27,3 +47,4 @@ class App extends Component {
 }
 
 export default App;
+*/
