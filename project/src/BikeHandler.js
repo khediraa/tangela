@@ -2,7 +2,7 @@ import data from "./resources/bikes.json";
 
 var bikes = data; //TODO: Update json file periodically to make backup.
 
-var id=6;
+var myId=6;
 
 export function getBike(id) {
   return bikes[id];
@@ -15,14 +15,22 @@ export function getAllBikes() {
 
 /* lkadsf */
 export function addBike(name, type, lat, long, frame, gears, price, dates, description) {
-<<<<<<< HEAD
+  //var fs = require('fs');
 
-var newBike= id + "type:" + type + "lat:" + lat 
+  var newBike= myId+':'+JSON.stringify({ name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:dates, description:description });
 
-id=id+1;
-=======
-  alert( name +' '+ frame +' '+ price);
->>>>>>> 1620c4feae3e2212ff1500472e7b4fd65cb6c122
+
+  //var bikes2= bikes.concat(newBike);
+  alert(newBike);
+  //alert(JSON.parse(bikes));
+
+  /*fs.appendFile('./resources/bikes.json', newBike, function (err) {
+    if (err) throw err;
+    console.log('Updated!');
+  });*/
+
+
+  myId=myId+1;
 }
 
 
