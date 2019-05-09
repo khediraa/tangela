@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ItemListComponent from './ItemListComponent';
 import * as BikeHandler from './BikeHandler';
 import MapContainer from './MapContainer';
+import './css/mapContainer.css';
 
 /* Class that contains ItemListComponents */
 class ItemList extends Component {
@@ -20,7 +21,9 @@ class ItemList extends Component {
                 <div className="list-item">
                     {bikes_list}
                 </div>
-                <MapContainer />
+                <div className="Item-list-map">
+                    <MapContainer />
+                </div>
             </div>
         );
     }
