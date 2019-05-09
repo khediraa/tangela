@@ -21,7 +21,7 @@ class PaymentPage extends Component {
       }
   
     render() {
-        if (this.state.complete) return <h1>Purchase Complete</h1>;
+        if (this.state.complete) return <h1>Rental Confirmed</h1>;
       return (
         <div className="checkout">
           <p>Would you like to complete the purchase?</p>
