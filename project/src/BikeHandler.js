@@ -13,7 +13,7 @@ export function getAllBikes() {
 
 /* lkadsf */
 export function addBike(name, type, lat, long, frame, gears, price, dates, description) {
-
+  alert( name +' '+ frame +' '+ price);
 }
 
 

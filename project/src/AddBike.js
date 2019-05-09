@@ -27,7 +27,8 @@ class AddBike extends Component{
     
     handleSelect(event){
         const target = event.target;
-        this.setState({bike_type: target.value});
+        const tmp = target.name;
+        this.setState({[tmp]: target.value});
         console.log(this.state);
     }
     
@@ -37,6 +38,7 @@ class AddBike extends Component{
         // this.props.history.push('/Items');
         BikeHandler.addBike(this.state.title, this.state.type, this.state.longitude, this.state.latitude, this.state.frame,
                                  this.state.gears, this.state.price, this.state.dates, this.state.desc);
+
         event.preventDefault();
     }
 
@@ -91,19 +93,20 @@ class AddBike extends Component{
 
                         {/*        
 
-                            TYPE     
+                            Frame     
                         
                         */}
+                        
                         <div id="AddFrame">
                         <label>
                         
                         Frame
                         
-                        <select type="text" value={this.state.bike_frame} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
-                        <option selected value="mtb">Women's</option>
-                        <option value="city">Men's</option>
-                        <option value="hybrid">Unisex</option>
-                        <option value="electric">Kids'</option>
+                        <select type="text" name="frame" value={this.state.frame} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
+                        <option selected value="wmn">Women's</option>
+                        <option value="men">Men's</option>
+                        <option value="uni">Unisex</option>
+                        <option value="kid">Kids'</option>
                         
                         </select>
                         </label>
@@ -124,26 +127,6 @@ class AddBike extends Component{
                         </label>
                         </div>
 
-                        {/*        
-
-                            Frame     
-                        
-                        */}
-
-                        <div id="AddFrame">
-                        <label>
-                    
-                        Frame
-                    
-                        <select type="text" name="frame" value={this.state.frame} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
-                        <option selected value="mtb">dam</option>
-                        <option value="hybrid">unisex</option>
-                        <option value="city">herr</option>
-                        <option value="electric">barn</option>
-                    
-                        </select>
-                        </label>
-                        </div>
 
                         {/*        
 
