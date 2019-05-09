@@ -12,7 +12,7 @@ class AddBike extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {longitude: '', latitude:'', bike_type:'', Dates:[], bike_frame:'', gears:'', price:'', desc:'', title:''};
+        this.state = {longitude: '', latitude:'', type:'', dates:[], frame:'', gears:'', price:'', desc:'', title:''};
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +27,8 @@ class AddBike extends Component{
     
     handleSelect(event){
         const target = event.target;
-        this.setState({bike_type: target.value});
+        const tmp = target.name;
+        this.setState({[tmp]: target.value});
         console.log(this.state);
     }
     
@@ -35,6 +36,9 @@ class AddBike extends Component{
         // alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
         // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike_type );
         // this.props.history.push('/Items');
+        BikeHandler.addBike(this.state.title, this.state.type, this.state.longitude, this.state.latitude, this.state.frame,
+                                 this.state.gears, this.state.price, this.state.dates, this.state.desc);
+
         event.preventDefault();
     }
 
@@ -47,8 +51,9 @@ class AddBike extends Component{
                 BOX WITH LOCATION AND DATE
                 
                 */}
-
+                <form onSubmit={this.handleSubmit}>
                 <div id="DateNLoc">
+                
                     <div id="AddDate">
                     <DateRangePicker
                     //startDate={this.state.startDate} // momentPropTypes.momentObj or null,
@@ -70,103 +75,108 @@ class AddBike extends Component{
                 */}
 
                 <div id="Info">
-
-                    {/*        
                     
-                        Title     
-                    
-                    */}
+
+                        {/*        
+
+                            Title     
+                        
+                        */}
 
 
-                    <div id="AddTitle">
+                        <div id="AddTitle">
+                            <label>
+                                Title:
+                                <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+                            </label>
+                        </div>
+
+                        {/*        
+
+                            Frame     
+                        
+                        */}
+                        
+                        <div id="AddFrame">
                         <label>
-                            Title:
-                            <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+                        
+                        Frame
+                        
+                        <select type="text" name="frame" value={this.state.frame} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
+                        <option selected value="wmn">Women's</option>
+                        <option value="men">Men's</option>
+                        <option value="uni">Unisex</option>
+                        <option value="kid">Kids'</option>
+                        
+                        </select>
                         </label>
-                    </div>
+                        </div>
 
-                    {/*        
-                    
-                        TYPE     
-                    
-                    */}
-
-                    <div id="AddType">
-                    <label>
-                
-                    Type
-                
-                    <select type="text" name="type" value={this.state.bike_type} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
-                    <option selected value="mtb">Mountain Bike</option>
-                    <option value="hybrid">Hybrid Bike</option>
-                    <option value="city">City Bike</option>
-                    <option value="electric">Electric Bike</option>
-                
-                    </select>
-                    </label>
-                    </div>
-
-                    {/*        
-                    
-                        Frame     
-                    
-                    */}
-
-                    <div id="AddFrame">
-                    <label>
-                
-                    Frame
-                
-                    <select type="text" value={this.state.bike_frame} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
-                    <option selected value="mtb">Women's</option>
-                    <option value="city">Men's</option>
-                    <option value="hybrid">Unisex</option>
-                    <option value="electric">Kids'</option>
-                
-                    </select>
-                    </label>
-                    </div>
-
-                    {/*        
-                    
-                        Gears     
-                    
-                    */}
-
-                    <div id="AddGears">
+                        <div id="AddType">
                         <label>
-                            Gears:
-                            <input type="number" name="gears" value={this.state.gears} onChange={this.handleChange} />
-                        </label>
-                    </div>
-
-                    {/*        
                     
-                        Price     
+                        Type
                     
-                    */}
+                        <select type="text" name="type" value={this.state.type} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
+                        <option selected value="mtb">Mountain Bike</option>
+                        <option value="hybrid">Hybrid Bike</option>
+                        <option value="city">City Bike</option>
+                        <option value="electric">Electric Bike</option>
                     
-                    <div id="AddPrice">
-                        <label>
-                            Price:
-                            <input type="number" name="price" value={this.state.price} onChange={this.handleChange} />
+                        </select>
                         </label>
+                        </div>
+
+
+                        {/*        
+
+                            Gears     
+                        
+                        */}
+
+                        <div id="AddGears">
+                            <label>
+                                Gears:
+                                <input type="number" name="gears" value={this.state.gears} onChange={this.handleChange} />
+                            </label>
+                        </div>
+
+                        {/*        
+
+                            Price     
+                        
+                        */}
+
+                        <div id="AddPrice">
+                            <label>
+                                Price:
+                                <input type="number" name="price" value={this.state.price} onChange={this.handleChange} />
+                            </label>
+                        </div>
+
+                        {/* 
+
+                             Desription
+
+                        */}
+
+                        <div id="AddDesc">
+                            <label>
+                                Description:
+                                <textarea type="text" name="desc" value={this.state.desc} onChange={this.handleChange} />
+                            </label>
+                        </div>
+
+                        <div id="AddSubmit">
+
+                            {/*<Link to='/Items' >*/}
+                            <input type="submit" value="Submit"/>
+                            {/*</Link>*/}
+
+                        </div>
+                        
                     </div>
-
-                    {/* 
-                         
-                         Desription
-
-                    */}
-
-                    <div id="AddDesc">
-                        <label>
-                            Description:
-                            <textarea type="text" name="desc" value={this.state.desc} onChange={this.handleChange} />
-                        </label>
-                    </div>
-
-                </div>
+                </form>
 
             </div>
         )

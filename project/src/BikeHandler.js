@@ -15,10 +15,14 @@ export function getAllBikes() {
 
 /* lkadsf */
 export function addBike(name, type, lat, long, frame, gears, price, dates, description) {
+<<<<<<< HEAD
 
 var newBike= id + "type:" + type + "lat:" + lat 
 
 id=id+1;
+=======
+  alert( name +' '+ frame +' '+ price);
+>>>>>>> 1620c4feae3e2212ff1500472e7b4fd65cb6c122
 }
 
 
