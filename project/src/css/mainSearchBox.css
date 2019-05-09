@@ -40,7 +40,7 @@
   margin-bottom: 0;
 }
 
-.type input[type=text], select{
+.type input[type=text], .type select{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
