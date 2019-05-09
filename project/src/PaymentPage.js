@@ -10,14 +10,8 @@ class PaymentPage extends Component {
     }
   
     async submit(ev) {
-        let {token} = await this.props.stripe.createToken({name: "Name"});
-        let response = await fetch("/charge", {
-          method: "POST",
-          headers: {"Content-Type": "text/plain"},
-          body: token.id
-        });
-      
-        if (response.ok) this.setState({complete: true});
+              
+        this.setState({complete: true});
       }
   
     render() {
@@ -33,19 +27,3 @@ class PaymentPage extends Component {
   }
   
   export default injectStripe(PaymentPage);
-
-/**
-class PaymentPage extends Component {
-    render(){
-        return(
-            <div class="processPayment">
-            <h1> Processing payment by Klarna...</h1>
-            <h2> Powered by Klarna</h2>
-
-
-            </div>
-        )
-    }
-}
-export default PaymentPage;
-*/
