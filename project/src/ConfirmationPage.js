@@ -6,7 +6,7 @@ class ConfirmationPage extends Component {
         return(
             <div class="confirmation">
             <h1> Thank you for your payment! </h1>
-            <p> The code for your bike is 0734 </p> 
+            <p> The code for your bike is 0734 </p>
             </div>
         )
     }
