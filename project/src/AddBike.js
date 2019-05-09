@@ -94,6 +94,20 @@ class AddBike extends Component{
                             TYPE     
                         
                         */}
+                        <div id="AddFrame">
+                        <label>
+                        
+                        Frame
+                        
+                        <select type="text" value={this.state.bike_frame} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
+                        <option selected value="mtb">Women's</option>
+                        <option value="city">Men's</option>
+                        <option value="hybrid">Unisex</option>
+                        <option value="electric">Kids'</option>
+                        
+                        </select>
+                        </label>
+                        </div>
 
                         <div id="AddType">
                         <label>
