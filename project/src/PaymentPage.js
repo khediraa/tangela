@@ -9,11 +9,11 @@ class PaymentPage extends Component {
       this.state = {complete: false};
       this.submit = this.submit.bind(this);
     }
-  
-    async submit(ev) {  
+
+    async submit(ev) {
         this.setState({complete: true});
       }
-  
+
     render() {
         if (this.state.complete) return (
           <div class="payment">
@@ -28,7 +28,13 @@ class PaymentPage extends Component {
         <h1>Payment by Stripe</h1>
           <Elements>
             <div className="checkout">
+              <p> Rental information is presented here. </p>
+              <p> This info should be based on the previous page </p>
+
           <h3>Would you like to complete the rental?</h3>
+
+
+
           <CardElement />
           <button onClick={this.submit}>Rent Bike</button>
           </div>

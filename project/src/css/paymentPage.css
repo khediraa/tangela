@@ -4,28 +4,28 @@
  */
  .StripeElement {
     box-sizing: border-box;
-  
+
     height: 40px;
-  
+
     padding: 10px 12px;
-  
+
     border: 1px solid transparent;
     border-radius: 4px;
     background-color: white;
-  
+
     box-shadow: 0 1px 3px 0 #e6ebf1;
     -webkit-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;
   }
-  
+
   .StripeElement--focus {
     box-shadow: 0 1px 3px 0 #cfd7df;
   }
-  
+
   .StripeElement--invalid {
     border-color: #fa755a;
   }
-  
+
   .StripeElement--webkit-autofill {
     background-color: #fefde5 !important;
   }
@@ -38,7 +38,7 @@
     margin-right: auto;
     margin-top: 5%;
   }
-  
+
   .payment h1{
     font-size: 60px;
   }
@@ -60,11 +60,15 @@
     margin: 0 auto;
     padding: 30px 0;
     transition: visibility 0s, opacity 0.5s linear 0.5s;
-  }
-
-  .checkout {
     margin-bottom: 0;
   }
+
+  .checkout p{
+    text-align: center;
+    color: white;
+    font-size: 15px;
+  }
+
 
   button {
     display: block;
@@ -85,17 +89,17 @@
     margin-top: 5%;
     padding: 10px;
   }
-  
+
   button:focus {
     background: #555abf;
   }
-  
+
   button:hover {
     transform: translateY(-1px);
     box-shadow: 0 7px 14px 0 rgba(50, 50, 93, 0.1),
       0 3px 6px 0 rgba(0, 0, 0, 0.08);
   }
-  
+
   button:active {
     background: #43458b;
   }
