@@ -5,11 +5,13 @@ import ItemList from './ItemList';
 import NoMatch from './NoMatch';
 import BikePage from './BikePage';
 import PaymentPage from './PaymentPage';
+import Navbar from './Navbar';
 
 class App extends Component {
     render() {
         return (
             <div>
+                <Navbar></Navbar>
                 <Switch>
                     <Route exact path='/' component={MainPage} />
                     <Route exact path='/Home' component={MainPage} />
