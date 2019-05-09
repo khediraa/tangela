@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ItemListComponent from './ItemListComponent';
 import * as BikeHandler from './BikeHandler';
+import MapContainer from './MapContainer';
 
 /* Class that contains ItemListComponents */
 class ItemList extends Component {
@@ -15,8 +16,11 @@ class ItemList extends Component {
             }
         }    
         return (
-            <div className="list-item">
-                {bikes_list}
+            <div>
+                <div className="list-item">
+                    {bikes_list}
+                </div>
+                <MapContainer />
             </div>
         );
     }
