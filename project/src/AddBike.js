@@ -12,7 +12,7 @@ class AddBike extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {longitude: '', latitude:'', type:'', dates:[], frame:'', gears:'', price:'', desc:'', title:''};
+        this.state = {longitude: '', latitude:'', type:'', frame:'', gears:'', price:'', desc:'', title:''};
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,8 +36,9 @@ class AddBike extends Component{
         // alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
         // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike_type );
         // this.props.history.push('/Items');
+        alert(this.state.startDate.toString() + "  " + this.state.endDate.toString());
         BikeHandler.addBike(this.state.title, this.state.type, this.state.longitude, this.state.latitude, this.state.frame,
-                                 this.state.gears, this.state.price, this.state.dates, this.state.desc);
+                                 this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
 
         event.preventDefault();
     }
@@ -56,11 +57,11 @@ class AddBike extends Component{
                 
                     <div id="AddDate">
                     <DateRangePicker
-                    //startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-                    //startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-                    //endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-                    //endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-                    //onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+                    startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+                    startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+                    endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+                    endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+                    onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
                     focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                     onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
                     minimumNights={0}
