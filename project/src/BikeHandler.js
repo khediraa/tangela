@@ -11,6 +11,12 @@ export function getAllBikes() {
   return bikes;
 }
 
+/* lkadsf */
+export function addBike() {
+  
+}
+
+
 /* Removes the rented days from the bike specified by id*/
 export function rentBike(id, startDate, endDate) {
   var dateArray = [];
