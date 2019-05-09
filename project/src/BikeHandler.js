@@ -2,6 +2,8 @@ import data from "./resources/bikes.json";
 
 var bikes = data; //TODO: Update json file periodically to make backup.
 
+var id=6;
+
 export function getBike(id) {
   return bikes[id];
 }
@@ -14,6 +16,9 @@ export function getAllBikes() {
 /* lkadsf */
 export function addBike(name, type, lat, long, frame, gears, price, dates, description) {
 
+var newBike= id + "type:" + type + "lat:" + lat 
+
+id=id+1;
 }
 
 
