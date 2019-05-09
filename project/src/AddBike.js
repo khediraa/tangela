@@ -77,10 +77,11 @@ class AddBike extends Component{
                     
                     */}
 
+
                     <div id="AddTitle">
                         <label>
                             Title:
-                            <input type="text" value={this.state.title} onChange={this.handleChange} />
+                            <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
                         </label>
                     </div>
 
@@ -95,7 +96,7 @@ class AddBike extends Component{
                 
                     Type
                 
-                    <select type="text" value={this.state.bike_type} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
+                    <select type="text" name="type" value={this.state.bike_type} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
                     <option selected value="mtb">Mountain Bike</option>
                     <option value="hybrid">Hybrid Bike</option>
                     <option value="city">City Bike</option>
@@ -116,7 +117,7 @@ class AddBike extends Component{
                 
                     Frame
                 
-                    <select type="text" value={this.state.bike_frame} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
+                    <select type="text" name="frame" value={this.state.bike_frame} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
                     <option selected value="mtb">dam</option>
                     <option value="hybrid">unisex</option>
                     <option value="city">herr</option>
@@ -135,7 +136,7 @@ class AddBike extends Component{
                     <div id="AddGears">
                         <label>
                             Gears:
-                            <input type="text" value={this.state.gears} onChange={this.handleChange} />
+                            <input type="number" name="gears" value={this.state.gears} onChange={this.handleChange} />
                         </label>
                     </div>
 
@@ -148,7 +149,7 @@ class AddBike extends Component{
                     <div id="AddPrice">
                         <label>
                             Price:
-                            <input type="text" value={this.state.price} onChange={this.handleChange} />
+                            <input type="number" name="price" value={this.state.price} onChange={this.handleChange} />
                         </label>
                     </div>
 
@@ -161,7 +162,7 @@ class AddBike extends Component{
                     <div id="AddDesc">
                         <label>
                             Description:
-                            <textarea value={this.state.desc} onChange={this.handleChange} />
+                            <textarea type="text" name="desc" value={this.state.desc} onChange={this.handleChange} />
                         </label>
                     </div>
 
