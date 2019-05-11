@@ -1,7 +1,7 @@
-import data from "./resources/bikes.json";
+//import data from "./resources/bikes.json";
+var bikes = require('./resources/bikes.json'); 
 
-var bikes = data; //TODO: Update json file periodically to make backup.
-
+//var bikes = data; //TODO: Update json file periodically to make backup.
 var myId=6;
 
 export function getBike(id) {
@@ -12,31 +12,19 @@ export function getBike(id) {
 export function getAllBikes() {
   return bikes;
 }
-
-/* lkadsf */
+ 
+/* Function that adds another bike to the json file */
 export function addBike(name, type, lat, long, frame, gears, price, dates, description) {
 
-  'use strict';
-  const fs = require('fs');
-  let rawdata=fs.readFileSync('bikes.json');
-  let bikes2=JSON.parse(rawdata);
 
-  alert(bikes);
+  var newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:dates, description:description });
 
-  //var newBike= myId+':'+JSON.stringify({ name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:dates, description:description });
-
-
-  //var bikes2= bikes.concat(newBike);
-  //alert(newBike);
-  //alert(JSON.parse(bikes));
-
-  /*fs.appendFile('./resources/bikes.json', newBike, function (err) {
-    if (err) throw err;
-    console.log('Updated!');
-  });*/
-  //myId=myId+1;
+  bikes[myId] = newBike;
+  
+  //console.log(bikes);
+  //TODO: bikes ska skicka till JSON-filen
+  myId=myId+1;
 }
-
 
 /* Removes the rented days from the bike specified by id*/
 export function rentBike(id, startDate, endDate) {
