@@ -13,30 +13,30 @@ class AddBike extends Component{
     constructor(props) {
         super(props);
         this.state = {longitude: '', latitude:'', type:'', frame:'', gears:'', price:'', desc:'', title:''};
-    
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
+
     handleChange(event) {
         const target = event.target;
         const tmp = target.name;
         this.setState({[tmp]: target.value});
-    
+
     }
-    
+
     handleSelect(event){
         const target = event.target;
         const tmp = target.name;
         this.setState({[tmp]: target.value});
         console.log(this.state);
     }
-    
+
     handleSubmit(event) {
         // alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
         // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike_type );
         // this.props.history.push('/Items');
-        alert(this.state.startDate.toString() + "  " + this.state.endDate.toString());
+        //alert(this.state.startDate.toString() + "  " + this.state.endDate.toString());
         BikeHandler.addBike(this.state.title, this.state.type, this.state.longitude, this.state.latitude, this.state.frame,
                                  this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
 
@@ -48,13 +48,13 @@ class AddBike extends Component{
             <div id="Wrapper">
 
                 {/*
-                
+
                 BOX WITH LOCATION AND DATE
-                
+
                 */}
                 <form onSubmit={this.handleSubmit}>
                 <div id="DateNLoc">
-                
+
                     <div id="AddDate">
                     <DateRangePicker
                     startDate={this.state.startDate} // momentPropTypes.momentObj or null,
@@ -68,20 +68,20 @@ class AddBike extends Component{
                     />
                     </div>
                 </div>
-                
+
                 {/*
-                
+
                 BOX WITH INFORMATION ABOUT THE BIKE
-                
+
                 */}
 
                 <div id="Info">
-                    
 
-                        {/*        
 
-                            Title     
-                        
+                        {/*
+
+                            Title
+
                         */}
 
 
@@ -92,47 +92,47 @@ class AddBike extends Component{
                             </label>
                         </div>
 
-                        {/*        
+                        {/*
 
-                            Frame     
-                        
+                            Frame
+
                         */}
-                        
+
                         <div id="AddFrame">
                         <label>
-                        
+
                         Frame
-                        
+
                         <select type="text" name="frame" value={this.state.frame} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
                         <option selected value="wmn">Women's</option>
                         <option value="men">Men's</option>
                         <option value="uni">Unisex</option>
                         <option value="kid">Kids'</option>
-                        
+
                         </select>
                         </label>
                         </div>
 
                         <div id="AddType">
                         <label>
-                    
+
                         Type
-                    
+
                         <select type="text" name="type" value={this.state.type} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
                         <option selected value="mtb">Mountain Bike</option>
                         <option value="hybrid">Hybrid Bike</option>
                         <option value="city">City Bike</option>
                         <option value="electric">Electric Bike</option>
-                    
+
                         </select>
                         </label>
                         </div>
 
 
-                        {/*        
+                        {/*
 
-                            Gears     
-                        
+                            Gears
+
                         */}
 
                         <div id="AddGears">
@@ -142,10 +142,10 @@ class AddBike extends Component{
                             </label>
                         </div>
 
-                        {/*        
+                        {/*
 
-                            Price     
-                        
+                            Price
+
                         */}
 
                         <div id="AddPrice">
@@ -155,7 +155,7 @@ class AddBike extends Component{
                             </label>
                         </div>
 
-                        {/* 
+                        {/*
 
                              Desription
 
@@ -175,7 +175,7 @@ class AddBike extends Component{
                             {/*</Link>*/}
 
                         </div>
-                        
+
                     </div>
                 </form>
 
