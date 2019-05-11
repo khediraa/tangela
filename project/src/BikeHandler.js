@@ -1,8 +1,19 @@
 //import data from "./resources/bikes.json";
-var bikes = require('./resources/bikes.json');
-
 //var bikes = data; //TODO: Update json file periodically to make backup.
+var bikes = require('./resources/bikes.json');
 var myId=6;
+
+function endPointsToArray(startDate, endDate) {
+  var dateArray = [];
+  var currentDate = new Date(startDate);
+
+  //Put all dates between startDate and endDate in an array.
+  while (currentDate <= endDate) {
+    dateArray.push(DateToString(new Date(currentDate)));
+    currentDate = currentDate.addDays(1);
+  }
+  return dateArray;
+}
 
 export function getBike(id) {
   return bikes[id];
@@ -15,18 +26,7 @@ export function getAllBikes() {
 
 /* Function that adds another bike to the json file */
 export function addBike(name, lat, long, frame, type, gears, price, startDate, endDate, description) {
-  {/* THIS FIRST PART IS COPIED FROM rentBike*/}
-  var dateArray = [];
-  var currentDate = new Date(startDate);
-
-  //Put all dates between startDate and endDate in an array.
-  while (currentDate <= endDate) {
-    dateArray.push(DateToString(new Date(currentDate)));
-    currentDate = currentDate.addDays(1);
-  }
-  {/*--------------------------*/}
-
-  var newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:dateArray, description:description });
+    var newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:endPointsToArray(startDate, endDate), description:description });
 
   bikes[myId] = newBike;
   console.log(bikes[myId]);
@@ -37,15 +37,10 @@ export function addBike(name, lat, long, frame, type, gears, price, startDate, e
 
 /* Removes the rented days from the bike specified by id*/
 export function rentBike(id, startDate, endDate) {
-  var dateArray = [];
-  var currentDate = startDate;
-
-  //Put all dates between startDate and endDate in an array.
-  while (currentDate <= endDate) {
-    dateArray.push(DateToString(new Date(currentDate)));
-    currentDate = currentDate.addDays(1);
-  }
-
+  
+  //Adds all dates in range to an array
+  var dateArray = endPointsToArray(startDate, endDate);
+ 
   //If all dates are not available for the bike, return false.
   //TODO: alert user on return false.
   dateArray.forEach(element => {

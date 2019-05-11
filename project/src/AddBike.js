@@ -98,7 +98,7 @@ class AddBike extends Component{
                         Frame
 
                         <select type="text" name="frame" value={this.state.frame} onChange={this.handleChange} >
-                        <option selected value="wmn">Women's</option>
+                        <option value="wmn">Women's</option>
                         <option value="men">Men's</option>
                         <option value="uni">Unisex</option>
                         <option value="kid">Kids'</option>
@@ -113,7 +113,7 @@ class AddBike extends Component{
                         Type
 
                         <select type="text" name="type" value={this.state.type} onChange={this.handleChange} >
-                        <option selected value="mtb">Mountain Bike</option>
+                        <option value="mtb">Mountain Bike</option>
                         <option value="hybrid">Hybrid Bike</option>
                         <option value="city">City Bike</option>
                         <option value="electric">Electric Bike</option>
