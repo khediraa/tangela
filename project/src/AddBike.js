@@ -158,7 +158,7 @@ class AddBike extends Component{
                         <div id="AddDesc">
                             <label>
                                 Description:
-                                <input type="text" name="desc" value={this.state.desc} onChange={this.handleChange} />
+                                <textarea type="text" name="desc" value={this.state.desc} onChange={this.handleChange} />
                             </label>
                         </div>
 
