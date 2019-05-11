@@ -6,6 +6,8 @@ import { DateRangePicker} from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 //import isInclusivelyAfterDay from '../utils/isInclusivelyAfterDay';
 import * as moment from 'moment';
+import MapContainer from './MapContainer';
+import './css/mapContainer.css';
 class Bike extends Component {
     constructor(props) {
         super(props);
@@ -66,7 +68,10 @@ class Bike extends Component {
                     onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
                     isDayBlocked={this.isBlocked}
                     minimumNights={0}
-
+                />
+                <MapContainer className="item-list-map"
+                    lat={this.props.lat}
+                    lng={this.props.lng}
                 />
             </article>
         }

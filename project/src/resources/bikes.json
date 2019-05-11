@@ -2,7 +2,7 @@
   "b1": {
     "name": "Mom's rusty bike with a basket",
     "lat": "57.6930247",
-    "long": "11.9752922",
+    "lng": "11.9752922",
     "frame": "women's",
     "type": "city",
     "gears": "3",
@@ -20,7 +20,7 @@
   "b2": {
     "name": "Electric hybrid",
     "lat": "59.348377",
-    "long": "18.04904",
+    "lng": "18.04904",
     "frame": "unisex",
     "type": "hybrid",
     "gears": "8",
@@ -38,7 +38,7 @@
   "b3": {
     "name": "Sporty mountain bike",
     "lat": "57.6930247",
-    "long": "11.9752922",
+    "lng": "11.9752922",
     "frame": "kids",
     "type": "mtb",
     "gears": "21",
@@ -56,7 +56,7 @@
   "b4": {
     "name": "Kid's bike - suitable for 10-year-olds",
     "lat": "59.342808",
-    "long": "18.039691",
+    "lng": "18.039691",
     "frame": "kids",
     "type": "mtb",
     "gears": "3",
@@ -74,7 +74,7 @@
   "b5": {
     "name": "Green city bike",
     "lat": "57.692693",
-    "long": "11.953718",
+    "lng": "11.953718",
     "frame": "unisex",
     "type": "city",
     "gears": "1",
