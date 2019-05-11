@@ -12,7 +12,7 @@ class AddBike extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {latitude:'', longitude: '', frame:'', type:'', gears:'', price:'', desc:'', title:''};
+        this.state = {latitude:'', longitude: '', frame:'wmn', type:'mtb', gears:'', price:'', desc:'', title:''};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);

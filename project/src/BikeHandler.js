@@ -15,14 +15,16 @@ export function getAllBikes() {
 
 /* Function that adds another bike to the json file */
 export function addBike(name, lat, long, frame, type, gears, price, startDate, endDate, description) {
+  {/* THIS FIRST PART IS COPIED FROM rentBike*/}
   var dateArray = [];
-  var currentDate = startDate;
+  var currentDate = new Date(startDate);
 
   //Put all dates between startDate and endDate in an array.
   while (currentDate <= endDate) {
     dateArray.push(DateToString(new Date(currentDate)));
     currentDate = currentDate.addDays(1);
   }
+  {/*--------------------------*/}
 
   var newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:dateArray, description:description });
 
