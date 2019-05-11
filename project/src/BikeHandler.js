@@ -15,22 +15,26 @@ export function getAllBikes() {
 
 /* lkadsf */
 export function addBike(name, type, lat, long, frame, gears, price, dates, description) {
-  //var fs = require('fs');
 
-  var newBike= myId+':'+JSON.stringify({ name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:dates, description:description });
+  'use strict';
+  const fs = require('fs');
+  let rawdata=fs.readFileSync('bikes.json');
+  let bikes2=JSON.parse(rawdata);
+
+  alert(bikes);
+
+  //var newBike= myId+':'+JSON.stringify({ name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:dates, description:description });
 
 
   //var bikes2= bikes.concat(newBike);
-  alert(newBike);
+  //alert(newBike);
   //alert(JSON.parse(bikes));
 
   /*fs.appendFile('./resources/bikes.json', newBike, function (err) {
     if (err) throw err;
     console.log('Updated!');
   });*/
-
-
-  myId=myId+1;
+  //myId=myId+1;
 }
 
 
