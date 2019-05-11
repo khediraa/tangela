@@ -1,25 +1,26 @@
-import React, {Component} from 'react';
+import React, {useContext} from 'react';
 import ItemListComponent from './ItemListComponent';
 import * as BikeHandler from './BikeHandler';
+import {AppContext} from './App';
 
 /* Class that contains ItemListComponents */
-class ItemList extends Component {
-    render() {
-        console.log(this.props);
-        var bikes = BikeHandler.getAllBikes();
-        var bikes_list = [];
-        for (var key in bikes) {
-            if(bikes.hasOwnProperty(key)) {
-                bikes_list = [...bikes_list, 
-                    <ItemListComponent key={key} title={bikes[key].name} price={bikes[key].price} />]
-            }
-        }    
-        return (
-            <div className="list-item">
-                {bikes_list}
-            </div>
-        );
-    }
+function ItemList () {
+    const state = useContext(AppContext);
+
+    console.log(state);
+    var bikes = BikeHandler.getAllBikes();
+    var bikes_list = [];
+    for (var key in bikes) {
+        if(bikes.hasOwnProperty(key)) {
+            bikes_list = [...bikes_list, 
+                <ItemListComponent key={key} title={bikes[key].name} price={bikes[key].price} />]
+        }
+    }    
+    return (
+        <div className="list-item">
+            {bikes_list}
+        </div>
+    );
 }
 
 export default ItemList;
