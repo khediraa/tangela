@@ -1,5 +1,5 @@
 //import data from "./resources/bikes.json";
-var bikes = require('./resources/bikes.json'); 
+var bikes = require('./resources/bikes.json');
 
 //var bikes = data; //TODO: Update json file periodically to make backup.
 var myId=6;
@@ -12,15 +12,22 @@ export function getBike(id) {
 export function getAllBikes() {
   return bikes;
 }
- 
+
 /* Function that adds another bike to the json file */
-export function addBike(name, type, lat, long, frame, gears, price, dates, description) {
+export function addBike(name, lat, long, frame, type, gears, price, startDate, endDate, description) {
+  var dateArray = [];
+  var currentDate = startDate;
 
+  //Put all dates between startDate and endDate in an array.
+  while (currentDate <= endDate) {
+    dateArray.push(DateToString(new Date(currentDate)));
+    currentDate = currentDate.addDays(1);
+  }
 
-  var newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:dates, description:description });
+  var newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:dateArray, description:description });
 
   bikes[myId] = newBike;
-  
+  console.log(bikes[myId]);
   //console.log(bikes);
   //TODO: bikes ska skicka till JSON-filen
   myId=myId+1;

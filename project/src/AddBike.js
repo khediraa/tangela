@@ -12,7 +12,7 @@ class AddBike extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {longitude: '', latitude:'', type:'', frame:'', gears:'', price:'', desc:'', title:''};
+        this.state = {latitude:'', longitude: '', frame:'', type:'', gears:'', price:'', desc:'', title:''};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,22 +25,16 @@ class AddBike extends Component{
 
     }
 
-    handleSelect(event){
-        const target = event.target;
-        const tmp = target.name;
-        this.setState({[tmp]: target.value});
-        console.log(this.state);
-    }
-
     handleSubmit(event) {
         // alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
         // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike_type );
         // this.props.history.push('/Items');
         //alert(this.state.startDate.toString() + "  " + this.state.endDate.toString());
-        BikeHandler.addBike(this.state.title, this.state.type, this.state.longitude, this.state.latitude, this.state.frame,
+        event.preventDefault();
+        BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
                                  this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
 
-        event.preventDefault();
+
     }
 
     render() {
@@ -103,7 +97,7 @@ class AddBike extends Component{
 
                         Frame
 
-                        <select type="text" name="frame" value={this.state.frame} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
+                        <select type="text" name="frame" value={this.state.frame} onChange={this.handleChange} >
                         <option selected value="wmn">Women's</option>
                         <option value="men">Men's</option>
                         <option value="uni">Unisex</option>
@@ -118,7 +112,7 @@ class AddBike extends Component{
 
                         Type
 
-                        <select type="text" name="type" value={this.state.type} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
+                        <select type="text" name="type" value={this.state.type} onChange={this.handleChange} >
                         <option selected value="mtb">Mountain Bike</option>
                         <option value="hybrid">Hybrid Bike</option>
                         <option value="city">City Bike</option>
@@ -164,7 +158,7 @@ class AddBike extends Component{
                         <div id="AddDesc">
                             <label>
                                 Description:
-                                <textarea type="text" name="desc" value={this.state.desc} onChange={this.handleChange} />
+                                <input type="text" name="desc" value={this.state.desc} onChange={this.handleChange} />
                             </label>
                         </div>
 
