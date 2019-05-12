@@ -3,19 +3,13 @@ const app = express();
 const port = process.env.PORT || 5000;
 const fs = require('fs');
 
-//Route setup
-app.get('/', (req, res) => {
-  
-  res.send('root route');
+// console.log that your server is up and running
+app.listen(port, () => console.log(`Listening on port ${port}`));
 
-})
-
-//Start server
-app.listen(port, (req, res) => {
-
-console.log(`server listening on port: ${port}`)
-
- });
+// create a GET route
+app.get('/express_backend', (req, res) => {
+  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+});
 
 const updateDatabase = (data) => {
   let path = "bikes.json";
