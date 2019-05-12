@@ -11,20 +11,25 @@ class MapContainer extends Component {
       //zoom: 13,
     }
   }
-  
+
   render() {
-    const position = this.props.coords[0];
+    let coords = this.props.coords;
+    const mapCenter = coords[0];
+    let markers = coords.map( (coordinatePair) => {
+      return <Marker position={coordinatePair}>
+        <Popup>
+          A pretty CSS3 popup. <br /> Easily customizable.
+              </Popup>
+      </Marker>
+    });
+
     return (
-      <Map center={position} zoom={this.props.zoom}> 
+      <Map center={mapCenter} zoom={this.props.zoom}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
+       {markers}
       </Map>
     )
   }
