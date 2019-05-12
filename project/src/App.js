@@ -4,6 +4,7 @@ import MainPage from "./MainPage";
 import ItemList from './ItemList';
 import NoMatch from './NoMatch';
 import BikePage from './BikePage';
+import PaymentPage from './PaymentPage';
 import Navbar from './Navbar';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
                     <Route exact path='/Home' component={MainPage} />
                     <Route exact path='/Items' component={ItemList} />
                     <Route exact path='/BikePage' component={BikePage} />
+                    <Route exact path='/PaymentPage' component={PaymentPage} />
                     <Route component={NoMatch} />
                 </Switch>
             </div>
