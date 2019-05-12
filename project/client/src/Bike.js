@@ -29,7 +29,7 @@ class Bike extends Component {
     handleClick() {
         this.setState({ rented: true })
         console.log(this.state.startDate);
-
+        BikeHandler.check();
     }
 
     handleChange(){

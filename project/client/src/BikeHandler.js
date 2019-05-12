@@ -2,6 +2,7 @@
 //var bikes = data; //TODO: Update json file periodically to make backup.
 var bikes = require('./resources/bikes.json');
 var myId=6;
+const serverURL = new URL('https://localHost:5000/bikes');
 
 function endPointsToArray(startDate, endDate) {
   var dateArray = [];
@@ -17,6 +18,17 @@ function endPointsToArray(startDate, endDate) {
 
 export function getBike(id) {
   return bikes[id];
+}
+
+export function check() {
+  fetch(serverURL)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(json){
+    console.log("fetched from server: ");
+    console.log(JSON.stringify(json));
+  })
 }
 
 /* Returns all bikes */
