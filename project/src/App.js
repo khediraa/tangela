@@ -6,6 +6,7 @@ import NoMatch from './NoMatch';
 import BikePage from './BikePage';
 import PaymentPage from './PaymentPage';
 import Navbar from './Navbar';
+import AddBike from './AddBike';
 
 class App extends Component {
     render() {
@@ -17,7 +18,11 @@ class App extends Component {
                     <Route exact path='/Home' component={MainPage} />
                     <Route exact path='/Items' component={ItemList} />
                     <Route exact path='/BikePage' component={BikePage} />
+<<<<<<< HEAD
+                    <Route exact path='/AddBike' component={AddBike} />
+=======
                     <Route exact path='/PaymentPage' component={PaymentPage} />
+>>>>>>> master
                     <Route component={NoMatch} />
                 </Switch>
             </div>

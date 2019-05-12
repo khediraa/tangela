@@ -1,4 +1,4 @@
-#navbar {
+nav {
     list-style-type:none; 
     position: sticky;
     width: 100%;
@@ -8,14 +8,14 @@
     font-size: 25px;
   }
 
-#navbar img {
+nav img {
   float: left;
   width: 75px;
   height: 75px;
   padding: 10px;
 }
 
-#navbar img:hover {
+nav img:hover {
   cursor: pointer;
 }
 
@@ -23,11 +23,11 @@
 @-moz-keyframes rt1 {0% {color: hsl(354, 100%, 70%);} 15% {color: hsl(300, 100%, 70%);} 30% {color: hsl(255, 100%, 70%);} 45% {color: hsl(212, 100%, 70%);} 60% {color: hsl(172, 100%, 70%);} 75% {color: hsl(130, 100%, 70%);} 90% {color: hsl(55, 100%, 70%);} 100% {color: hsl(21, 100%, 70%);}}
 @keyframes rt1 {0% {color: hsl(354, 100%, 70%);} 15% {color: hsl(300, 100%, 70%);} 30% {color: hsl(255, 100%, 70%);} 45% {color: hsl(212, 100%, 70%);} 60% {color: hsl(172, 100%, 70%);} 75% {color: hsl(130, 100%, 70%);} 90% {color: hsl(55, 100%, 70%);} 100% {color: hsl(21, 100%, 70%);}}
 
-li {
+nav li {
   float: right;
 }
 
-li a {
+nav li a {
   display: block;
   color: red;
   text-align: center;
@@ -37,7 +37,7 @@ li a {
   height: 100%;
 }
 
-li a:hover {
+nav li a:hover {
   background-color: #19f;
   -webkit-animation: rt1 0.2s infinite alternate;-moz-animation: rt1 0.2s infinite alternate;animation: rt1 0.2s infinite alternate;
 }

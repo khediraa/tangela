@@ -1,5 +1,5 @@
 {
-  "b1": {
+  "1": {
     "name": "Mom's rusty bike with a basket",
     "lat": "57.6930247",
     "long": "11.9752922",
@@ -17,12 +17,12 @@
     ],
     "description": "Good bike if you are a tourist in Gothenburg. The bike can be moved to Gothenburg C if you like."
   },
-  "b2": {
+  "2": {
     "name": "Electric hybrid",
     "lat": "59.348377",
     "long": "18.04904",
     "frame": "unisex",
-    "type": "hybrid",
+    "type": "electric",
     "gears": "8",
     "price": "250",
     "dates": [
@@ -35,7 +35,7 @@
     ],
     "description": "Charger is available if you need it"
   },
-  "b3": {
+  "3": {
     "name": "Sporty mountain bike",
     "lat": "57.6930247",
     "long": "11.9752922",
@@ -53,7 +53,7 @@
     ],
     "description": "This bike is brand new"
   },
-  "b4": {
+  "4": {
     "name": "Kid's bike - suitable for 10-year-olds",
     "lat": "59.342808",
     "long": "18.039691",
@@ -71,7 +71,7 @@
     ],
     "description": "Suitable for kid's around 135 cm tall"
   },
-  "b5": {
+  "5": {
     "name": "Green city bike",
     "lat": "57.692693",
     "long": "11.953718",
