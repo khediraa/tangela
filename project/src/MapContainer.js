@@ -13,7 +13,7 @@ class MapContainer extends Component {
   }
   
   render() {
-    const position = [this.props.lat, this.props.lng] //this.state.lat, this.state.lng
+    const position = this.props.coords[0];
     return (
       <Map center={position} zoom={this.props.zoom}> 
         <TileLayer
