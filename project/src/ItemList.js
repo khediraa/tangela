@@ -5,16 +5,16 @@ import {AppContext} from './App';
 
 /* Class that contains ItemListComponents */
 function ItemList () {
-    const state = useContext(AppContext);
+    const {city, bike_type, startDate, endDate} = useContext(AppContext);
 
-    console.log(state);
-    var bikes = BikeHandler.getAllBikes();
+    var obj = BikeHandler.getAllBikes();
+    var bikes = Object.values(obj);
+    var result = bikes.filter(p => p.type===bike_type);
     var bikes_list = [];
-    for (var key in bikes) {
-        if(bikes.hasOwnProperty(key)) {
-            bikes_list = [...bikes_list, 
-                <ItemListComponent key={key} title={bikes[key].name} price={bikes[key].price} />]
-        }
+
+    for (var i = 0; i < result.length; i++) {
+        bikes_list = [...bikes_list, 
+            <ItemListComponent key={result[i].id} title={result[i].name} price={result[i].price} />]
     }    
     return (
         <div className="list-item">
