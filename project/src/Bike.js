@@ -72,6 +72,7 @@ class Bike extends Component {
                 <MapContainer className="item-list-map"
                     lat={this.props.lat}
                     lng={this.props.lng}
+                    zoom={13}
                 />
             </article>
         }

@@ -8,14 +8,14 @@ class MapContainer extends Component {
     this.state = {
       //lat: this.props.test, //this.props.lat,
       //lng: this.props.test2, //this.props.lng,
-      zoom: 13,
+      //zoom: 13,
     }
   }
   
   render() {
     const position = [this.props.lat, this.props.lng] //this.state.lat, this.state.lng
     return (
-      <Map center={position} zoom={this.state.zoom}> 
+      <Map center={position} zoom={this.props.zoom}> 
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

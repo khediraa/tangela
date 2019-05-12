@@ -22,7 +22,7 @@ class ItemList extends Component {
                     {bikes_list}
                 </div>
                 <div className="item-list-map">
-                    <MapContainer />
+                    <MapContainer className="item-list-map"/>
                 </div>
             </div>
         );
