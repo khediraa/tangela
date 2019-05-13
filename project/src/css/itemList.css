@@ -1,0 +1,16 @@
+.item-list-wrapper {
+    /* display: inline-block; */
+    display: flex;
+    margin: 20px 20px;
+}
+
+.item-list {
+    width: 60%;
+    margin-right: 10%;
+}
+
+.item-list-wrapper .leaflet-container {
+    height: 400px;
+    width: 30%;
+    display: inline-block;
+}
