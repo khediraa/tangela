@@ -31,12 +31,13 @@ class Bike extends Component {
     handleClick() {
         this.setState({ rented: true })
         console.log(this.state.startDate);
+
     }
 
     handleChange(){
         BikeHandler.rentBike(this.props.id, this.state.startDate, this.state.endDate);
-    } 
-    
+    }
+
     handleCalenderChange(startDate, endDate) {
         this.setState({startDate, endDate});
     }
@@ -90,4 +91,3 @@ class Bike extends Component {
 }
 
 export default Bike;
-

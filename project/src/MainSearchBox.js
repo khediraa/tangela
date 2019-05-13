@@ -12,7 +12,7 @@ class MainSearchBox extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {city: '', bike_type:''};
+    this.state = {city: '', type:''};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,13 +26,13 @@ class MainSearchBox extends Component {
 
   handleSelect(event){
     const target = event.target;
-    this.setState({bike_type: target.value});
+    this.setState({type: target.value});
     console.log(this.state);
   }
 
   handleSubmit(event) {
     // alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
-    // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike_type );
+    // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.type );
     // this.props.history.push('/Items');
     event.preventDefault();
   }
@@ -68,10 +68,11 @@ class MainSearchBox extends Component {
 
         Type
 
-        <select type="text" value={this.state.bike_type} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
+        <select type="text" value={this.state.type} onChange={event => {event.preventDefault(); this.handleSelect(event);}} >
         <option selected value="mtb">Mountain Bike</option>
-        <option value="hybridb">Hybrid Bike</option>
-        <option value="cityb">City Bike</option>
+        <option value="hybrid">Hybrid Bike</option>
+        <option value="city">City Bike</option>
+        <option value="electric">Electric Bike</option>
 
         </select>
         </label>

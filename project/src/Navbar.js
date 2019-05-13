@@ -7,12 +7,12 @@ import {Route, Link} from 'react-router-dom';
 class Navbar extends Component {
     render(){
         return(
-            <div id="navbar">
+            <nav>
                 <Link to='/Home'>
                     <img src={logo} alt="Hoi logo"/>
                 </Link>
                 
-                <Link to='/items'>
+                <Link to='/AddBike'>
                     <li>
                         <a href="http://google.com">Add bike</a>
                     </li>
@@ -30,7 +30,7 @@ class Navbar extends Component {
                     </li>
                 </Link>
 
-            </div>
+            </nav>
         )
     }
 }
