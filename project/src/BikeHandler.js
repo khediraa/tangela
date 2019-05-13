@@ -3,18 +3,6 @@
 var bikes = require('./resources/bikes.json');
 var myId=6;
 
-function endPointsToArray(startDate, endDate) {
-  var dateArray = [];
-  var currentDate = new Date(startDate);
-
-  //Put all dates between startDate and endDate in an array.
-  while (currentDate <= endDate) {
-    dateArray.push(DateToString(new Date(currentDate)));
-    currentDate = currentDate.addDays(1);
-  }
-  return dateArray;
-}
-
 export function getBike(id) {
   return bikes[id];
 }
@@ -24,9 +12,22 @@ export function getAllBikes() {
   return bikes;
 }
 
+/* Returns array of dates within starDate and endDate */
+export function getDates(startDate, endDate) {
+  var dateArray = [];
+  var currentDate = startDate;
+  
+  //Put all dates between startDate and endDate in an array.
+  while (currentDate <= endDate) {
+    dateArray.push(DateToString(new Date(currentDate)));
+    currentDate = currentDate.addDays(1);
+  }
+  return dateArray;
+}
+
 /* Function that adds another bike to the json file */
 export function addBike(name, lat, long, frame, type, gears, price, startDate, endDate, description) {
-    var newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:endPointsToArray(startDate, endDate), description:description });
+    var newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
 
   bikes[myId] = newBike;
   console.log(bikes[myId]);
@@ -39,7 +40,7 @@ export function addBike(name, lat, long, frame, type, gears, price, startDate, e
 export function rentBike(id, startDate, endDate) {
   
   //Adds all dates in range to an array
-  var dateArray = endPointsToArray(startDate, endDate);
+  var dateArray = getDates(startDate, endDate);
  
   //If all dates are not available for the bike, return false.
   //TODO: alert user on return false.
@@ -59,7 +60,7 @@ export function rentBike(id, startDate, endDate) {
   return true;
 }
 
-function DateToString(date) {
+export function DateToString(date) {
   return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 }
 

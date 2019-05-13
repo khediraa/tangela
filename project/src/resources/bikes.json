@@ -1,6 +1,7 @@
 {
   "1": {
     "name": "Mom's rusty bike with a basket",
+    "city": "Gothenburg",
     "lat": "57.6930247",
     "long": "11.9752922",
     "frame": "women's",
@@ -11,14 +12,15 @@
       "2019-6-15",
       "2019-6-16",
       "2019-6-17",
-      "2019-7-06",
-      "2019-7-07",
-      "2019-7-08"
+      "2019-7-6",
+      "2019-7-7",
+      "2019-7-8"
     ],
     "description": "Good bike if you are a tourist in Gothenburg. The bike can be moved to Gothenburg C if you like."
   },
   "2": {
     "name": "Electric hybrid",
+    "city": "Stockholm",
     "lat": "59.348377",
     "long": "18.04904",
     "frame": "unisex",
@@ -37,6 +39,7 @@
   },
   "3": {
     "name": "Sporty mountain bike",
+    "city": "Gothenburg",
     "lat": "57.6930247",
     "long": "11.9752922",
     "frame": "kids",
@@ -55,6 +58,7 @@
   },
   "4": {
     "name": "Kid's bike - suitable for 10-year-olds",
+    "city": "Stockholm",
     "lat": "59.342808",
     "long": "18.039691",
     "frame": "kids",
@@ -73,6 +77,7 @@
   },
   "5": {
     "name": "Green city bike",
+    "city": "Gothenburg",
     "lat": "57.692693",
     "long": "11.953718",
     "frame": "unisex",
