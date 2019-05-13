@@ -24,7 +24,7 @@ export function containsBike(bike, city, bike_type, dates) {
 /* Returns array of dates within starDate and endDate */
 export function getDates(startDate, endDate) {
   var dateArray = [];
-  var currentDate = startDate.toDate();
+  var currentDate = new Date(startDate);
 
   //Put all dates between startDate and endDate in an array.
   while (currentDate <= endDate) {
