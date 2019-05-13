@@ -12,6 +12,15 @@ export function getAllBikes() {
   return bikes;
 }
 
+/* Takes a bike object and checks if the bike object has "city", "bike_type", and "dates" */
+export function containsBike(bike, city, bike_type, dates) {
+  let todaysDate = DateToString(new Date());
+  let containsCity = city==="" ? true : city.toUpperCase()===bike.city.toUpperCase();
+  let containsDates = dates.length===0 ? bike.dates.some(d => todaysDate<=d) : dates.some(d => bike.dates.includes(d));
+  let containsType = bike_type==="all" ? true : bike.type===bike_type;
+  return containsCity && containsType && containsDates;
+}
+
 /* Returns array of dates within starDate and endDate */
 export function getDates(startDate, endDate) {
   var dateArray = [];
