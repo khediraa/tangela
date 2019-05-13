@@ -1,15 +1,25 @@
 import React, {useContext} from 'react';
 import ItemListComponent from './ItemListComponent';
-import * as BikeHandler from './BikeHandler';
 import {AppContext} from './App';
+
+import * as BikeHandler from './BikeHandler';
+
+function containsBike(bike, bike_type, dates) {
+    var containsDates = dates.length==0 ? true : dates.some(d => bike.dates.includes(d));
+    return bike.type===bike_type && containsDates;
+}
 
 /* Class that contains ItemListComponents */
 function ItemList () {
     const {city, bike_type, startDate, endDate} = useContext(AppContext);
 
+    var dates = BikeHandler.getDates(new Date(startDate), new Date (endDate));
+
     var obj = BikeHandler.getAllBikes();
     var bikes = Object.values(obj);
-    var result = bikes.filter(p => p.type===bike_type);
+    console.log(bike_type);
+    var result = bikes.filter(bike => containsBike(bike, bike_type, dates));
+    console.log(result);
     var bikes_list = [];
 
     for (var i = 0; i < result.length; i++) {

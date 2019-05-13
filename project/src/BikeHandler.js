@@ -11,16 +11,22 @@ export function getAllBikes() {
   return bikes;
 }
 
-/* Removes the rented days from the bike specified by id*/
-export function rentBike(id, startDate, endDate) {
+/* Returns array of dates within starDate and endDate */
+export function getDates(startDate, endDate) {
   var dateArray = [];
   var currentDate = startDate;
-
+  
   //Put all dates between startDate and endDate in an array.
   while (currentDate <= endDate) {
     dateArray.push(DateToString(new Date(currentDate)));
     currentDate = currentDate.addDays(1);
   }
+  return dateArray;
+}
+
+/* Removes the rented days from the bike specified by id*/
+export function rentBike(id, startDate, endDate) {
+  var dateArray = getDates(startDate, endDate);
 
   //If all dates are not available for the bike, return false.
   //TODO: alert user on return false.
@@ -40,7 +46,7 @@ export function rentBike(id, startDate, endDate) {
   return true;
 }
 
-function DateToString(date) {
+export function DateToString(date) {
   return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 }
 
