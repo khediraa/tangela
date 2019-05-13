@@ -24,8 +24,8 @@ export function containsBike(bike, city, bike_type, dates) {
 /* Returns array of dates within starDate and endDate */
 export function getDates(startDate, endDate) {
   var dateArray = [];
-  var currentDate = startDate;
-  
+  var currentDate = startDate.toDate();
+
   //Put all dates between startDate and endDate in an array.
   while (currentDate <= endDate) {
     dateArray.push(DateToString(new Date(currentDate)));
@@ -47,10 +47,10 @@ export function addBike(name, lat, long, frame, type, gears, price, startDate, e
 
 /* Removes the rented days from the bike specified by id*/
 export function rentBike(id, startDate, endDate) {
-  
+
   //Adds all dates in range to an array
   var dateArray = getDates(startDate, endDate);
- 
+
   //If all dates are not available for the bike, return false.
   //TODO: alert user on return false.
   dateArray.forEach(element => {
