@@ -8,6 +8,7 @@
     margin-right: auto;
     margin-top: 40px; 
     overflow: hidden;
+    display: flex;
 }
 
 .bicycle h2 {
@@ -38,9 +39,16 @@
     background-color: rgb(231, 112, 0);
 }
 
+.bicycle .left {
+    width: 50%;
+}
+
+.bicycle .right {
+    width: 50%;
+}
+
 .bicycle .leaflet-container {
     height: 300px;
-    width: 50%;
+    width: 100%;
     border: 1px solid black;
-    float: right;
 }
