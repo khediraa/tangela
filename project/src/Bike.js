@@ -6,6 +6,8 @@ import { DateRangePicker} from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 //import isInclusivelyAfterDay from '../utils/isInclusivelyAfterDay';
 import * as moment from 'moment';
+import MapContainer from './MapContainer';
+import './css/mapContainer.css';
 class Bike extends Component {
     constructor(props) {
         super(props);
@@ -50,25 +52,43 @@ class Bike extends Component {
         }
         else {
             article = <article className="bicycle">
-                <h2>{this.props.title}</h2>
-                <p>{this.props.city}</p>
-                <p>available from {this.props.startDate} to {this.props.endDate}</p>
-                <p>price: {this.props.price} kr / day</p>
-                <button onClick={this.handleClick}>
-                    Yes please!
-                </button>
-                <DateRangePicker
-                    startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-                    startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-                    endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-                    endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-                    onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-                    focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-                    onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-                    isDayBlocked={this.isBlocked}
-                    minimumNights={0}
+                <div className="left">
+                    <h2>{this.props.title}</h2>
+                    <p>{this.props.city}</p>
+                    <p>available from {this.props.startDate} to {this.props.endDate}</p>
+                    <p>price: {this.props.price} kr / day</p>
 
-                />
+                    <DateRangePicker
+                        startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+                        startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+                        endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+                        endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+                        onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+                        focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                        onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+                        isDayBlocked={this.isBlocked}
+                        minimumNights={0}
+                        daySize={25}
+                    />
+
+                    <button onClick={this.handleClick}>
+                            Yes please!
+                    </button>
+                </div>
+                
+                <div className="right">
+                    <MapContainer className="bike-map-container"
+                        lat={this.props.lat}
+                        lng={this.props.lng}
+                        coords={[
+                            {
+                                "lat": this.props.lat,
+                                "lng":this.props.lng
+                            }
+                        ]}
+                        zoom={13}
+                    />
+                </div>
             </article>
         }
         return article;
