@@ -11,7 +11,7 @@ class BikePage extends Component {
                 title={bike.name} 
                 city={bike.city} 
                 startDate={bike.dates[0]} 
-                endDate={bike.dates[2]} 
+                endDate={bike.dates[bike.dates.length - 1]} 
                 price={bike.price} 
                 lat={bike.lat} 
                 lng={bike.lng} 
