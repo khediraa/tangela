@@ -4,10 +4,13 @@ import {AppContext} from './App';
 
 import * as BikeHandler from './BikeHandler';
 
-function containsBike(bike, bike_type, dates) {
-    var containsDates = dates.length==0 ? true : dates.some(d => bike.dates.includes(d));
-    return bike.type===bike_type && containsDates;
+function containsBike(bike, city, bike_type, dates) {
+    let containsCity = city==="" ? true : city===bike.city;
+    let containsDates = dates.length===0 ? true : dates.some(d => bike.dates.includes(d));
+    let containsType = bike_type==="all" ? true : bike.type===bike_type;
+    return containsCity && containsType && containsDates;
 }
+
 
 /* Class that contains ItemListComponents */
 function ItemList () {
@@ -18,7 +21,7 @@ function ItemList () {
     var obj = BikeHandler.getAllBikes();
     var bikes = Object.values(obj);
     console.log(bike_type);
-    var result = bikes.filter(bike => containsBike(bike, bike_type, dates));
+    var result = bikes.filter(bike => containsBike(bike, city, bike_type, dates));
     console.log(result);
     var bikes_list = [];
 

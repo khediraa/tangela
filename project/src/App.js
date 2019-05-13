@@ -10,7 +10,8 @@ export const AppContext = React.createContext();
 
 class App extends Component {
     state = {
-        bike_type: "mtb",
+        city: "",
+        bike_type: "all",
         setState: this.setState.bind(this)
     };
     
