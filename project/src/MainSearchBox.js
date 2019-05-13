@@ -52,4 +52,5 @@ function MainSearchBox () {
     </div>
   )
 }
-  export default MainSearchBox;
+
+export default MainSearchBox;
