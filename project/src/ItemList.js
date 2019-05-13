@@ -5,6 +5,7 @@ import {AppContext} from './App';
 import * as BikeHandler from './BikeHandler';
 import MapContainer from './MapContainer';
 import './css/mapContainer.css';
+import './css/itemList.css';
 
 function containsBike(bike, city, bike_type, dates) {
     let containsCity = city==="" ? true : city===bike.city;
@@ -34,8 +35,8 @@ function ItemList () {
             bikeCoords.push({"lat":result[i].lat, "lng":result[i].lng});
     }    
     return (
-        <div>
-            <div className="list-item">
+        <div className="item-list-wrapper">
+            <div className="item-list">
                 {bikes_list}
             </div>
             <MapContainer
