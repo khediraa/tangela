@@ -4,7 +4,7 @@ import * as BikeHandler from './BikeHandler';
 
 class BikePage extends Component {
     render() {
-        var bike = BikeHandler.getBike("b2");
+        var bike = BikeHandler.getBike("5");
         return (
             <Bike id={bike} 
                 dates={bike.dates}

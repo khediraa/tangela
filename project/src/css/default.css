@@ -13,8 +13,6 @@ body {
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 14px;
-    text-align: center;
-    color: white;
     transition: color .2s linear;
 }
 
