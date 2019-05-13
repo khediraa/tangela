@@ -5,7 +5,7 @@ import {AppContext} from './App';
 import * as BikeHandler from './BikeHandler';
 
 function containsBike(bike, city, bike_type, dates) {
-    let containsCity = city==="" ? true : city===bike.city;
+    let containsCity = city==="" ? true : city.toUpperCase()===bike.city.toUpperCase();
     let containsDates = dates.length===0 ? true : dates.some(d => bike.dates.includes(d));
     let containsType = bike_type==="all" ? true : bike.type===bike_type;
     return containsCity && containsType && containsDates;

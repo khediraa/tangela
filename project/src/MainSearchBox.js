@@ -38,6 +38,7 @@ function MainSearchBox () {
           onChange={event => {event.preventDefault(); state.setState({bike_type: event.target.value});}} >
       <option selected value="all">All Types</option>
       <option value="mtb">Mountain Bike</option>
+      <option value="electric">Electric</option>
       <option value="hybrid">Hybrid Bike</option>
       <option value="city">City Bike</option>
       </select>
