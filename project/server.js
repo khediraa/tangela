@@ -2,20 +2,21 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
 const fs = require('fs');
-const cors = require("cors");
-app.use(cors());
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // create a GET route
-app.get('/express_backend', (req, res) => {
+app.get('/express_backend', (req, res, next) => {
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
-app.get('/bikes', (req, res) => {
-  bikes = require('./bikes.json');
-  res.send(bikes[0]);
+app.get('/bikes', (req, res, next) => {
+  const bikePath = './bikes.json';
+  const jsonString = fs.readFileSync(bikePath, "utf-8");
+  const jsonObject = JSON.parse(jsonString);
+  console.log("sending: " + jsonObject);
+  res.send(jsonObject);
 })
 
 const updateDatabase = (data) => {
