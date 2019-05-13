@@ -4,9 +4,11 @@ import {AppContext} from './App';
 
 import * as BikeHandler from './BikeHandler';
 
+/* Checks if bike object has "city," */
 function containsBike(bike, city, bike_type, dates) {
+    let todaysDate = BikeHandler.DateToString(new Date());
     let containsCity = city==="" ? true : city.toUpperCase()===bike.city.toUpperCase();
-    let containsDates = dates.length===0 ? true : dates.some(d => bike.dates.includes(d));
+    let containsDates = dates.length===0 ? bike.dates.some(d => todaysDate<=d) : dates.some(d => bike.dates.includes(d));
     let containsType = bike_type==="all" ? true : bike.type===bike_type;
     return containsCity && containsType && containsDates;
 }
@@ -20,9 +22,7 @@ function ItemList () {
 
     var obj = BikeHandler.getAllBikes();
     var bikes = Object.values(obj);
-    console.log(bike_type);
     var result = bikes.filter(bike => containsBike(bike, city, bike_type, dates));
-    console.log(result);
     var bikes_list = [];
 
     for (var i = 0; i < result.length; i++) {
