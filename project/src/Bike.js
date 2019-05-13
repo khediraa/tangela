@@ -55,9 +55,6 @@ class Bike extends Component {
                 <p>{this.props.city}</p>
                 <p>available from {this.props.startDate} to {this.props.endDate}</p>
                 <p>price: {this.props.price} kr / day</p>
-                <button onClick={this.handleClick}>
-                    Yes please!
-                </button>
                 <DateRangePicker
                     startDate={this.state.startDate} // momentPropTypes.momentObj or null,
                     startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
@@ -68,18 +65,24 @@ class Bike extends Component {
                     onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
                     isDayBlocked={this.isBlocked}
                     minimumNights={0}
+                    daySize={25}
                 />
-                <MapContainer className="item-list-map"
-                    lat={this.props.lat}
-                    lng={this.props.lng}
-                    coords={[
-                        {
-                         "lat": this.props.lat,
-                         "lng":this.props.lng
-                        }
-                    ]}
-                    zoom={13}
-                />
+                <button onClick={this.handleClick}>
+                        Yes please!
+                </button>
+                <section>
+                    <MapContainer className="bike-map-container"
+                        lat={this.props.lat}
+                        lng={this.props.lng}
+                        coords={[
+                            {
+                                "lat": this.props.lat,
+                                "lng":this.props.lng
+                            }
+                        ]}
+                        zoom={13}
+                    />
+                </section>
             </article>
         }
         return article;

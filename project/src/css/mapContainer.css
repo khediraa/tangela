@@ -4,6 +4,13 @@
 }
 
 .leaflet-container {
-    height: 400px;
+    height: 300px;
     width: 100%;
+    /* float: right; */
   }
+
+.item-list .leaflet-container {
+    height: 300px;
+    width: 20%;
+    float: right;
+}

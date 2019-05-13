@@ -20,12 +20,12 @@ class ItemList extends Component {
         }
         
         return (
-            <div>
+            <div className="item-list">
                 <div className="list-item">
                     {bikes_list}
                 </div>
                 <div className="item-list-map">
-                    <MapContainer className="item-list-map"
+                    <MapContainer
                         coords={bikeCoords}
                         zoom={10}/>
                 </div>

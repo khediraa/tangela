@@ -1,7 +1,7 @@
 .bicycle {
     background-color: rgb(166, 151, 248);
-    height: 450px;
-    width: 55%;
+    height: 650px;
+    width: 75%;
     padding: 15px;
     border-radius: 10px;
     margin-left: auto;
@@ -24,9 +24,10 @@
 .bicycle button {
     background-color: rgb(231, 112, 0);
     border-radius: 6px;
-    border: none;
-    padding: 5px 10px;
-    float: right;
+    border: 2px solid whitesmoke;
+    padding: 20px 20px;
+    margin: 15px;
+    /* float: right; */
 }
 
 .bicycle button:hover {
@@ -35,4 +36,11 @@
 
 .bicycle button:active {
     background-color: rgb(231, 112, 0);
+}
+
+.bicycle .leaflet-container {
+    height: 300px;
+    width: 50%;
+    border: 1px solid black;
+    float: right;
 }
