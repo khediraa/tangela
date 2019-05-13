@@ -36,6 +36,7 @@ export function getDates(startDate, endDate) {
 
 /* Function that adds another bike to the json file */
 export function addBike(name, lat, long, frame, type, gears, price, startDate, endDate, description) {
+    //TODO Fixa så att city, lat och lng inte är hårdkodat. Man ser inte tillagda cyklar om värden på dessa parametrar saknas.
     var newBike= ({name:name, city:"Gothenburg", lat:"57.6930247", lng:"11.9752922", frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
 
   bikes[myId] = newBike;
