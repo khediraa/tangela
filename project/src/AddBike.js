@@ -80,7 +80,7 @@ class AddBike extends Component{
     }
 
     render() {
-        const errors = validate(this.state.email, this.state.password);
+        const errors = validate(this.state.gears, this.state.price, this.state.title, this.state.startDate, this.state.endDate);
         const isDisabled = Object.keys(errors).some(x => errors[x]);
     
         const shouldMarkError = field => {
@@ -135,7 +135,7 @@ class AddBike extends Component{
                             <label>
                                 <input type="text" name="title" 
                                     placeholder= "Name of your bike" 
-                                    className={shouldMarkError("password") ? "error" : ""}
+                                    className={shouldMarkError("title") ? "error" : ""}
                                     value={this.state.title} 
                                     onChange={this.handleChange} 
                                     onBlur={this.handleBlur("title")} />
@@ -190,7 +190,7 @@ class AddBike extends Component{
                         <div id="AddGears">
                             <label>
                                 <input type="number" name="gears" 
-                                    className={shouldMarkError("password") ? "error" : ""}
+                                    className={shouldMarkError("gears") ? "error" : ""}
                                     placeholder= "Number of gears" 
                                     value={this.state.gears} 
                                     onChange={this.handleChange} 
@@ -208,7 +208,7 @@ class AddBike extends Component{
                             <label>
                                 <input type="number" name="price" 
                                     placeholder= "Cost per day" 
-                                    className={shouldMarkError("password") ? "error" : ""}
+                                    className={shouldMarkError("price") ? "error" : ""}
                                     value={this.state.price} 
                                     onChange={this.handleChange} 
                                     onBlur={this.handleBlur("price")}/>
@@ -230,7 +230,7 @@ class AddBike extends Component{
                         <div id="AddSubmit">
 
                             {/*<Link to='/Items' >*/}
-                            <button disabled={!isDisabled} type="submit" value="Submit">Submit</button>
+                            <button disabled={isDisabled} type="submit" value="Submit">Submit</button>
                             {/*</Link>*/}
 
                         </div>
