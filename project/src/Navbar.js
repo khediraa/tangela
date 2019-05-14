@@ -12,7 +12,7 @@ class Navbar extends Component {
                     <img src={logo} alt="Hoi logo"/>
                 </Link>
                 
-                <Link to='/items'>
+                <Link to='/AddBike'>
                     <li>
                         <a href="http://google.com">Add bike</a>
                     </li>
