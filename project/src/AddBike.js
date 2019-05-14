@@ -8,19 +8,39 @@ import 'react-dates/lib/css/_datepicker.css';
 
 import {Route, Link} from 'react-router-dom';
 
+function validate(gears, price, title, startDate, endDate){
+    return{
+        gears:      gears <= 0 || gears === '',
+        price:      price < 0 || price === '',
+        title:      title === '',
+        startDate:  startDate === '',
+        endDate:    endDate === ''
+    }
+}
+
 class AddBike extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {latitude:'', longitude: '', frame:'wmn', type:'mtb', gears:'', price:'', desc:'', title:''};
+        this.state = {latitude:'', longitude: '',
+                     frame:'wmn', type:'mtb', 
+                     gears:'', price:'', 
+                     desc:'', title:'',
+                     startDate: '',
+                     endDate: '',
+                     touched: {
+                                gears: false,
+                                price: false,
+                                title: false
+                            }};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     valid() {
-        const {gears, price, desc, title} = this.state;
-        return gears > 0 && price >= 0 && desc != '' && title != '';
+        const {gears, price, title, startDate, endDate} = this.state;
+        return gears > 0 && price >= 0 && title != '' && startDate != '' && endDate != '';
     }
 
     handleChange(event) {
@@ -29,6 +49,18 @@ class AddBike extends Component{
         this.setState({[tmp]: target.value});
 
     }
+
+    handleBlur = field => evt => {
+        this.setState({
+          touched: { ...this.state.touched, [field]: true }
+        });
+      };
+
+    canBeSubmitted() {
+        const errors = this.validate(this.state.gears, this.state.price, this.state.title, this.state.startDate, this.state.endDate);
+        const isDisabled = Object.keys(errors).some(x => errors[x]);
+        return !isDisabled;
+      }
 
     handleSubmit(event) {
         // alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
@@ -45,12 +77,19 @@ class AddBike extends Component{
         }
 
         event.preventDefault();
-
-
     }
 
     render() {
-        const isEnabled = this.valid();
+        const errors = validate(this.state.email, this.state.password);
+        const isDisabled = Object.keys(errors).some(x => errors[x]);
+    
+        const shouldMarkError = field => {
+          const hasError = errors[field];
+          const shouldShow = this.state.touched[field];
+    
+          return hasError ? shouldShow : false;
+        };
+
         return(
             <div id="Wrapper">
 
@@ -94,7 +133,12 @@ class AddBike extends Component{
 
                         <div id="AddTitle">
                             <label>
-                                <input type="text" name="title" placeholder= "Name of your bike" value={this.state.title} onChange={this.handleChange} />
+                                <input type="text" name="title" 
+                                    placeholder= "Name of your bike" 
+                                    className={shouldMarkError("password") ? "error" : ""}
+                                    value={this.state.title} 
+                                    onChange={this.handleChange} 
+                                    onBlur={this.handleBlur("title")} />
                             </label>
                         </div>
 
@@ -109,7 +153,9 @@ class AddBike extends Component{
 
                         Frame
 
-                        <select type="text" name="frame" value={this.state.frame} onChange={this.handleChange} >
+                        <select type="text" name="frame" 
+                            value={this.state.frame}
+                            onChange={this.handleChange} >
                         <option value="wmn">Women's</option>
                         <option value="men">Men's</option>
                         <option value="uni">Unisex</option>
@@ -143,7 +189,12 @@ class AddBike extends Component{
 
                         <div id="AddGears">
                             <label>
-                                <input type="number" name="gears" placeholder= "Number of gears" value={this.state.gears} onChange={this.handleChange} />
+                                <input type="number" name="gears" 
+                                    className={shouldMarkError("password") ? "error" : ""}
+                                    placeholder= "Number of gears" 
+                                    value={this.state.gears} 
+                                    onChange={this.handleChange} 
+                                    onBlur={this.handleBlur("gears")}/>
                             </label>
                         </div>
 
@@ -155,7 +206,12 @@ class AddBike extends Component{
 
                         <div id="AddPrice">
                             <label>
-                                <input type="number" name="price" placeholder= "Cost per day" value={this.state.price} onChange={this.handleChange} />
+                                <input type="number" name="price" 
+                                    placeholder= "Cost per day" 
+                                    className={shouldMarkError("password") ? "error" : ""}
+                                    value={this.state.price} 
+                                    onChange={this.handleChange} 
+                                    onBlur={this.handleBlur("price")}/>
                             </label>
                         </div>
 
@@ -174,7 +230,7 @@ class AddBike extends Component{
                         <div id="AddSubmit">
 
                             {/*<Link to='/Items' >*/}
-                            <button disabled={!isEnabled} type="submit" value="Submit">Submit</button>
+                            <button disabled={!isDisabled} type="submit" value="Submit">Submit</button>
                             {/*</Link>*/}
 
                         </div>
