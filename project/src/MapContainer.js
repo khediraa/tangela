@@ -19,7 +19,7 @@ class MapContainer extends Component {
       return <Marker position={coordinatePair}>
         <Popup>
           A pretty CSS3 popup. <br /> Easily customizable.
-              </Popup>
+        </Popup>
       </Marker>
     });
 
