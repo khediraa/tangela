@@ -20,7 +20,7 @@ class AddBike extends Component{
 
     valid() {
         const {gears, price, desc, title} = this.state;
-        return gears > 0 && price >= 0 && desc != '' && title != '';
+        return gears > 0 && price >= 0 && desc !== '' && title !== '';
     }
 
     handleChange(event) {
