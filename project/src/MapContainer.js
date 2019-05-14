@@ -13,13 +13,15 @@ class MapContainer extends Component {
   }
 
   render() {
+    var bikeName = this.props.name;
     let coords = this.props.coords;
     const mapCenter = coords[0];
     let markers = coords.map( (coordinatePair) => {
       return <Marker position={coordinatePair}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-              </Popup>
+          
+          {/* A pretty CSS3 popup. <br /> Easily customizable. */}
+        </Popup>
       </Marker>
     });
 

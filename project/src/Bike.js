@@ -87,6 +87,7 @@ class Bike extends Component {
                             }
                         ]}
                         zoom={13}
+                        name={this.props.name}
                     />
                 </div>
             </article>
