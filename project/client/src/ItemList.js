@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ItemListComponent from './ItemListComponent';
 import {AppContext} from './App';
 
@@ -8,31 +8,59 @@ import './css/mapContainer.css';
 import './css/itemList.css';
 
 /* Function that contains ItemListComponents */
-function ItemList () {
+function ItemList() {
     const {city, bike_type, startDate, endDate} = useContext(AppContext);
-    var dates = BikeHandler.getDates(new Date(startDate), new Date (endDate));
-    var obj = BikeHandler.getAllBikes();
-    var bikes = Object.values(obj);
-    var result = bikes.filter(bike => BikeHandler.containsBike(bike, city, bike_type, dates));
-    var bikes_list = [];
-    var bikeCoords = [];
+    
+    // internal state
+    const [initialized, setInitialized] = useState(false);
+    const [bikes, setBikes] = useState([]);
+    const [coords, setCoords] = useState([]);
 
-    for (var i = 0; i < result.length; i++) {
-        bikes_list = [...bikes_list, 
-            <ItemListComponent key={result[i].id} title={result[i].name} price={result[i].price} />];
-            bikeCoords.push({"lat":result[i].lat, "lng":result[i].lng});
-    }
+    useEffect(() => {
+        //not initialized before the component is mounted.
+        if (!initialized) {
+            let dates = BikeHandler.getDates(new Date(startDate), new Date (endDate));
+            BikeHandler.getFilteredBikes(city, bike_type, dates)
+                .then((json) => {
+                    let bikes_list = [];
+                    let bikeCoords = [];
 
-    return (
+                    for (let i = 0; i < json.length; i++) {
+                        bikes_list = [...bikes_list, 
+                            <ItemListComponent key={json[i].id} title={json[i].name} price={json[i].price} />];
+                            bikeCoords.push({"lat":json[i].lat, "lng":json[i].lng});
+                    }
+                    setBikes(bikes_list);
+                    setCoords(bikeCoords);
+                    console.log(bikes);
+                    console.log(coords);
+                });
+            setInitialized(true);
+        }
+    });
+
+    // var obj = BikeHandler.getAllBikes().then((text) => {return JSON.parse(text)});
+    // console.log(typeof obj);
+
+    // var bikes = Object.values(obj);
+    // var result = bikes.filter(bike => BikeHandler.containsBike(bike, city, bike_type, dates));
+
+    // console.log(bikes);
+    // console.log(coords);
+
+    return bikes && coords ? (
         <div className="item-list-wrapper">
             <div className="item-list">
-                {bikes_list}
+                {bikes}
             </div>
+            
             <MapContainer
-                coords={bikeCoords}
+                coords={coords}
                 zoom={10}
             />
-         </div>
+        </div>
+    ) : (
+        <div>Loading...</div>
     );
 }
 

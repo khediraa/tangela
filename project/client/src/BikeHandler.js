@@ -26,14 +26,6 @@ export function check() {
   })
 }
 
-/* Returns all bikes */
-export function getAllBikes() {
-  return fetch(serverURL)
-    .then(function(response) {
-      return response.text();
-    });
-}
-
 /* Takes a bike object and checks if the bike object has "city", "bike_type", and "dates" */
 export function containsBike(bike, city, bike_type, dates) {
   let todaysDate = DateToString(new Date());
@@ -41,6 +33,31 @@ export function containsBike(bike, city, bike_type, dates) {
   let containsDates = dates.length===0 ? bike.dates.some(d => todaysDate<=d) : dates.some(d => bike.dates.includes(d));
   let containsType = bike_type==="all" ? true : bike.type===bike_type;
   return containsCity && containsType && containsDates;
+}
+
+/* Passes search parameters to server and fetches list of bikes that match them. 
+   Returns a Promise, access bikes by chaining .then() to it.*/
+export async function getFilteredBikes(city, bike_type, dates) {
+  console.log("city: " + city);
+  console.log("type: " + bike_type);
+  console.log("dates: " + dates);
+  
+  return fetch('/filtered-bikes', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+
+    body: JSON.stringify({
+      city: city,
+      bikeType: bike_type,
+      dates: dates
+    })
+  })
+  .then((response) => {
+    return response.json();
+  });
 }
 
 /* Returns array of dates within starDate and endDate */
