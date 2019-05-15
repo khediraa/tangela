@@ -41,6 +41,7 @@ class AddBike extends Component{
         const target = event.target;
         const tmp = target.name;
         this.setState({[tmp]: target.value});
+        console.log("change")
 
     }
 
@@ -53,11 +54,14 @@ class AddBike extends Component{
     canBeSubmitted() {
         const errors = this.validate(this.state.gears, this.state.price, this.state.title);
         const isDisabled = Object.keys(errors).some(x => errors[x]);
+        console.log("canBeSubmitted: " + isDisabled);
         return !isDisabled;
       }
 
-    handleDateChange = ({ startDate, endDate }) =>
+    handleDateChange = ({ startDate, endDate }) =>{
       this.setState({ startDate, endDate });
+      console.log("datechange" + this.state.startDate.toString())
+    };
 
     handleSubmit(event) {
         // alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
