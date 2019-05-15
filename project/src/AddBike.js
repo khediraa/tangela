@@ -37,6 +37,11 @@ class AddBike extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    /*
+
+        The user has made an input in Gears, Price, Title, or Description
+
+    */
     handleChange(event) {
         const target = event.target;
         const tmp = target.name;
@@ -45,18 +50,36 @@ class AddBike extends Component{
 
     }
 
+    /*
+
+        The user has clicked on an input-field
+
+    */
+
     handleBlur = field => evt => {
         this.setState({
           touched: { ...this.state.touched, [field]: true }
         });
-      };
+    };
+
+    /*
+
+        Can the current inputs be submitted as a whole bike?
+
+    */
 
     canBeSubmitted() {
         const errors = validate(this.state.gears, this.state.price, this.state.title);
         const isDisabled = Object.keys(errors).some(x => errors[x]);
         console.log("canBeSubmitted: " + isDisabled);
         return !isDisabled;
-      }
+    }
+
+    /*
+
+        The user has changed start or end date.
+
+    */
 
     handleDateChange = ({ startDate, endDate }) =>{
       this.setState({ startDate, endDate });
