@@ -14,9 +14,11 @@ class App extends Component {
     state = {
         city: "",
         bike_type: "all",
+        login:false,
+        email:null,
         setState: this.setState.bind(this)
     };
-    
+
     render() {
         return (
             <AppContext.Provider value={this.state}>

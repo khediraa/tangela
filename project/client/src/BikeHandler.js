@@ -28,7 +28,10 @@ export function check() {
 
 /* Returns all bikes */
 export function getAllBikes() {
-  return bikes;
+  return fetch(serverURL)
+    .then(function(response) {
+      return response.text();
+    });
 }
 
 /* Takes a bike object and checks if the bike object has "city", "bike_type", and "dates" */
