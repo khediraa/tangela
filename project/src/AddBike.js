@@ -18,6 +18,11 @@ class AddBike extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    valid() {
+        const {gears, price, desc, title} = this.state;
+        return gears > 0 && price >= 0 && desc !== '' && title !== '';
+    }
+
     handleChange(event) {
         const target = event.target;
         const tmp = target.name;
@@ -30,14 +35,22 @@ class AddBike extends Component{
         // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike_type );
         // this.props.history.push('/Items');
         //alert(this.state.startDate.toString() + "  " + this.state.endDate.toString());
+
+        if(this.valid()){
+            BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
+                                     this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
+
+            this.setState({latitude:'', longitude: '', frame:'wmn', type:'mtb', gears:'', price:'', desc:'', title:''});
+            return;
+        }
+
         event.preventDefault();
-        BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
-                                 this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
 
 
     }
 
     render() {
+        const isEnabled = this.valid();
         return(
             <div id="Wrapper">
 
@@ -81,8 +94,7 @@ class AddBike extends Component{
 
                         <div id="AddTitle">
                             <label>
-                                Title:
-                                <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+                                <input type="text" name="title" placeholder= "Name of your bike" value={this.state.title} onChange={this.handleChange} />
                             </label>
                         </div>
 
@@ -131,8 +143,7 @@ class AddBike extends Component{
 
                         <div id="AddGears">
                             <label>
-                                Gears:
-                                <input type="number" name="gears" value={this.state.gears} onChange={this.handleChange} />
+                                <input type="number" name="gears" placeholder= "Number of gears" value={this.state.gears} onChange={this.handleChange} />
                             </label>
                         </div>
 
@@ -144,8 +155,7 @@ class AddBike extends Component{
 
                         <div id="AddPrice">
                             <label>
-                                Price:
-                                <input type="number" name="price" value={this.state.price} onChange={this.handleChange} />
+                                <input type="number" name="price" placeholder= "Cost per day" value={this.state.price} onChange={this.handleChange} />
                             </label>
                         </div>
 
@@ -157,15 +167,14 @@ class AddBike extends Component{
 
                         <div id="AddDesc">
                             <label>
-                                Description:
-                                <textarea type="text" name="desc" value={this.state.desc} onChange={this.handleChange} />
+                                <textarea type="text" name="desc" placeholder= "Enter Description (Optional)" value={this.state.desc} onChange={this.handleChange} />
                             </label>
                         </div>
 
                         <div id="AddSubmit">
 
                             {/*<Link to='/Items' >*/}
-                            <input type="submit" value="Submit"/>
+                            <button disabled={!isEnabled} type="submit" value="Submit">Submit</button>
                             {/*</Link>*/}
 
                         </div>
