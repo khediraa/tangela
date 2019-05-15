@@ -7,9 +7,9 @@ function UserHandler() {
   const state = useContext(AppContext);
 
   export function login(email, password){
-    state.setState(state.email:email);
+    state.setState({email: email});
     if (users[state.email].password===password){
-      state.setState(login:true);
+      state.setState({login: true});
     }
   }
 

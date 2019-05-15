@@ -26,8 +26,9 @@ function ItemList() {
                     let bikeCoords = [];
 
                     for (let i = 0; i < json.length; i++) {
+                        let bkey = (parseInt(Object.keys(result)[i]) + 1);
                         bikes_list = [...bikes_list, 
-                            <ItemListComponent key={json[i].id} title={json[i].name} price={json[i].price} />];
+                            <ItemListComponent bikeKey={bkey} title={json[i].name} price={json[i].price} />];
                             bikeCoords.push({"lat":json[i].lat, "lng":json[i].lng});
                     }
                     setBikes(bikes_list);
@@ -38,15 +39,6 @@ function ItemList() {
             setInitialized(true);
         }
     });
-
-    // var obj = BikeHandler.getAllBikes().then((text) => {return JSON.parse(text)});
-    // console.log(typeof obj);
-
-    // var bikes = Object.values(obj);
-    // var result = bikes.filter(bike => BikeHandler.containsBike(bike, city, bike_type, dates));
-
-    // console.log(bikes);
-    // console.log(coords);
 
     return bikes && coords ? (
         <div className="item-list-wrapper">

@@ -5,11 +5,7 @@ import './css/mapContainer.css';
 class MapContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      //lat: this.props.test, //this.props.lat,
-      //lng: this.props.test2, //this.props.lng,
-      //zoom: 13,
-    }
+    this.state = {};
   }
 
   render() {
@@ -19,7 +15,7 @@ class MapContainer extends Component {
       return <Marker position={coordinatePair}>
         <Popup>
           A pretty CSS3 popup. <br /> Easily customizable.
-              </Popup>
+        </Popup>
       </Marker>
     });
 
