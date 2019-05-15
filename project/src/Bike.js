@@ -30,12 +30,6 @@ class Bike extends Component {
         return day.isSame(moment(), "day");
     }
 
-    handleClick() {
-        this.setState({ rented: true })
-        console.log(this.state.startDate);
-
-    }
-
     handleChange(){
         BikeHandler.rentBike(this.props.id, this.state.startDate, this.state.endDate);
     }
