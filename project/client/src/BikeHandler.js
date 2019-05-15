@@ -4,26 +4,23 @@ var bikes = require('./resources/bikes.json');
 var myId=6;
 const serverURL = '/bikes'; // gets appended to the proxy from package.json
 
-export function getBike(id) {
-  fetch(serverURL)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(json){
-    console.log(json["5"]);
-    return json[id];
-  });
-}
+export async function getBike(id) {
+  return fetch('/bike', {
+    method: 'POST',
+    headers: {
+      'Accept': 'text/plain',
+      'Content-Type': 'text/plain'
+    },
 
-export function check() {
-  fetch(serverURL)
+    body: id
+  })
   .then(function(response) {
     return response.json();
   })
   .then(function(json){
-    console.log("fetched from server: ");
     console.log(json);
-  })
+    return json;
+  });
 }
 
 /* Takes a bike object and checks if the bike object has "city", "bike_type", and "dates" */
@@ -38,10 +35,6 @@ export function containsBike(bike, city, bike_type, dates) {
 /* Passes search parameters to server and fetches list of bikes that match them. 
    Returns a Promise, access bikes by chaining .then() to it.*/
 export async function getFilteredBikes(city, bike_type, dates) {
-  console.log("city: " + city);
-  console.log("type: " + bike_type);
-  console.log("dates: " + dates);
-  
   return fetch('/filtered-bikes', {
     method: 'POST',
     headers: {

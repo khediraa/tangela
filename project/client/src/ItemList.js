@@ -26,15 +26,13 @@ function ItemList() {
                     let bikeCoords = [];
 
                     for (let i = 0; i < json.length; i++) {
-                        let bkey = (parseInt(Object.keys(result)[i]) + 1);
+                        let bkey = (parseInt(Object.keys(json)[i]) + 1);
                         bikes_list = [...bikes_list, 
                             <ItemListComponent bikeKey={bkey} title={json[i].name} price={json[i].price} />];
                             bikeCoords.push({"lat":json[i].lat, "lng":json[i].lng});
                     }
                     setBikes(bikes_list);
                     setCoords(bikeCoords);
-                    console.log(bikes);
-                    console.log(coords);
                 });
             setInitialized(true);
         }
