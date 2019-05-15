@@ -8,6 +8,8 @@ import 'react-dates/lib/css/_datepicker.css';
 import * as moment from 'moment';
 import MapContainer from './MapContainer';
 import './css/mapContainer.css';
+import {Link} from 'react-router-dom';
+import history from './history';
 class Bike extends Component {
     constructor(props) {
         super(props);
@@ -70,8 +72,10 @@ class Bike extends Component {
                         minimumNights={0}
                         daySize={25}
                     />
-
-                    <button onClick={this.handleClick}>
+                    
+                    <button onClick={(event) => {
+                                        history.push('/PaymentPage'); //on the click the user goes to PaymentPage
+                                        }}>
                             Yes please!
                     </button>
                 </div>
