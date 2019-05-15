@@ -8,7 +8,7 @@
         "2",
         "5"
       ],
-      "password": "1234"
+      "password": "111111"
     },
     "jeppe@hoi.com": {
         "fname": "Jesper",
@@ -18,13 +18,13 @@
           "3",
           "4"
         ],
-        "password": "2345"
+        "password": "222222"
     },
     "karin@hoi.com": {
         "fname": "Karin",
         "lname": "Sjödin",
         "tel": "+46777443322",
         "bikes": [],
-        "password": "3456"
+        "password": "333333"
     }
 }

@@ -17,6 +17,7 @@ var users = require('./resources/users.json');
     var newUser= ({fname:fname, lname:lname, tel:tel, bikes:[], password:password});
     users[email]=newUser;
     console.log(newUser);
+    console.log(users);
     return true;
   }
 
