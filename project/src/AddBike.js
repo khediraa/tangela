@@ -26,8 +26,8 @@ class AddBike extends Component{
                      frame:'wmn', type:'mtb', 
                      gears:'', price:'', 
                      desc:'', title:'',
-                     startDate: '',
-                     endDate: '',
+                     /*startDate: new Object(),
+                     endDate: new Object(),*/
                      touched: {
                                 gears: false,
                                 price: false,
@@ -36,11 +36,6 @@ class AddBike extends Component{
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    valid() {
-        const {gears, price, title, startDate, endDate} = this.state;
-        return gears > 0 && price >= 0 && title != '' && startDate != '' && endDate != '';
     }
 
     handleChange(event) {
@@ -68,11 +63,14 @@ class AddBike extends Component{
         // this.props.history.push('/Items');
         //alert(this.state.startDate.toString() + "  " + this.state.endDate.toString());
 
-        if(this.valid()){
-            BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
-                                     this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
+        if(this.canBeSubmitted()){
+            alert(this.state.frame + ' ' + this.state.type + ' ' + this.state.gearstoString() + ' ' + this.state.pricetoString() + ' ' + this.state.title + ' ' + this.state.startDate.toString());
 
-            this.setState({latitude:'', longitude: '', frame:'wmn', type:'mtb', gears:'', price:'', desc:'', title:''});
+            BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
+                this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
+
+            //this.setState({latitude:'', longitude: '', frame:'wmn', type:'mtb', gears:'', price:'', desc:'', title:''});
+            
             return;
         }
 
