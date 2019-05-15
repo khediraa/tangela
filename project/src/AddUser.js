@@ -14,16 +14,16 @@ class AddUser extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    valid() {
-        const {password, confPassword} = this.state;
-        return  (password.value.match(confPassword));
-    }
-
     handleChange(event) {
         const target = event.target;
         const tmp = target.name;
         this.setState({[tmp]: target.value});
 
+    }
+
+    valid(){
+        const {password,confPassword} = this.state;
+        return password===confPassword;
     }
 
     handleSubmit(event) {
@@ -32,16 +32,14 @@ class AddUser extends Component{
             UserHandler.addUser(this.state.email, this.state.fname, this.state.lname,  this.state.tel, this.state.password, this.state.confPassword);
 
             this.setState({email:'', fname: '', lname:'', tel:'', password:'', confPassword:''});
-            return;
+            //return;
         }
 
         event.preventDefault();
-
-
     }
 
     render() {
-        const isEnabled = this.valid();
+        const isEnabled = true;
         return(
             <div id="Wrapper">
 
@@ -52,7 +50,6 @@ class AddUser extends Component{
                 */}
                 <form onSubmit={this.handleSubmit}>
                 <div id="Info">
-
 
                         {/*
 
@@ -108,9 +105,9 @@ class AddUser extends Component{
                         </div>
 
                         {/*
-                        
+
                             Add password
-                    
+
                         */}
 
                         <div id="AddInfo">
@@ -118,13 +115,13 @@ class AddUser extends Component{
                                 Password (6 characters minimum):
                                 <input type="password" name="password" minLength="6" required placeholder=""  value={this.state.password} onChange={this.handleChange} />
                             </label>
-                        
+
                         </div>
 
                         {/*
-                        
+
                             Confirm password
-                    
+
                         */}
 
                         <div id="AddInfo">
@@ -132,15 +129,12 @@ class AddUser extends Component{
                                 Password (6 characters minimum):
                                 <input type="password" name="confPassword" minLength="6" required placeholder=""  value={this.state.confPassword} onChange={this.handleChange} />
                             </label>
-                        
                         </div>
 
                         <div id="AddSubmit">
-
                             {/*<Link to='/Items' >*/}
                             <button disabled={!isEnabled} type="submit" value="Submit">Submit</button>
                             {/*</Link>*/}
-
                         </div>
 
                     </div>
@@ -148,9 +142,7 @@ class AddUser extends Component{
 
             </div>
         )
-
     }
-
 }
 
 export default AddUser;

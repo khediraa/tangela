@@ -44,6 +44,7 @@ export function addBike(name, lat, long, frame, type, gears, price, startDate, e
   console.log(bikes);
   //TODO: bikes ska skicka till JSON-filen
   myId=myId+1;
+  return true;
 }
 
 /* Removes the rented days from the bike specified by id*/
