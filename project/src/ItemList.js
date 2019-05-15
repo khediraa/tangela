@@ -17,9 +17,10 @@ function ItemList () {
     var bikes_list = [];
     var bikeCoords = [];
 
-    for (var i = 0; i < result.length; i++) {
+    for (let i = 0; i < result.length; i++) {
+        let bkey = (parseInt(Object.keys(result)[i]) + 1);        
         bikes_list = [...bikes_list, 
-            <ItemListComponent key={result[i].id} title={result[i].name} price={result[i].price} />];
+            <ItemListComponent bikeKey={bkey} title={result[i].name} price={result[i].price} />];
             bikeCoords.push({"lat":result[i].lat, "lng":result[i].lng});
     }
 
