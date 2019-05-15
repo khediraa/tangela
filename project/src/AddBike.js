@@ -11,8 +11,8 @@ import {Route, Link} from 'react-router-dom';
 
 function validate(gears, price, title){
     return{
-        gears:      gears <= 0 || gears === '',
-        price:      price < 0 || price === '',
+        gears:      gears <= 0,
+        price:      price < 0,
         title:      title === ''
     }
 }
@@ -73,7 +73,7 @@ class AddBike extends Component{
             BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
                 this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
 
-            //this.setState({latitude:'', longitude: '', frame:'wmn', type:'mtb', gears:'', price:'', desc:'', title:''});
+            this.setState({latitude:'', longitude: '', frame:'wmn', type:'mtb', gears:'', price:'', desc:'', title:''});
             
             return;
         }
