@@ -6,7 +6,7 @@ const fs = require('fs');
 const bikePath = './bikes.json';
 
 const jsonParser = bodyParser.json();
-
+const textParser = bodyParser.text();
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
@@ -15,11 +15,14 @@ app.get('/express_backend', (req, res, next) => {
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
-app.get('/bikes', (req, res, next) => {
+app.post('/bike', textParser, (req, res) => {
+  console.log(req.body);
+  
+  let id = req.body;
   const jsonString = fs.readFileSync(bikePath, "utf-8");
-  //const jsonObject = JSON.parse(jsonString);
-  console.log("sending: " + jsonString);
-  res.send(jsonString);
+  const bikes = JSON.parse(jsonString);
+  console.log("sending: " + JSON.stringify(bikes[id]));
+  res.send(bikes[id]);
 })
 
 app.post('/filtered-bikes', jsonParser, (req, res) => {
