@@ -4,6 +4,8 @@ import "./css/navbar.css";
 
 import {Route, Link} from 'react-router-dom';
 
+
+
 class Navbar extends Component {
     render(){
         return(
@@ -24,9 +26,9 @@ class Navbar extends Component {
                     </li>
                 </Link>
 
-                <Link>
+                <Link to='/AddUser'>
                     <li>
-                        <a href="http://google.com">Register</a>
+                        <a>Register</a>
                     </li>
                 </Link>
 

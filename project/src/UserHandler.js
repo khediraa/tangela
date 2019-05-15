@@ -21,7 +21,8 @@ var users = require('./resources/users.json');
   }
 
   export function connectBike(newBike){
-    //if(state.login=true){
-      //users[state.email].bikes.push(newBike);
-    //}
+    /*const state = useContext(AppContext);
+    if(state.login=true){
+      users[state.email].bikes.push(newBike);
+    }*/
   }

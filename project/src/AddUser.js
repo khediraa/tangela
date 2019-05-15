@@ -126,7 +126,7 @@ class AddUser extends Component{
 
                         <div id="AddInfo">
                             <label>
-                                Password (6 characters minimum):
+                                Confirm password
                                 <input type="password" name="confPassword" minLength="6" required placeholder=""  value={this.state.confPassword} onChange={this.handleChange} />
                             </label>
                         </div>
