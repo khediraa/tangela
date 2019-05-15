@@ -22,17 +22,9 @@ function BikePage() {
             setInitialized(true);
         }
     })
-    console.log(bike || false);
     return bike ? (
         <Bike id={bikeKey}
-            dates={bike.dates} 
-            title={bike.name} 
-            city={bike.city} 
-            startDate={bike.dates[0]} 
-            endDate={bike.dates[bike.dates.length - 1]} 
-            price={bike.price} 
-            lat={bike.lat} 
-            lng={bike.lng} 
+            bike={bike}
         />
     ) : (
         <div>Loading...</div>

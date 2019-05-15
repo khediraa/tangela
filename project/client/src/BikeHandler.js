@@ -4,6 +4,8 @@ var bikes = require('./resources/bikes.json');
 var myId=6;
 const serverURL = '/bikes'; // gets appended to the proxy from package.json
 
+/* Fetches a bike based on id them. 
+   Returns a Promise, access bike by chaining .then() to it.*/
 export async function getBike(id) {
   return fetch('/bike', {
     method: 'POST',
@@ -16,12 +18,29 @@ export async function getBike(id) {
   })
   .then(function(response) {
     return response.json();
-  })
-  .then(function(json){
-    console.log(json);
-    return json;
   });
 }
+
+/* Passes search parameters to server and fetches list of bikes that match them. 
+   Returns a Promise, access bikes by chaining .then() to it.*/
+   export async function getFilteredBikes(city, bike_type, dates) {
+    return fetch('/filtered-bikes', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+  
+      body: JSON.stringify({
+        city: city,
+        bikeType: bike_type,
+        dates: dates
+      })
+    })
+    .then((response) => {
+      return response.json();
+    });
+  }
 
 /* Takes a bike object and checks if the bike object has "city", "bike_type", and "dates" */
 export function containsBike(bike, city, bike_type, dates) {
@@ -30,27 +49,6 @@ export function containsBike(bike, city, bike_type, dates) {
   let containsDates = dates.length===0 ? bike.dates.some(d => todaysDate<=d) : dates.some(d => bike.dates.includes(d));
   let containsType = bike_type==="all" ? true : bike.type===bike_type;
   return containsCity && containsType && containsDates;
-}
-
-/* Passes search parameters to server and fetches list of bikes that match them. 
-   Returns a Promise, access bikes by chaining .then() to it.*/
-export async function getFilteredBikes(city, bike_type, dates) {
-  return fetch('/filtered-bikes', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-
-    body: JSON.stringify({
-      city: city,
-      bikeType: bike_type,
-      dates: dates
-    })
-  })
-  .then((response) => {
-    return response.json();
-  });
 }
 
 /* Returns array of dates within starDate and endDate */

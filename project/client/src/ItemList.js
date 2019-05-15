@@ -13,8 +13,8 @@ function ItemList() {
     
     // internal state
     const [initialized, setInitialized] = useState(false);
-    const [bikes, setBikes] = useState([]);
-    const [coords, setCoords] = useState([]);
+    const [bikes, setBikes] = useState();
+    const [coords, setCoords] = useState();
 
     useEffect(() => {
         //not initialized before the component is mounted.
