@@ -7,6 +7,7 @@ import BikePage from './BikePage';
 import PaymentPage from './PaymentPage';
 import Navbar from './Navbar';
 import AddBike from './AddBike';
+import AddUser from './AddUser';
 
 export const AppContext = React.createContext();
 
@@ -31,6 +32,7 @@ class App extends Component {
                         <Route exact path='/BikePage' component={BikePage} />
                         <Route exact path='/AddBike' component={AddBike} />
                         <Route exact path='/PaymentPage' component={PaymentPage} />
+                        <Route exact path='/AddUser' component={AddUser} />
                         <Route component={NoMatch} />
                     </Switch>
                 </div>
