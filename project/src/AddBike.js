@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import * as BikeHandler from "./BikeHandler.js";
 import "./css/addBike.css";
 
@@ -8,13 +9,11 @@ import 'react-dates/lib/css/_datepicker.css';
 
 import {Route, Link} from 'react-router-dom';
 
-function validate(gears, price, title, startDate, endDate){
+function validate(gears, price, title){
     return{
         gears:      gears <= 0 || gears === '',
         price:      price < 0 || price === '',
-        title:      title === '',
-        startDate:  startDate === '',
-        endDate:    endDate === ''
+        title:      title === ''
     }
 }
 
@@ -26,8 +25,8 @@ class AddBike extends Component{
                      frame:'wmn', type:'mtb', 
                      gears:'', price:'', 
                      desc:'', title:'',
-                     /*startDate: new Object(),
-                     endDate: new Object(),*/
+                     startDate: moment(),
+                     endDate: moment(),
                      touched: {
                                 gears: false,
                                 price: false,
@@ -52,19 +51,24 @@ class AddBike extends Component{
       };
 
     canBeSubmitted() {
-        const errors = this.validate(this.state.gears, this.state.price, this.state.title, this.state.startDate, this.state.endDate);
+        const errors = this.validate(this.state.gears, this.state.price, this.state.title);
         const isDisabled = Object.keys(errors).some(x => errors[x]);
         return !isDisabled;
       }
+
+    handleDateChange = ({ startDate, endDate }) =>
+      this.setState({ startDate, endDate });
 
     handleSubmit(event) {
         // alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
         // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike_type );
         // this.props.history.push('/Items');
         //alert(this.state.startDate.toString() + "  " + this.state.endDate.toString());
-
+        console.log("Hallo1");
         if(this.canBeSubmitted()){
+            console.log("Hallo2");
             alert(this.state.frame + ' ' + this.state.type + ' ' + this.state.gearstoString() + ' ' + this.state.pricetoString() + ' ' + this.state.title + ' ' + this.state.startDate.toString());
+            console.log(this.state.frame + ' ' + this.state.type + ' ' + this.state.gearstoString() + ' ' + this.state.pricetoString() + ' ' + this.state.title + ' ' + this.state.startDate.toString());
 
             BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
                 this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
@@ -73,12 +77,12 @@ class AddBike extends Component{
             
             return;
         }
-
+        console.log("Hallo3");
         event.preventDefault();
     }
 
     render() {
-        const errors = validate(this.state.gears, this.state.price, this.state.title, this.state.startDate, this.state.endDate);
+        const errors = validate(this.state.gears, this.state.price, this.state.title);
         const isDisabled = Object.keys(errors).some(x => errors[x]);
     
         const shouldMarkError = field => {
@@ -105,10 +109,11 @@ class AddBike extends Component{
                     startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
                     endDate={this.state.endDate} // momentPropTypes.momentObj or null,
                     endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-                    onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+                    onDatesChange={this.handleDateChange} // PropTypes.func.isRequired,
                     focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                     onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
                     minimumNights={0}
+                    displayFormat="DD/MM/YYYY"
                     />
                     </div>
                 </div>
