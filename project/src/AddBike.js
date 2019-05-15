@@ -13,8 +13,8 @@ function validate(gears, price, title){
     return{
         gears:      gears <= 0,
         price:      price < 0,
-        title:      title === ''
-    }
+        title:      title.lenght === 0
+    };
 }
 
 class AddBike extends Component{
@@ -52,7 +52,7 @@ class AddBike extends Component{
       };
 
     canBeSubmitted() {
-        const errors = this.validate(this.state.gears, this.state.price, this.state.title);
+        const errors = validate(this.state.gears, this.state.price, this.state.title);
         const isDisabled = Object.keys(errors).some(x => errors[x]);
         console.log("canBeSubmitted: " + isDisabled);
         return !isDisabled;
@@ -68,11 +68,13 @@ class AddBike extends Component{
         // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike_type );
         // this.props.history.push('/Items');
         //alert(this.state.startDate.toString() + "  " + this.state.endDate.toString());
+        event.preventDefault();
         console.log("Hallo1");
         if(this.canBeSubmitted()){
             console.log("Hallo2");
-            alert(this.state.frame + ' ' + this.state.type + ' ' + this.state.gearstoString() + ' ' + this.state.pricetoString() + ' ' + this.state.title + ' ' + this.state.startDate.toString());
-            console.log(this.state.frame + ' ' + this.state.type + ' ' + this.state.gearstoString() + ' ' + this.state.pricetoString() + ' ' + this.state.title + ' ' + this.state.startDate.toString());
+            console.log(this.state.frame + ' ' + this.state.type + ' ' 
+                + this.state.gears.toString() + ' ' + this.state.price.toString() + ' ' 
+                + this.state.title + ' ' + this.state.startDate.toString());
 
             BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
                 this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
@@ -82,7 +84,6 @@ class AddBike extends Component{
             return;
         }
         console.log("Hallo3");
-        event.preventDefault();
     }
 
     render() {
