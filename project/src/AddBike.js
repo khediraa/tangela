@@ -20,7 +20,7 @@ class AddBike extends Component{
 
     valid() {
         const {gears, price, desc, title} = this.state;
-        return gears > 0 && price >= 0 && desc !== '' && title !== '';
+        return gears > 0 && price >= 0 && title !== '';
     }
 
     handleChange(event) {
@@ -41,7 +41,7 @@ class AddBike extends Component{
                                      this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
 
             this.setState({latitude:'', longitude: '', frame:'wmn', type:'mtb', gears:'', price:'', desc:'', title:''});
-            return;
+            //return;
         }
 
         event.preventDefault();
@@ -63,6 +63,8 @@ class AddBike extends Component{
                 <div id="DateNLoc">
 
                     <div id="AddDate">
+                    <label>
+                    Available dates:
                     <DateRangePicker
                     startDate={this.state.startDate} // momentPropTypes.momentObj or null,
                     startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
@@ -73,6 +75,7 @@ class AddBike extends Component{
                     onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
                     minimumNights={0}
                     />
+                    </label>
                     </div>
                 </div>
 
@@ -94,7 +97,8 @@ class AddBike extends Component{
 
                         <div id="AddTitle">
                             <label>
-                                <input type="text" name="title" placeholder= "Name of your bike" value={this.state.title} onChange={this.handleChange} />
+                                Title:
+                                <input type="text" name="title" placeholder= "" value={this.state.title} onChange={this.handleChange} />
                             </label>
                         </div>
 
@@ -143,7 +147,8 @@ class AddBike extends Component{
 
                         <div id="AddGears">
                             <label>
-                                <input type="number" name="gears" placeholder= "Number of gears" value={this.state.gears} onChange={this.handleChange} />
+                                Gears:
+                                <input type="number" name="gears" placeholder= "" value={this.state.gears} onChange={this.handleChange} />
                             </label>
                         </div>
 
@@ -155,7 +160,8 @@ class AddBike extends Component{
 
                         <div id="AddPrice">
                             <label>
-                                <input type="number" name="price" placeholder= "Cost per day" value={this.state.price} onChange={this.handleChange} />
+                                Price per day:
+                                <input type="number" name="price" placeholder= "" value={this.state.price} onChange={this.handleChange} />
                             </label>
                         </div>
 
@@ -167,7 +173,8 @@ class AddBike extends Component{
 
                         <div id="AddDesc">
                             <label>
-                                <textarea type="text" name="desc" placeholder= "Enter Description (Optional)" value={this.state.desc} onChange={this.handleChange} />
+                                Description:
+                                <textarea type="text" name="desc" placeholder= "(Optional)" value={this.state.desc} onChange={this.handleChange} />
                             </label>
                         </div>
 
