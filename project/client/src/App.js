@@ -28,7 +28,7 @@ class App extends Component {
                         <Route exact path='/' component={MainPage} />
                         <Route exact path='/Home' component={MainPage} />
                         <Route exact path='/Items' component={ItemList} />
-                        <Route exact path='/BikePage' component={BikePage} />
+                        <Route exact path='/BikePage/:id' component={BikePage} />
                         <Route exact path='/AddBike' component={AddBike} />
                         <Route exact path='/PaymentPage' component={PaymentPage} />
                         <Route component={NoMatch} />

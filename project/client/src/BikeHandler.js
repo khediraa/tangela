@@ -76,27 +76,48 @@ export function addBike(name, lat, long, frame, type, gears, price, startDate, e
 }
 
 /* Removes the rented days from the bike specified by id*/
-export function rentBike(id, startDate, endDate) {
+export async function rentBike(id, startDate, endDate) {
+  let startDateString = DateToString(startDate.toDate());
+  let endDateString = DateToString(endDate.toDate());
+  console.log("sending to server");
+  console.log(startDateString);
+  console.log(endDateString);
   
-  //Adds all dates in range to an array
-  var dateArray = getDates(startDate, endDate);
+  return fetch('/rent-bike', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: id,
+      startDate: startDateString,
+      endDate: endDateString
+    })
+  })
+  .then((response) => {
+    return response.status;
+  });
+  
+  // //Adds all dates in range to an array
+  // var dateArray = getDates(startDate, endDate);
  
-  //If all dates are not available for the bike, return false.
-  //TODO: alert user on return false.
-  dateArray.forEach(element => {
-    if (!bikes[id].dates.includes(element)) {
-      return false;
-    }
-  });
+  // //If all dates are not available for the bike, return false.
+  // //TODO: alert user on return false.
+  // dateArray.forEach(element => {
+  //   if (!bikes[id].dates.includes(element)) {
+  //     return false;
+  //   }
+  // });
 
-  //Make the dates unavailable for the bike.
-  dateArray.forEach(element => {
-    if (bikes[id].dates.includes(element)) {
-      var index = bikes[id].dates.indexOf(element);
-      bikes[id].dates.splice(index, 1);
-    }
-  });
-  return true;
+  // //Make the dates unavailable for the bike.
+  // dateArray.forEach(element => {
+  //   if (bikes[id].dates.includes(element)) {
+  //     var index = bikes[id].dates.indexOf(element);
+  //     bikes[id].dates.splice(index, 1);
+  //   }
+  // });
+  // return true;
 }
 
 export function DateToString(date) {

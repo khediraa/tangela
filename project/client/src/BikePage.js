@@ -3,19 +3,22 @@ import Bike from './Bike';
 import * as BikeHandler from './BikeHandler';
 import {AppContext} from './App';
 
-function BikePage() {
-    const {bikeKey} = useContext(AppContext);
+function BikePage(props) {
+    //const {bikeKey} = useContext(AppContext);
 
     //internal state.
     const [initialized, setInitialized] = useState(false);
     const [bike, setBike] = useState();
-    
+    const [bikeId, setBikeId] = useState(0);
     useEffect(() => {
         if(!initialized) {
-            BikeHandler.getBike(bikeKey)
+            const {id} = props.match.params;
+            console.log(id);
+            BikeHandler.getBike(id)
                 .then((json) => {
                     console.log(JSON.stringify(json));
                     setBike(json);
+                    setBikeId(id);
                 });
 
 
@@ -23,7 +26,7 @@ function BikePage() {
         }
     })
     return bike ? (
-        <Bike id={bikeKey}
+        <Bike id={bikeId}
             bike={bike}
         />
     ) : (

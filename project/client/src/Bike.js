@@ -29,7 +29,14 @@ class Bike extends Component {
     }
 
     handleClick() {
-        BikeHandler.rentBike(this.props.id, this.state.startDate, this.state.endDate);
+        BikeHandler.rentBike(this.props.id, this.state.startDate, this.state.endDate)
+            .then((status) => {
+                console.log(status);
+                
+                if (status == 200) {
+                    
+                }
+            });
     }
 
     handleChange(){

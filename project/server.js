@@ -16,12 +16,9 @@ app.get('/express_backend', (req, res, next) => {
 });
 
 app.post('/bike', textParser, (req, res) => {
-  console.log(req.body);
-  
   let id = req.body;
   const jsonString = fs.readFileSync(bikePath, "utf-8");
   const bikes = JSON.parse(jsonString);
-  console.log("sending: " + JSON.stringify(bikes[id]));
   res.send(bikes[id]);
 })
 
@@ -36,15 +33,48 @@ app.post('/filtered-bikes', jsonParser, (req, res) => {
   res.send(filteredBikes);
 })
 
+app.post('/rent-bike', jsonParser, (req, res) => {
+  let id = req.body.id;
+  let startDate = new Date(req.body.startDate);
+  let endDate = new Date(req.body.endDate);
+  console.log(startDate);
+  
+  const jsonString = fs.readFileSync(bikePath, "utf-8");
+  const bikes = JSON.parse(jsonString);
+  
+  //Adds all dates in range to an array
+  var dateArray = getDates(startDate, endDate);
+ 
+  //If all dates are not available for the bike, return false.
+  dateArray.forEach(element => {
+    if (!bikes[id].dates.includes(element)) {
+      res.status(300).send('Dates not available.');
+    }
+  });
+
+  //Make the dates unavailable for the bike.
+  dateArray.forEach(element => {
+    if (bikes[id].dates.includes(element)) {
+      var index = bikes[id].dates.indexOf(element);
+      bikes[id].dates.splice(index, 1);
+    }
+  });
+  success = updateDatabase(bikes, bikePath);
+  if (!success) {
+    res.status(301).send('Could not write.');
+  }
+  res.status(200).send('Dates updated.');
+})
+
 /* Helper functions */
 
-const updateDatabase = (data) => {
-  let path = "bikes.json";
+function updateDatabase(data, path) {
    try {
-     console.log(data, path);
-     //fs.writeFileSync(path, JSON.stringify(data));
+     fs.writeFileSync(path, JSON.stringify(data, null, 4));
+     return true;
    } catch (error) {
      console.error(error);
+     return false;
    }
 }
 
@@ -59,4 +89,24 @@ function containsBike(bike, city, bike_type, dates) {
 
 function DateToString(date) {
   return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+}
+
+/* Returns array of dates within starDate and endDate */
+function getDates(startDate, endDate) {
+  var dateArray = [];
+  var currentDate = startDate;
+  
+  //Put all dates between startDate and endDate in an array.
+  while (currentDate <= endDate) {
+    dateArray.push(DateToString(new Date(currentDate)));
+    currentDate = currentDate.addDays(1);
+  }
+  return dateArray;
+}
+
+/* Returns a new Date object for a specified number of days after the current date. */
+Date.prototype.addDays = function (days) {
+  var date = new Date(this.valueOf());
+  date.setDate(date.getDate() + days);
+  return date;
 }
