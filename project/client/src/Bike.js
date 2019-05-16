@@ -8,6 +8,8 @@ import 'react-dates/lib/css/_datepicker.css';
 import * as moment from 'moment';
 import MapContainer from './MapContainer';
 import './css/mapContainer.css';
+import history from './history';
+
 class Bike extends Component {
     constructor(props) {
         super(props);
