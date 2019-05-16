@@ -100,7 +100,7 @@ class AddBike extends Component{
                 + this.state.title + ' ' + this.state.startDate.toString());
 
             BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
-                this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
+                this.state.gears, this.state.price, this.state.startDate.toDate(), this.state.endDate.toDate(), this.state.desc);
 
             this.setState({latitude:'', longitude: '', frame:'wmn', type:'mtb', gears:'', price:'', desc:'', title:''});
             
