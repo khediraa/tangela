@@ -21,8 +21,8 @@ var users = require('./resources/users.json');
     return true;
   }
 
-  export function connectBike(email, newBike){
-      users[email].bikes.push(newBike);
+  export function connectBike(email, id){
+      users[email].bikes.push(id.toString());
       console.log(users[email].bikes);
       return true;
     }

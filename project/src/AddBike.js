@@ -39,9 +39,9 @@ class AddBike extends Component{
 
         if(this.valid()){
             var newBike= ({name:this.state.title, city:"Gothenburg", lat:"57.6930247", lng:"11.9752922", frame:this.state.frame, type:this.state.type, gears:this.state.gears, price:this.state.price, dates:BikeHandler.getDates(this.state.startDate, this.state.endDate), description:this.state.desc });
-            BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
+            var id = BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
                                      this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
-            UserHandler.connectBike("henrik@hoi.se", newBike);                         
+            UserHandler.connectBike("henrik@hoi.com", id);                         
 
             this.setState({latitude:'', longitude: '', frame:'wmn', type:'mtb', gears:'', price:'', desc:'', title:''});
             //return;

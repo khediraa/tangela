@@ -1,7 +1,7 @@
 //import data from "./resources/bikes.json";
 //var bikes = data; //TODO: Update json file periodically to make backup.
 var bikes = require('./resources/bikes.json');
-var myId=6;
+var myId=5;
 
 export function getBike(id) {
   return bikes[id];
@@ -37,14 +37,15 @@ export function getDates(startDate, endDate) {
 /* Function that adds another bike to the json file */
 export function addBike(name, lat, long, frame, type, gears, price, startDate, endDate, description) {
     //TODO Fixa så att city, lat och lng inte är hårdkodat. Man ser inte tillagda cyklar om värden på dessa parametrar saknas.
+    myId=myId+1;
     var newBike= ({name:name, city:"Gothenburg", lat:"57.6930247", lng:"11.9752922", frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
 
   bikes[myId] = newBike;
   console.log(bikes[myId]);
   console.log(bikes);
   //TODO: bikes ska skicka till JSON-filen
-  myId=myId+1;
-  return true;
+
+  return myId;
 }
 
 /* Removes the rented days from the bike specified by id*/
