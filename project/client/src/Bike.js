@@ -34,7 +34,7 @@ class Bike extends Component {
                 console.log(status);
                 
                 if (status == 200) {
-                    
+                    history.push('/PaymentPage');
                 }
             });
     }
