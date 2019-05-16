@@ -8,6 +8,7 @@ import PaymentPage from './PaymentPage';
 import Navbar from './Navbar';
 import AddBike from './AddBike';
 import AddUser from './AddUser';
+import UserProfile from './UserProfile';
 
 export const AppContext = React.createContext();
 
@@ -16,7 +17,7 @@ class App extends Component {
         city: "",
         bike_type: "all",
         login:true,
-        email:"henrik@hoi.se",
+        email:"henrik@hoi.com",
         setState: this.setState.bind(this)
     };
 
@@ -33,6 +34,7 @@ class App extends Component {
                         <Route exact path='/AddBike' component={AddBike} />
                         <Route exact path='/PaymentPage' component={PaymentPage} />
                         <Route exact path='/AddUser' component={AddUser} />
+                        <Route exact path='/UserProfile' component={UserProfile} />
                         <Route component={NoMatch} />
                     </Switch>
                 </div>

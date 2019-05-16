@@ -26,4 +26,8 @@ var users = require('./resources/users.json');
       console.log(users[email].bikes);
       return true;
     }
+
+    export function getMyBikes(email){
+      return users[email].bikes;
+    }
   
