@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as BikeHandler from "./BikeHandler.js";
+import * as UserHandler from "./UserHandler.js";
 import "./css/addBike.css";
 
 import 'react-dates/initialize';
@@ -37,8 +38,10 @@ class AddBike extends Component{
         //alert(this.state.startDate.toString() + "  " + this.state.endDate.toString());
 
         if(this.valid()){
+            var newBike= ({name:this.state.title, city:"Gothenburg", lat:"57.6930247", lng:"11.9752922", frame:this.state.frame, type:this.state.type, gears:this.state.gears, price:this.state.price, dates:BikeHandler.getDates(this.state.startDate, this.state.endDate), description:this.state.desc });
             BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
                                      this.state.gears, this.state.price, this.state.startDate, this.state.endDate, this.state.desc);
+            UserHandler.connectBike("henrik@hoi.se", newBike);                         
 
             this.setState({latitude:'', longitude: '', frame:'wmn', type:'mtb', gears:'', price:'', desc:'', title:''});
             //return;
