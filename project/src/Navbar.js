@@ -20,9 +20,9 @@ class Navbar extends Component {
                     </li>
                 </Link>
 
-                <Link>
+                <Link to='/UserProfile'>
                     <li>
-                        <a href="http://google.com">Login</a>
+                        <a>Profile</a>
                     </li>
                 </Link>
 
