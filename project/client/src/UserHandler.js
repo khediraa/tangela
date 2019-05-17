@@ -32,4 +32,3 @@ export function connectBike(email, id) {
 export function getMyBikes(email) {
   return users[email].bikes;
 }
-

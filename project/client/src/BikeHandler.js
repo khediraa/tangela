@@ -1,7 +1,7 @@
 //import data from "./resources/bikes.json";
 //var bikes = data; //TODO: Update json file periodically to make backup.
 var bikes = require('./resources/bikes.json');
-var myId=6;
+var myId=5;
 const serverURL = '/bikes'; // gets appended to the proxy from package.json
 
 /* Fetches a bike based on id them. 
@@ -68,11 +68,12 @@ export function getDates(startDate, endDate) {
 export function addBike(name, lat, long, frame, type, gears, price, startDate, endDate, description) {
     var newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
 
+  myId=myId+1;
   bikes[myId] = newBike;
   console.log(bikes[myId]);
   //console.log(bikes);
   //TODO: bikes ska skicka till JSON-filen
-  myId=myId+1;
+  return myId;
 }
 
 /* Removes the rented days from the bike specified by id*/
