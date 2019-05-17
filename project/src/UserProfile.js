@@ -14,6 +14,7 @@ function UserProfile() {
     var bikes_list = [];
     var bikeCoords = [];
 
+    // Reused code from ItemList
     for (let i = 0; i < myBikes.length; i++) {
         let bkey = (parseInt(Object.keys(myBikes)[i]) + 1);        
         bikes_list = [...bikes_list, 
