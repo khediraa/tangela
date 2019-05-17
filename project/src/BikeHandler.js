@@ -24,8 +24,8 @@ export function containsBike(bike, city, bike_type, dates) {
 /* Returns array of dates within starDate and endDate */
 export function getDates(startDate, endDate) {
   var dateArray = [];
-  var currentDate = startDate;
-  
+  var currentDate = new Date(startDate);
+
   //Put all dates between startDate and endDate in an array.
   while (currentDate <= endDate) {
     dateArray.push(DateToString(new Date(currentDate)));
@@ -36,21 +36,22 @@ export function getDates(startDate, endDate) {
 
 /* Function that adds another bike to the json file */
 export function addBike(name, lat, long, frame, type, gears, price, startDate, endDate, description) {
-    var newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
+    //TODO Fixa så att city, lat och lng inte är hårdkodat. Man ser inte tillagda cyklar om värden på dessa parametrar saknas.
+    var newBike= ({name:name, city:"Gothenburg", lat:"57.6930247", lng:"11.9752922", frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
 
   bikes[myId] = newBike;
   console.log(bikes[myId]);
-  //console.log(bikes);
+  console.log(bikes);
   //TODO: bikes ska skicka till JSON-filen
   myId=myId+1;
 }
 
 /* Removes the rented days from the bike specified by id*/
 export function rentBike(id, startDate, endDate) {
-  
+
   //Adds all dates in range to an array
   var dateArray = getDates(startDate, endDate);
- 
+
   //If all dates are not available for the bike, return false.
   //TODO: alert user on return false.
   dateArray.forEach(element => {

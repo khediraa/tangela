@@ -22,8 +22,8 @@ class AddBike extends Component{
     constructor(props) {
         super(props);
         this.state = {latitude:'', longitude: '',
-                     frame:'wmn', type:'mtb', 
-                     gears:'', price:'', 
+                     frame:'wmn', type:'mtb',
+                     gears:'', price:'',
                      desc:'', title:'',
                      startDate: moment(),
                      endDate: moment(),
@@ -95,15 +95,15 @@ class AddBike extends Component{
         console.log("Hallo1");
         if(this.canBeSubmitted()){
             console.log("Hallo2");
-            console.log(this.state.frame + ' ' + this.state.type + ' ' 
-                + this.state.gears.toString() + ' ' + this.state.price.toString() + ' ' 
+            console.log(this.state.frame + ' ' + this.state.type + ' '
+                + this.state.gears.toString() + ' ' + this.state.price.toString() + ' '
                 + this.state.title + ' ' + this.state.startDate.toString());
 
             BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude,  this.state.frame, this.state.type,
                 this.state.gears, this.state.price, this.state.startDate.toDate(), this.state.endDate.toDate(), this.state.desc);
 
             this.setState({latitude:'', longitude: '', frame:'wmn', type:'mtb', gears:'', price:'', desc:'', title:''});
-            
+
             return;
         }
         console.log("Hallo3");
@@ -112,11 +112,11 @@ class AddBike extends Component{
     render() {
         const errors = validate(this.state.gears, this.state.price, this.state.title);
         const isDisabled = Object.keys(errors).some(x => errors[x]);
-    
+
         const shouldMarkError = field => {
           const hasError = errors[field];
           const shouldShow = this.state.touched[field];
-    
+
           return hasError ? shouldShow : false;
         };
 
@@ -164,11 +164,11 @@ class AddBike extends Component{
 
                         <div id="AddTitle">
                             <label>
-                                <input type="text" name="title" 
-                                    placeholder= "Name of your bike" 
+                                <input type="text" name="title"
+                                    placeholder= "Name of your bike"
                                     className={shouldMarkError("title") ? "error" : ""}
-                                    value={this.state.title} 
-                                    onChange={this.handleChange} 
+                                    value={this.state.title}
+                                    onChange={this.handleChange}
                                     onBlur={this.handleBlur("title")} />
                             </label>
                         </div>
@@ -184,7 +184,7 @@ class AddBike extends Component{
 
                         Frame
 
-                        <select type="text" name="frame" 
+                        <select type="text" name="frame"
                             value={this.state.frame}
                             onChange={this.handleChange} >
                         <option value="wmn">Women's</option>
@@ -220,11 +220,11 @@ class AddBike extends Component{
 
                         <div id="AddGears">
                             <label>
-                                <input type="number" name="gears" 
+                                <input type="number" name="gears"
                                     className={shouldMarkError("gears") ? "error" : ""}
-                                    placeholder= "Number of gears" 
-                                    value={this.state.gears} 
-                                    onChange={this.handleChange} 
+                                    placeholder= "Number of gears"
+                                    value={this.state.gears}
+                                    onChange={this.handleChange}
                                     onBlur={this.handleBlur("gears")}/>
                             </label>
                         </div>
@@ -237,11 +237,11 @@ class AddBike extends Component{
 
                         <div id="AddPrice">
                             <label>
-                                <input type="number" name="price" 
-                                    placeholder= "Cost per day" 
+                                <input type="number" name="price"
+                                    placeholder= "Cost per day"
                                     className={shouldMarkError("price") ? "error" : ""}
-                                    value={this.state.price} 
-                                    onChange={this.handleChange} 
+                                    value={this.state.price}
+                                    onChange={this.handleChange}
                                     onBlur={this.handleBlur("price")}/>
                             </label>
                         </div>
