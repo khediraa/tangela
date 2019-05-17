@@ -1,7 +1,7 @@
 .search{
   background-color: white;
   border-radius: 5px;
-  height: 550px;
+  height: 500px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5%;
@@ -14,41 +14,40 @@
 }
 
 .search .form .box {
-  margin: 10px 0 10px 0;
   font-size: 18px;
+  margin: 10px 0 10px 0;
 }
 
-.DateInput.DateInput_1 {
+.search .DateInput.DateInput_1 {
   width: 197px;
 }
 
 #your_unique_start_date_id, #your_unique_end_date_id {
-  text-align: center;
-  padding: 0;
+  cursor: pointer;
   margin: 4px 0px;
-  cursor:pointer;
-
+  padding: 0;
+  text-align: center;
 }
 
-input {
+.search input {
   background: white;
   box-sizing: border-box;
-  
 }
 
-input[type="submit"] {
-  cursor:pointer;
+.search input[type="submit"] {
   background: salmon;
   color: white;
-  width: 100px;
+  cursor: pointer;
   padding: 10px 0;
+  float: right;
+  width: 100px;
 }
 
-a:hover, a:visited, a:link, a:active {
+.search a:hover, a:visited, a:link, a:active {
   text-decoration: none
 }
 
-.type select {
+.search .type select {
   background: white;
   border-radius: 4px;
   box-sizing: border-box;

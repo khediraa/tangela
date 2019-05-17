@@ -9,7 +9,6 @@ import {AppContext} from './App';
 
 function MainSearchBox () {
   const state = useContext(AppContext);
-
   return(
     <div className="search">
       <form className="form" >
@@ -52,7 +51,7 @@ function MainSearchBox () {
         </div>
         <div className="box">
           <Link to='/Items' >
-          <input type="submit" value="Search" />
+            <input type="submit" value="Search" />
           </Link>
         </div>     
       </form>
