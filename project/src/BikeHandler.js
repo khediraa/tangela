@@ -1,7 +1,7 @@
 //import data from "./resources/bikes.json";
 //var bikes = data; //TODO: Update json file periodically to make backup.
 var bikes = require('./resources/bikes.json');
-var myId=5;
+var myId = 5;
 
 export function getBike(id) {
   return bikes[id];
@@ -15,9 +15,9 @@ export function getAllBikes() {
 /* Takes a bike object and checks if the bike object has "city", "bike_type", and "dates" */
 export function containsBike(bike, city, bike_type, dates) {
   let todaysDate = DateToString(new Date());
-  let containsCity = city==="" ? true : city.toUpperCase()===bike.city.toUpperCase();
-  let containsDates = dates.length===0 ? bike.dates.some(d => todaysDate<=d) : dates.some(d => bike.dates.includes(d));
-  let containsType = bike_type==="all" ? true : bike.type===bike_type;
+  let containsCity = city === "" ? true : city.toUpperCase() === bike.city.toUpperCase();
+  let containsDates = dates.length === 0 ? bike.dates.some(d => todaysDate <= d) : dates.some(d => bike.dates.includes(d));
+  let containsType = bike_type === "all" ? true : bike.type === bike_type;
   return containsCity && containsType && containsDates;
 }
 
@@ -36,9 +36,9 @@ export function getDates(startDate, endDate) {
 
 /* Function that adds another bike to the json file */
 export function addBike(name, lat, long, frame, type, gears, price, startDate, endDate, description) {
-    //TODO Fixa så att city, lat och lng inte är hårdkodat. Man ser inte tillagda cyklar om värden på dessa parametrar saknas.
-    myId=myId+1;
-    var newBike= ({name:name, city:"Gothenburg", lat:"57.6930247", lng:"11.9752922", frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
+  //TODO Fixa så att city, lat och lng inte är hårdkodat. Man ser inte tillagda cyklar om värden på dessa parametrar saknas.
+  myId = myId + 1;
+  var newBike = ({ name: name, city: "Gothenburg", lat: "57.6930247", lng: "11.9752922", frame: frame, type: type, gears: gears, price: price, dates: getDates(startDate, endDate), description: description });
 
   bikes[myId] = newBike;
   console.log(bikes[myId]);
