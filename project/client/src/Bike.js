@@ -8,24 +8,40 @@ import 'react-dates/lib/css/_datepicker.css';
 import * as moment from 'moment';
 import MapContainer from './MapContainer';
 import './css/mapContainer.css';
-import {Link} from 'react-router-dom';
 import history from './history';
+
 class Bike extends Component {
     constructor(props) {
         super(props);
-        this.state = { rented: false };
+        this.handleClick = this.handleClick.bind(this);
+        this.state = {};
+        //let startDate= this.state.startDate; //11/3/2018
+        //let endDate= this.state.endDate; //11/10/2018
+        //let campaignStartDate = '11/3/2018';
+        //let campaignEndDate= '11/10/2018';
     }
 
     isBlocked = day => {
-        return !this.props.dates.some(date => day.isSame(date, 'day'))
+        //const availableDates = ['2019-08-09', '2019-08-10'] //"2019-08-09", "2019-08-10", "2019-08-11", "2019-08-12"
+        return !this.props.bike.dates.some(date => day.isSame(date, 'day'))
     }
 
     blocksDay(day) {
         return day.isSame(moment(), "day");
     }
 
+    handleClick() {
+        BikeHandler.rentBike(this.props.id, this.state.startDate, this.state.endDate)
+            .then((status) => {
+                console.log(status);
+                
+                if (status == 200) {
+                    history.push('/PaymentPage');
+                }
+            });
+    }
+
     handleChange(){
-        BikeHandler.rentBike(this.props.id, this.state.startDate, this.state.endDate);
     }
 
     handleCalenderChange(startDate, endDate) {
@@ -33,19 +49,15 @@ class Bike extends Component {
     }
 
     render() {
-        let article;
-
-        /*if (this.state.rented) {
-            article = <article className="bicycle">
-                <h2>This bike is rented</h2>
-            </article>
-        }*/
-        article = <article className="bicycle">
+        let bike = this.props.bike;
+        return (
+            <article className="bicycle">
             <div className="left">
-                <h2>{this.props.title}</h2>
-                <p>{this.props.city}</p>
-                <p>available from {this.props.startDate} to {this.props.endDate}</p>
-                <p>price: {this.props.price} kr / day</p>
+                <h2>{bike.title}</h2>
+                <p>{bike.city}</p>
+                <p>{bike.description}</p>
+                <p>Gears: {bike.gears}</p>
+                <p>Price: {bike.price} kr / day</p>
 
                 <DateRangePicker
                     startDate={this.state.startDate} // momentPropTypes.momentObj or null,
@@ -59,29 +71,25 @@ class Bike extends Component {
                     minimumNights={0}
                     daySize={25}
                 />
-                
-                <button onClick={(event) => {
-                                    history.push('/PaymentPage'); //on the click the user goes to PaymentPage
-                                    }}>
-                        Yes please!
+
+                <button onClick={this.handleClick}>
+                    Rent bike
                 </button>
             </div>
             
             <div className="right">
                 <MapContainer className="bike-map-container"
-                    lat={this.props.lat}
-                    lng={this.props.lng}
                     coords={[
                         {
-                            "lat": this.props.lat,
-                            "lng":this.props.lng
+                            "lat": bike.lat,
+                            "lng": bike.lng
                         }
                     ]}
                     zoom={13}
                 />
             </div>
-        </article>
-        return article;
+            </article>
+        );
     }
 }
 

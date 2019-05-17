@@ -3,13 +3,15 @@ import { AppContext } from './App';
 
 var users = require('./resources/users.json');
 
-//TODO: This function is under development
-export function login(email, password) {
-  /*state.setState({email:state.email});
-   if (users[state.email].password===password){
-      state.setState({login:true});
-   }*/
-}
+function UserHandler() {
+  const state = useContext(AppContext);
+
+  export function login(email, password){
+    state.setState({email: email});
+    if (users[state.email].password===password){
+      state.setState({login: true});
+    }
+  }
 
 // Adds a new user to the JSON
 //TODO the variable user never updates the JSON-file
@@ -32,4 +34,3 @@ export function connectBike(email, id) {
 export function getMyBikes(email) {
   return users[email].bikes;
 }
-
