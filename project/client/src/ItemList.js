@@ -47,6 +47,7 @@ function ItemList() {
             <MapContainer
                 coords={coords}
                 zoom={10}
+                bkey={1}
             />
         </div>
     ) : (
