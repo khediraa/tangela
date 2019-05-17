@@ -25,9 +25,6 @@ nav img:hover {
 
 nav li {
   float: right;
-}
-
-nav li a {
   display: block;
   color: red;
   text-align: center;
@@ -37,7 +34,7 @@ nav li a {
   height: 100%;
 }
 
-nav li a:hover {
+nav li:hover {
   background-color: #19f;
   -webkit-animation: rt1 0.2s infinite alternate;-moz-animation: rt1 0.2s infinite alternate;animation: rt1 0.2s infinite alternate;
 }
