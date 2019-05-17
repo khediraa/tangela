@@ -14,19 +14,19 @@ class Navbar extends Component {
                 
                 <Link to='/AddBike'>
                     <li>
-                        <a href="http://google.com">Add bike</a>
+                        Add bike
                     </li>
                 </Link>
 
-                <Link>
+                <Link to='/'>
                     <li>
-                        <a href="http://google.com">Login</a>
+                        Login
                     </li>
                 </Link>
 
-                <Link>
+                <Link to='/'>
                     <li>
-                        <a href="http://google.com">Register</a>
+                        Register
                     </li>
                 </Link>
 
