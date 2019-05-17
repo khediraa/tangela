@@ -1,0 +1,30 @@
+{
+    "henrik@hoi.com": {
+      "fname": "Henrik",
+      "lname": "Edstrand",
+      "tel": "+46777665544",
+      "bikes": [
+        "1",
+        "2",
+        "5"
+      ],
+      "password": "111111"
+    },
+    "jeppe@hoi.com": {
+        "fname": "Jesper",
+        "lname": "Berglind",
+        "tel": "+46777554433",
+        "bikes": [
+          "3",
+          "4"
+        ],
+        "password": "222222"
+    },
+    "karin@hoi.com": {
+        "fname": "Karin",
+        "lname": "Sjödin",
+        "tel": "+46777443322",
+        "bikes": [],
+        "password": "333333"
+    }
+}
