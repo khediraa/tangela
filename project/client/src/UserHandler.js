@@ -1,28 +1,34 @@
 import React, { useContext } from 'react';
-import {AppContext} from './App';
+import { AppContext } from './App';
 
 var users = require('./resources/users.json');
 
-function UserHandler() {
-  const state = useContext(AppContext);
-
-  export function login(email, password){
-    state.setState({email: email});
-    if (users[state.email].password===password){
-      state.setState({login: true});
-    }
-  }
-
-  export function addUser(email, fname, lname, tel, password){
-    //TODO Must check that the email doesn't exist already
-    var newUser= ({fname:fname, lname:lname, tel:tel, bikes:[], password:password});
-    users[email.userId]=newUser;
-  }
-
-  export function connectBike(newBike){
-    if(state.login=true){
-      users[state.email].bikes.push(newBike);
-    }
-  }
+//TODO: This function is under development
+export function login(email, password) {
+  /*state.setState({email:state.email});
+   if (users[state.email].password===password){
+      state.setState({login:true});
+   }*/
 }
-export default UserHandler;
+
+// Adds a new user to the JSON
+//TODO the variable user never updates the JSON-file
+export function addUser(email, fname, lname, tel, password) {
+  //TODO Must check that the email doesn't exist already
+  var newUser = ({ fname: fname, lname: lname, tel: tel, bikes: [], password: password });
+  users[email] = newUser;
+  console.log(newUser);
+  console.log(users);
+  return true;
+}
+
+//This function connects a bike to a user.
+export function connectBike(email, id) {
+  users[email].bikes.push(id.toString());
+  console.log(users[email].bikes);
+  return true;
+}
+//Returns all bikes that belongs to a certain user
+export function getMyBikes(email) {
+  return users[email].bikes;
+}
