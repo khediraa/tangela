@@ -20,7 +20,7 @@ app.post('/bike', textParser, (req, res) => {
   const jsonString = fs.readFileSync(bikePath, "utf-8");
   const bikes = JSON.parse(jsonString);
   res.send(bikes[id]);
-})
+});
 
 app.post('/filtered-bikes', jsonParser, (req, res) => {
   let city = req.body.city;
@@ -64,7 +64,18 @@ app.post('/rent-bike', jsonParser, (req, res) => {
     res.status(301).send('Could not write.');
   }
   res.status(200).send('Dates updated.');
-})
+});
+
+app.post('/add-bike', jsonParser, (req, res) => {
+  
+
+  myId=myId+1;
+  bikes[myId] = newBike;
+  console.log(bikes[myId]);
+  //console.log(bikes);
+  //TODO: bikes ska skicka till JSON-filen
+  return myId;
+});
 
 /* Helper functions */
 
