@@ -9,8 +9,10 @@ function ItemListComponent({bikeKey, title, price}) {
     let link = `/BikePage/${bikeKey}`;
     return (
         <div className="itemListComponent">
-            <Link to={link}>{title}</Link>
-            <h4>{price} kr/day</h4>
+            <div>
+                <Link to={link}>{title}</Link>
+                <h5>{price} kr/day</h5>
+            </div>
         </div>
     );
 }

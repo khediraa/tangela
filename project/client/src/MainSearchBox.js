@@ -12,7 +12,9 @@ function MainSearchBox () {
   return(
     <div className="search">
       <form className="form" >
-        <h1> Rent a bike </h1>
+        <div className="box" >
+          <h1> Rent a bike </h1>
+        </div>
         <div className="box">
           <label>Where</label>
           <div className="city">
@@ -49,7 +51,7 @@ function MainSearchBox () {
             </select>
           </div>
         </div>
-        <div className="box">
+        <div className="box-button">
           <Link to='/Items' >
             <input type="submit" value="Search" />
           </Link>
