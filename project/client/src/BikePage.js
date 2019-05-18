@@ -12,10 +12,8 @@ function BikePage(props) {
     useEffect(() => {
         if(!initialized) {
             const {id} = props.match.params;
-            console.log(id);
             BikeHandler.getBike(id)
                 .then((json) => {
-                    console.log(JSON.stringify(json));
                     setBike(json);
                 });
 

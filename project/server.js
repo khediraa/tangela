@@ -35,7 +35,6 @@ app.post('/rent-bike', jsonParser, (req, res) => {
   let id = req.body.id;
   let startDate = new Date(req.body.startDate);
   let endDate = new Date(req.body.endDate);
-  console.log(startDate);
   
   const bikes = getBikes();
   const index = bikes.findIndex(bike => bike.id == id);
@@ -117,7 +116,6 @@ function incrementNextId() {
     let nextId = parseInt(bikeJson.nextId);
     nextId += 1;
     bikeJson.nextId = nextId.toString();
-    console.log(bikeJson.nextId);
     fs.writeFileSync(bikePath, JSON.stringify(bikeJson, null, 4));
     return true;
   } catch (error) {

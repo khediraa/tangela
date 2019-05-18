@@ -29,8 +29,6 @@ class Bike extends Component {
     handleClick() {
         BikeHandler.rentBike(this.props.bike.id, this.state.startDate, this.state.endDate)
             .then((status) => {
-                console.log(status);
-                
                 if (status == 200) {
                     history.push('/PaymentPage');
                 }
