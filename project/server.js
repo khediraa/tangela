@@ -17,8 +17,7 @@ app.get('/express_backend', (req, res, next) => {
 
 app.post('/bike', textParser, (req, res) => {
   let id = req.body;
-  const jsonString = fs.readFileSync(bikePath, "utf-8");
-  const bikes = JSON.parse(jsonString);
+  const bikes = getBikes();
   const index = bikes.findIndex(bike => bike.id == id);
   res.send(bikes[index]);
 });
@@ -117,7 +116,8 @@ function incrementNextId() {
     let bikeJson = JSON.parse(jsonString);
     let nextId = parseInt(bikeJson.nextId);
     nextId += 1;
-    bikeJson.nextId = toString(nextId);
+    bikeJson.nextId = nextId.toString();
+    console.log(bikeJson.nextId);
     fs.writeFileSync(bikePath, JSON.stringify(bikeJson, null, 4));
     return true;
   } catch (error) {
