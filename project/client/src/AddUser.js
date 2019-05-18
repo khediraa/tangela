@@ -34,6 +34,10 @@ class AddUser extends Component{
             this.setState({email:'', fname: '', lname:'', tel:'', password:'', confPassword:''});
             //return;
         }
+        else{
+            //This will preferably be changed to act just like addBike. The submit button goes from disabled to enabled?
+            alert('Passwords must match! Please try again.')
+        }
 
         event.preventDefault();
     }
