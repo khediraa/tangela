@@ -23,9 +23,9 @@ export function addUser(email, fname, lname, tel, password) {
 }
 
 //This function connects a bike to a user.
-export function connectBike(email, id) {
+export function assignBikeToUser(email, id) {
   users[email].bikes.push(id.toString());
-  console.log(users[email].bikes);
+  console.log('Bike id ' + id + ' was successfully assigned to ' + email);
   return true;
 }
 //Returns all bikes that belongs to a certain user
