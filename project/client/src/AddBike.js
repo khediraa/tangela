@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import Modal from 'react-modal';
 import * as BikeHandler from "./BikeHandler.js";
 import * as UserHandler from "./UserHandler.js";
 import "./css/addBike.css";
@@ -10,11 +11,32 @@ import 'react-dates/lib/css/_datepicker.css';
 
 import { Route, Link } from 'react-router-dom';
 
+
+const modalStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)'
+    }
+};
+
+//Modal.setAppElement('#root')
+
+
 function validate(gears, price, title) {
+
+    //      TESTS
+    /*const a = gears > 0;
+    const b = price > 0;
+    const c = title.length > 0;
+    console.log(a + " " + b + " " + c + " " + title)*/
     return {
         gears: gears <= 0,
-        price: price < 0,
-        title: title.lenght === 0
+        price: price <= 0,
+        title: title.length === 0
     };
 }
 
@@ -33,11 +55,28 @@ class AddBike extends Component {
                 gears: false,
                 price: false,
                 title: false
-            }
+            },
+            modalIsOpen: false
         };
 
+        this.openModal = this.openModal.bind(this);
+        this.afterOpenModal = this.afterOpenModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    openModal() {
+        this.setState({modalIsOpen: true});
+    }
+    
+    afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        this.subtitle.style.color = '#f00';
+    }
+    
+    closeModal() {
+        this.setState({modalIsOpen: false});
     }
 
     /*
@@ -49,7 +88,7 @@ class AddBike extends Component {
         const target = event.target;
         const tmp = target.name;
         this.setState({ [tmp]: target.value });
-        console.log("change")
+        console.log("changed: " + tmp);
 
     }
 
@@ -86,7 +125,7 @@ class AddBike extends Component {
 
     handleDateChange = ({ startDate, endDate }) => {
         this.setState({ startDate, endDate });
-        console.log("datechange" + this.state.startDate.toString())
+        console.log("Date has changed to: " + this.state.startDate.toString())
     };
 
     handleSubmit(event) {
@@ -95,21 +134,21 @@ class AddBike extends Component {
         // this.props.history.push('/Items');
         //alert(this.state.startDate.toString() + "  " + this.state.endDate.toString());
         event.preventDefault();
-        console.log("Hallo1");
+        
         if (this.canBeSubmitted()) {
-            console.log("Hallo2");
+            console.log("Can be submitted");
             console.log(this.state.frame + ' ' + this.state.type + ' '
                 + this.state.gears.toString() + ' ' + this.state.price.toString() + ' '
                 + this.state.title + ' ' + this.state.startDate.toString());
 
             var id = BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude, this.state.frame, this.state.type,
                 this.state.gears, this.state.price, this.state.startDate.toDate(), this.state.endDate.toDate(), this.state.desc);
+
             UserHandler.assignBikeToUser("henrik@hoi.com",id);
             this.setState({ latitude: '', longitude: '', frame: 'wmn', type: 'mtb', gears: '', price: '', desc: '', title: '' });
 
             return;
         }
-        console.log("Hallo3");
     }
 
     render() {
@@ -125,6 +164,22 @@ class AddBike extends Component {
 
         return (
             <div id="Wrapper">
+
+                <div id="ModalContainer">
+                    <Modal
+                        isOpen={this.state.modalIsOpen}
+                        onAfterOpen={this.afterOpenModal}
+                        onRequestClose={this.closeModal}
+                        contentLabel="Confirmation message"
+                        style={modalStyles}
+                        ariaHideApp={false}
+                    >
+
+                        <h2 ref={subtitle => this.subtitle = subtitle}>Well Done!</h2>
+                        <button onClick={this.closeModal}>close</button>
+                        <div>Bike added.</div>
+                    </Modal>
+                </div>
 
                 {/*
 
@@ -176,7 +231,8 @@ class AddBike extends Component {
                                     className={shouldMarkError("title") ? "error" : ""}
                                     value={this.state.title}
                                     onChange={this.handleChange}
-                                    onBlur={this.handleBlur("title")} />
+                                    onBlur={this.handleBlur("title")}
+                                    required />
                             </label>
                         </div>
 
@@ -233,7 +289,8 @@ class AddBike extends Component {
                                     placeholder="Number of gears"
                                     value={this.state.gears}
                                     onChange={this.handleChange}
-                                    onBlur={this.handleBlur("gears")} />
+                                    onBlur={this.handleBlur("gears")}
+                                    required />
                             </label>
                         </div>
 
@@ -251,7 +308,9 @@ class AddBike extends Component {
                                     className={shouldMarkError("price") ? "error" : ""}
                                     value={this.state.price}
                                     onChange={this.handleChange}
-                                    onBlur={this.handleBlur("price")} />
+                                    onBlur={this.handleBlur("price")} 
+                                    required
+                                    />
                             </label>
                         </div>
 
@@ -271,7 +330,7 @@ class AddBike extends Component {
                         <div id="AddSubmit">
 
                             {/*<Link to='/Items' >*/}
-                            <button disabled={isDisabled} type="submit" value="Submit">Submit</button>
+                            <button disabled={isDisabled} type="submit" value="Submit" onClick={this.openModal}>Submit</button>
                             {/*</Link>*/}
 
                         </div>

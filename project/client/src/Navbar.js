@@ -22,13 +22,13 @@ class Navbar extends Component {
 
                 <Link to='/UserProfile'>
                     <li>
-                        <a>Profile</a>
+                        Profile
                     </li>
                 </Link>
 
                 <Link to='/AddUser'>
                     <li>
-                        <a>Register</a>
+                        Register
                     </li>
                 </Link>
 
