@@ -49,7 +49,7 @@ function MainSearchBox () {
             </select>
           </div>
         </div>
-        <div className="box">
+        <div className="box-button">
           <Link to='/Items' >
             <input type="submit" value="Search" />
           </Link>
