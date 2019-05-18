@@ -1,8 +1,7 @@
 .itemListComponent {
-    /* color: red; */
     background: white;
-    border-radius: 3px;
     border: 1px #ccc solid;
+    border-radius: 3px;
     padding-left: 15px;
     height: 150px;
     margin: 10px 0;

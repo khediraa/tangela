@@ -51,11 +51,12 @@
   text-decoration: none
 }
 
-.search .type select {
+.search .type select, #AddInfo select {
   background: white;
-  border-radius: 4px;
+  border-radius: 5px;
   box-sizing: border-box;
   cursor: pointer;
-  padding: 11px 20px;
+  font-size: 18px;
+  padding: 5px 10px;
   width: 100%;
 }
