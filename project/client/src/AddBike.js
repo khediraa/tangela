@@ -104,7 +104,7 @@ class AddBike extends Component {
 
             var id = BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude, this.state.frame, this.state.type,
                 this.state.gears, this.state.price, this.state.startDate.toDate(), this.state.endDate.toDate(), this.state.desc);
-            UserHandler.connectBike("henrik@hoi.com",id);
+            UserHandler.assignBikeToUser("henrik@hoi.com",id);
             this.setState({ latitude: '', longitude: '', frame: 'wmn', type: 'mtb', gears: '', price: '', desc: '', title: '' });
 
             return;
