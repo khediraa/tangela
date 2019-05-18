@@ -4,6 +4,8 @@ import "./css/navbar.css";
 
 import {Route, Link} from 'react-router-dom';
 
+
+
 class Navbar extends Component {
     render(){
         return(
@@ -11,22 +13,22 @@ class Navbar extends Component {
                 <Link to='/Home'>
                     <img src={logo} alt="Hoi logo"/>
                 </Link>
-                
+
                 <Link to='/AddBike'>
                     <li>
                         Add bike
                     </li>
                 </Link>
 
-                <Link to='/'>
+                <Link to='/UserProfile'>
                     <li>
-                        Login
+                        <a>Profile</a>
                     </li>
                 </Link>
 
-                <Link to='/'>
+                <Link to='/AddUser'>
                     <li>
-                        Register
+                        <a>Register</a>
                     </li>
                 </Link>
 
