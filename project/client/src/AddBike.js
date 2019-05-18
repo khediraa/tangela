@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import Modal from 'react-modal';
 import * as BikeHandler from "./BikeHandler.js";
 import * as UserHandler from "./UserHandler.js";
 import "./css/addBike.css";
@@ -9,6 +10,21 @@ import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'rea
 import 'react-dates/lib/css/_datepicker.css';
 
 import { Route, Link } from 'react-router-dom';
+
+
+const modalStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)'
+    }
+};
+
+//Modal.setAppElement('#root')
+
 
 function validate(gears, price, title) {
 
@@ -39,11 +55,28 @@ class AddBike extends Component {
                 gears: false,
                 price: false,
                 title: false
-            }
+            },
+            modalIsOpen: false
         };
 
+        this.openModal = this.openModal.bind(this);
+        this.afterOpenModal = this.afterOpenModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    openModal() {
+        this.setState({modalIsOpen: true});
+    }
+    
+    afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        this.subtitle.style.color = '#f00';
+    }
+    
+    closeModal() {
+        this.setState({modalIsOpen: false});
     }
 
     /*
@@ -111,7 +144,19 @@ class AddBike extends Component {
             var id = BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude, this.state.frame, this.state.type,
                 this.state.gears, this.state.price, this.state.startDate.toDate(), this.state.endDate.toDate(), this.state.desc);
             UserHandler.connectBike("henrik@hoi.com",id);
-            this.setState({ latitude: '', longitude: '', frame: 'wmn', type: 'mtb', gears: '', price: '', desc: '', title: '' });
+
+
+            this.setState({ latitude: '', longitude: '', frame: 'wmn',
+                            type: 'mtb',
+                            gears: '', price: '',
+                            desc: '', title: '', 
+                            startDate: moment(),
+                            endDate: moment(),
+                            touched: {
+                            gears: false,
+                            price: false,
+                            title: false
+                        } });
 
             return;
         }
@@ -130,6 +175,22 @@ class AddBike extends Component {
 
         return (
             <div id="Wrapper">
+
+                <div id="ModalContainer">
+                    <Modal
+                        isOpen={this.state.modalIsOpen}
+                        onAfterOpen={this.afterOpenModal}
+                        onRequestClose={this.closeModal}
+                        contentLabel="Confirmation message"
+                        style={modalStyles}
+                        ariaHideApp={false}
+                    >
+
+                        <h2 ref={subtitle => this.subtitle = subtitle}>Well Done!</h2>
+                        <button onClick={this.closeModal}>close</button>
+                        <div>Bike added.</div>
+                    </Modal>
+                </div>
 
                 {/*
 
@@ -181,7 +242,8 @@ class AddBike extends Component {
                                     className={shouldMarkError("title") ? "error" : ""}
                                     value={this.state.title}
                                     onChange={this.handleChange}
-                                    onBlur={this.handleBlur("title")} />
+                                    onBlur={this.handleBlur("title")}
+                                    required />
                             </label>
                         </div>
 
@@ -238,7 +300,8 @@ class AddBike extends Component {
                                     placeholder="Number of gears"
                                     value={this.state.gears}
                                     onChange={this.handleChange}
-                                    onBlur={this.handleBlur("gears")} />
+                                    onBlur={this.handleBlur("gears")}
+                                    required />
                             </label>
                         </div>
 
@@ -256,7 +319,9 @@ class AddBike extends Component {
                                     className={shouldMarkError("price") ? "error" : ""}
                                     value={this.state.price}
                                     onChange={this.handleChange}
-                                    onBlur={this.handleBlur("price")} />
+                                    onBlur={this.handleBlur("price")} 
+                                    required
+                                    />
                             </label>
                         </div>
 
@@ -276,7 +341,7 @@ class AddBike extends Component {
                         <div id="AddSubmit">
 
                             {/*<Link to='/Items' >*/}
-                            <button disabled={isDisabled} type="submit" value="Submit">Submit</button>
+                            <button disabled={isDisabled} type="submit" value="Submit" onClick={this.openModal}>Submit</button>
                             {/*</Link>*/}
 
                         </div>
