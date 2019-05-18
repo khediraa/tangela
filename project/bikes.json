@@ -27,12 +27,7 @@
         "type": "electric",
         "gears": "8",
         "price": "250",
-        "dates": [
-            "2019-6-27",
-            "2019-6-26",
-            "2019-6-27",
-            "2019-6-28"
-        ],
+        "dates": [],
         "description": "Charger is available if you need it"
     },
     "3": {
@@ -45,12 +40,7 @@
         "gears": "21",
         "price": "200",
         "dates": [
-            "2019-6-6",
-            "2019-6-7",
-            "2019-6-8",
-            "2019-6-9",
-            "2019-6-10",
-            "2019-6-11"
+            "2019-6-8"
         ],
         "description": "This bike is brand new"
     },
@@ -63,14 +53,7 @@
         "type": "hybrid",
         "gears": "3",
         "price": "50",
-        "dates": [
-            "2019-7-12",
-            "2019-7-13",
-            "2019-7-14",
-            "2019-7-15",
-            "2019-7-16",
-            "2019-7-17"
-        ],
+        "dates": [],
         "description": "Suitable for kid's around 135 cm tall"
     },
     "5": {
