@@ -15,6 +15,8 @@ function ItemList() {
     const [initialized, setInitialized] = useState(false);
     const [bikes, setBikes] = useState();
     const [coords, setCoords] = useState();
+    const [bikeKeys, setBikeKeys] = useState();
+
 
     useEffect(() => {
         //not initialized before the component is mounted.
@@ -29,7 +31,7 @@ function ItemList() {
                         let bkey = (parseInt(Object.keys(json)[i]) + 1);
                         bikes_list = [...bikes_list, 
                             <ItemListComponent bikeKey={bkey} title={json[i].name} price={json[i].price} />];
-                            bikeCoords.push({"lat":json[i].lat, "lng":json[i].lng});
+                            bikeCoords.push({"lat":json[i].lat, "lng":json[i].lng, "id": json[i].id});
                     }
                     setBikes(bikes_list);
                     setCoords(bikeCoords);
@@ -47,7 +49,6 @@ function ItemList() {
             <MapContainer
                 coords={coords}
                 zoom={10}
-                bkey={1}
             />
         </div>
     ) : (

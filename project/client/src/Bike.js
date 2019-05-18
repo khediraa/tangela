@@ -82,10 +82,12 @@ class Bike extends Component {
                     coords={[
                         {
                             "lat": bike.lat,
-                            "lng": bike.lng
+                            "lng": bike.lng,
+                            "id": this.props.bike
                         }
                     ]}
                     zoom={13}
+                    //bkey={this.props.bike}
                 />
             </div>
             </article>

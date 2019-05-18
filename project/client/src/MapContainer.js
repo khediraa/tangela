@@ -12,12 +12,12 @@ class MapContainer extends Component {
 
   render() {
     let coords = this.props.coords;
-    let bkey = this.props.bkey;
+    let bikeKeys = this.props.bikeKeys;
     const mapCenter = coords[0];
     let markers = coords.map( (coordinatePair) => {
       return <Marker position={coordinatePair}>
         <Popup>
-          <MapListComponent bikeKey={bkey}/>
+          <MapListComponent bikeKey={coordinatePair.id}/>
         </Popup>
       </Marker>
     });
