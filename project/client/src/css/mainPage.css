@@ -1,0 +1,6 @@
+.main-page {
+    background-image: url(../images/background3.jpg);
+    background-size: cover;
+    height: 900px;
+    overflow: auto;
+}
