@@ -12,7 +12,9 @@ function MainSearchBox () {
   return(
     <div className="search">
       <form className="form" >
-        <h1> Rent a bike </h1>
+        <div className="box" >
+          <h1> Rent a bike </h1>
+        </div>
         <div className="box">
           <label>Where</label>
           <div className="city">

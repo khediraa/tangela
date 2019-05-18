@@ -24,7 +24,7 @@ class App extends Component {
     render() {
         return (
             <AppContext.Provider value={this.state}>
-                <div>
+                <div className="app">
                     <Navbar></Navbar>
                     <Switch>
                         <Route exact path='/' component={MainPage} />

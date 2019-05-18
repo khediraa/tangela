@@ -1,8 +1,15 @@
 .itemListComponent {
-    color: red;
-    background: olivedrab;
-    border-radius: 5px;
-    padding-left: 5px;
+    /* color: red; */
+    background: white;
+    border-radius: 3px;
+    border: 1px #ccc solid;
+    padding-left: 15px;
+    height: 150px;
+    margin: 10px 0;
+}
+
+.itemListComponent:hover {
+    box-shadow: 0 0 5px #ccc;
 }
 
 .itemListComponent .title:hover {

@@ -2,10 +2,9 @@
   background-color: white;
   border-radius: 5px;
   height: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
-  width: 500px;
+  margin-left: 80px;
+  margin-top: 80px;
+  width: 450px;
 }
 
 .search .form {
@@ -15,15 +14,15 @@
 
 .search .form .box {
   font-size: 18px;
-  margin: 10px 0 10px 0;
+  margin: 20px 0px;
 }
 
 .search .form .box-button {
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 .search .DateInput.DateInput_1 {
-  width: 197px;
+  width: 172px;
 }
 
 #your_unique_start_date_id, #your_unique_end_date_id {
@@ -48,7 +47,7 @@
   width: 100px;
 }
 
-.search a:hover, a:visited, a:link, a:active {
+.search a:hover, .search a:visited, .search a:link, .search a:active {
   text-decoration: none
 }
 
