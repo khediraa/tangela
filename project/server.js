@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const fs = require('fs');
 const bikePath = './bikes.json';
+var currentId = 6;
 
 const jsonParser = bodyParser.json();
 const textParser = bodyParser.text();
@@ -27,9 +28,8 @@ app.post('/filtered-bikes', jsonParser, (req, res) => {
   let city = req.body.city;
   let bikeType = req.body.bikeType;
   let dates = req.body.dates;
-  const jsonString = fs.readFileSync(bikePath, "utf-8");
-  const jsonObject = JSON.parse(jsonString);  
-  let filteredBikes = jsonObject.filter(bike => containsBike(bike, city, bikeType, dates));
+  const bikes = getBikes();  
+  let filteredBikes = bikes.filter(bike => containsBike(bike, city, bikeType, dates));
   res.send(filteredBikes);
 })
 
@@ -39,8 +39,7 @@ app.post('/rent-bike', jsonParser, (req, res) => {
   let endDate = new Date(req.body.endDate);
   console.log(startDate);
   
-  const jsonString = fs.readFileSync(bikePath, "utf-8");
-  const bikes = JSON.parse(jsonString);
+  const bikes = getBikes();
   const index = bikes.findIndex(bike => bike.id == id);
   //Adds all dates in range to an array
   var dateArray = getDates(startDate, endDate);
@@ -68,13 +67,13 @@ app.post('/rent-bike', jsonParser, (req, res) => {
 
 app.post('/add-bike', jsonParser, (req, res) => {
   
-
-  myId=myId+1;
-  bikes[myId] = newBike;
-  console.log(bikes[myId]);
-  //console.log(bikes);
-  //TODO: bikes ska skicka till JSON-filen
-  return myId;
+  let newBike = req.body;
+  newBike.id = currentId;
+  currentId += 1;
+  const bikes = getBikes();
+  bikes.push(newBike);
+  let success = updateDatabase(bikes, bikePath);
+  success ? res.status(200).send('Added bike.') : res.status(300).send('Could not add bike.');
 });
 
 /* Helper functions */
@@ -87,6 +86,15 @@ function updateDatabase(data, path) {
      console.error(error);
      return false;
    }
+}
+
+function getBikes() {
+  try{
+    const jsonString = fs.readFileSync(bikePath, "utf-8");
+    return JSON.parse(jsonString);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 /* Takes a bike object and checks if the bike object has "city", "bike_type", and "dates" */

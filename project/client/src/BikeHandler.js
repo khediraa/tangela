@@ -1,8 +1,6 @@
 //import data from "./resources/bikes.json";
 //var bikes = data; //TODO: Update json file periodically to make backup.
 var bikes = require('./resources/bikes.json');
-var myId=5;
-const serverURL = '/bikes'; // gets appended to the proxy from package.json
 
 
 
@@ -62,13 +60,6 @@ export function addBike(name, lat, long, frame, type, gears, price, startDate, e
   .then((response) => {
     return response.status;
   });
-
-  myId=myId+1;
-  bikes[myId] = newBike;
-  console.log(bikes[myId]);
-  //console.log(bikes);
-  //TODO: bikes ska skicka till JSON-filen
-  return myId;
 }
 
 /* Tells the server to remove the rented days from the bike specified by id.
