@@ -11,10 +11,16 @@ import 'react-dates/lib/css/_datepicker.css';
 import { Route, Link } from 'react-router-dom';
 
 function validate(gears, price, title) {
+
+    //      TESTS
+    /*const a = gears > 0;
+    const b = price > 0;
+    const c = title.length > 0;
+    console.log(a + " " + b + " " + c + " " + title)*/
     return {
         gears: gears <= 0,
-        price: price < 0,
-        title: title.lenght === 0
+        price: price <= 0,
+        title: title.length === 0
     };
 }
 
@@ -49,7 +55,7 @@ class AddBike extends Component {
         const target = event.target;
         const tmp = target.name;
         this.setState({ [tmp]: target.value });
-        console.log("change")
+        console.log("changed: " + tmp);
 
     }
 
@@ -86,7 +92,7 @@ class AddBike extends Component {
 
     handleDateChange = ({ startDate, endDate }) => {
         this.setState({ startDate, endDate });
-        console.log("datechange" + this.state.startDate.toString())
+        console.log("Date has changed to: " + this.state.startDate.toString())
     };
 
     handleSubmit(event) {
@@ -95,9 +101,9 @@ class AddBike extends Component {
         // this.props.history.push('/Items');
         //alert(this.state.startDate.toString() + "  " + this.state.endDate.toString());
         event.preventDefault();
-        console.log("Hallo1");
+        
         if (this.canBeSubmitted()) {
-            console.log("Hallo2");
+            console.log("Can be submitted");
             console.log(this.state.frame + ' ' + this.state.type + ' '
                 + this.state.gears.toString() + ' ' + this.state.price.toString() + ' '
                 + this.state.title + ' ' + this.state.startDate.toString());
@@ -109,7 +115,6 @@ class AddBike extends Component {
 
             return;
         }
-        console.log("Hallo3");
     }
 
     render() {
