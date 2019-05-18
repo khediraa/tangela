@@ -15,8 +15,6 @@ function ItemList() {
     const [initialized, setInitialized] = useState(false);
     const [bikes, setBikes] = useState();
     const [coords, setCoords] = useState();
-    const [bikeKeys, setBikeKeys] = useState();
-
 
     useEffect(() => {
         //not initialized before the component is mounted.
@@ -29,7 +27,7 @@ function ItemList() {
 
                     for (let i = 0; i < json.length; i++) {
                         bikes_list = [...bikes_list, 
-                            <ItemListComponent bikeKey={bkey} title={json[i].name} price={json[i].price} />];
+                            <ItemListComponent bikeKey={json[i].id} title={json[i].name} price={json[i].price} />];
                             bikeCoords.push({"lat":json[i].lat, "lng":json[i].lng, "id": json[i].id});
                     }
                     setBikes(bikes_list);
