@@ -15,10 +15,6 @@ class Bike extends Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.state = {};
-        //let startDate= this.state.startDate; //11/3/2018
-        //let endDate= this.state.endDate; //11/10/2018
-        //let campaignStartDate = '11/3/2018';
-        //let campaignEndDate= '11/10/2018';
     }
 
     isBlocked = day => {
@@ -54,10 +50,10 @@ class Bike extends Component {
             <article className="bicycle">
             <div className="left">
                 <h2>{bike.name}</h2>
-                <p>{bike.city}</p>
                 <p>{bike.description}</p>
+                <p>Location: {bike.city}</p>
                 <p>Gears: {bike.gears}</p>
-                <p>Price: {bike.price} kr / day</p>
+                <p>Price: {bike.price} kr/day</p>
 
                 <DateRangePicker
                     startDate={this.state.startDate} // momentPropTypes.momentObj or null,
@@ -71,7 +67,6 @@ class Bike extends Component {
                     minimumNights={0}
                     daySize={25}
                 />
-
                 <button onClick={this.handleClick}>
                     Rent bike
                 </button>
