@@ -47,6 +47,10 @@
   width: 100px;
 }
 
+.search input[type="submit"]:hover {
+  box-shadow: 0 0 5px #ccc;
+}
+
 .search a:hover, .search a:visited, .search a:link, .search a:active {
   text-decoration: none
 }
