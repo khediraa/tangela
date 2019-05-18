@@ -31,7 +31,7 @@ class Bike extends Component {
     }
 
     handleClick() {
-        BikeHandler.rentBike(this.props.id, this.state.startDate, this.state.endDate)
+        BikeHandler.rentBike(this.props.bike.id, this.state.startDate, this.state.endDate)
             .then((status) => {
                 console.log(status);
                 
@@ -53,7 +53,7 @@ class Bike extends Component {
         return (
             <article className="bicycle">
             <div className="left">
-                <h2>{bike.title}</h2>
+                <h2>{bike.name}</h2>
                 <p>{bike.city}</p>
                 <p>{bike.description}</p>
                 <p>Gears: {bike.gears}</p>

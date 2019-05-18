@@ -19,7 +19,8 @@ app.post('/bike', textParser, (req, res) => {
   let id = req.body;
   const jsonString = fs.readFileSync(bikePath, "utf-8");
   const bikes = JSON.parse(jsonString);
-  res.send(bikes[id]);
+  const index = bikes.findIndex(bike => bike.id == id);
+  res.send(bikes[index]);
 });
 
 app.post('/filtered-bikes', jsonParser, (req, res) => {
@@ -27,9 +28,8 @@ app.post('/filtered-bikes', jsonParser, (req, res) => {
   let bikeType = req.body.bikeType;
   let dates = req.body.dates;
   const jsonString = fs.readFileSync(bikePath, "utf-8");
-  const jsonObject = JSON.parse(jsonString);
-  let values = Object.values(jsonObject);
-  let filteredBikes = values.filter(bike => containsBike(bike, city, bikeType, dates));
+  const jsonObject = JSON.parse(jsonString);  
+  let filteredBikes = jsonObject.filter(bike => containsBike(bike, city, bikeType, dates));
   res.send(filteredBikes);
 })
 
@@ -41,22 +41,22 @@ app.post('/rent-bike', jsonParser, (req, res) => {
   
   const jsonString = fs.readFileSync(bikePath, "utf-8");
   const bikes = JSON.parse(jsonString);
-  
+  const index = bikes.findIndex(bike => bike.id == id);
   //Adds all dates in range to an array
   var dateArray = getDates(startDate, endDate);
  
   //If all dates are not available for the bike, return false.
   dateArray.forEach(element => {
-    if (!bikes[id].dates.includes(element)) {
+    if (!bikes[index].dates.includes(element)) {
       res.status(300).send('Dates not available.');
     }
   });
 
   //Make the dates unavailable for the bike.
   dateArray.forEach(element => {
-    if (bikes[id].dates.includes(element)) {
-      var index = bikes[id].dates.indexOf(element);
-      bikes[id].dates.splice(index, 1);
+    if (bikes[index].dates.includes(element)) {
+      var index = bikes[index].dates.indexOf(element);
+      bikes[index].dates.splice(index, 1);
     }
   });
   success = updateDatabase(bikes, bikePath);

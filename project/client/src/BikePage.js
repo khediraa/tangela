@@ -9,7 +9,6 @@ function BikePage(props) {
     //internal state.
     const [initialized, setInitialized] = useState(false);
     const [bike, setBike] = useState();
-    const [bikeId, setBikeId] = useState(0);
     useEffect(() => {
         if(!initialized) {
             const {id} = props.match.params;
@@ -18,7 +17,6 @@ function BikePage(props) {
                 .then((json) => {
                     console.log(JSON.stringify(json));
                     setBike(json);
-                    setBikeId(id);
                 });
 
 
@@ -26,9 +24,7 @@ function BikePage(props) {
         }
     })
     return bike ? (
-        <Bike id={bikeId}
-            bike={bike}
-        />
+        <Bike bike={bike}/>
     ) : (
         <div>Loading...</div>
     );
