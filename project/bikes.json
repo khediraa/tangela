@@ -1,78 +1,105 @@
 {
-    "1": {
-        "name": "Mom's rusty bike with a basket",
-        "city": "Gothenburg",
-        "lat": "57.6930247",
-        "lng": "11.9752922",
-        "frame": "women's",
-        "type": "city",
-        "gears": "3",
-        "price": "75",
-        "dates": [
-            "2019-6-15",
-            "2019-6-16",
-            "2019-6-17",
-            "2019-7-6",
-            "2019-7-7",
-            "2019-7-8"
-        ],
-        "description": "Good bike if you are a tourist in Gothenburg. The bike can be moved to Gothenburg C if you like."
+  "nextId": "6",
+  "bikes": [
+    {
+      "id": "1",
+      "name": "Mom's rusty bike with a basket",
+      "city": "Gothenburg",
+      "lat": "57.6930247",
+      "lng": "11.9752922",
+      "frame": "women's",
+      "type": "city",
+      "gears": "3",
+      "price": "75",
+      "dates": [
+        "2019-6-15",
+        "2019-6-16",
+        "2019-6-17",
+        "2019-7-6",
+        "2019-7-7",
+        "2019-7-8"
+      ],
+      "description": "Good bike if you are a tourist in Gothenburg. The bike can be moved to Gothenburg C if you like."
     },
-    "2": {
-        "name": "Electric hybrid",
-        "city": "Stockholm",
-        "lat": "59.348377",
-        "lng": "18.04904",
-        "frame": "unisex",
-        "type": "electric",
-        "gears": "8",
-        "price": "250",
-        "dates": [],
-        "description": "Charger is available if you need it"
+    {
+      "id": "2",
+      "name": "Electric hybrid",
+      "city": "Stockholm",
+      "lat": "59.348377",
+      "lng": "18.04904",
+      "frame": "unisex",
+      "type": "electric",
+      "gears": "8",
+      "price": "250",
+      "dates": [
+        "2019-6-25",
+        "2019-6-26",
+        "2019-6-27",
+        "2019-6-26",
+        "2019-6-27",
+        "2019-6-28"
+      ],
+      "description": "Charger is available if you need it"
     },
-    "3": {
-        "name": "Sporty mountain bike",
-        "city": "Gothenburg",
-        "lat": "57.6930247",
-        "lng": "11.9752922",
-        "frame": "kids",
-        "type": "mtb",
-        "gears": "21",
-        "price": "200",
-        "dates": [
-            "2019-6-8"
-        ],
-        "description": "This bike is brand new"
+    {
+      "id": "3",
+      "name": "Sporty mountain bike",
+      "city": "Gothenburg",
+      "lat": "57.6930247",
+      "lng": "11.9752922",
+      "frame": "kids",
+      "type": "mtb",
+      "gears": "21",
+      "price": "200",
+      "dates": [
+        "2019-6-6",
+        "2019-6-7",
+        "2019-6-8",
+        "2019-6-9",
+        "2019-6-10",
+        "2019-6-11"
+      ],
+      "description": "This bike is brand new"
     },
-    "4": {
-        "name": "Kid's bike - suitable for 10-year-olds",
-        "city": "Stockholm",
-        "lat": "59.342808",
-        "lng": "18.039691",
-        "frame": "kids",
-        "type": "hybrid",
-        "gears": "3",
-        "price": "50",
-        "dates": [],
-        "description": "Suitable for kid's around 135 cm tall"
+    {
+      "id": "4",
+      "name": "Kid's bike - suitable for 10-year-olds",
+      "city": "Stockholm",
+      "lat": "59.342808",
+      "lng": "18.039691",
+      "frame": "kids",
+      "type": "hybrid",
+      "gears": "3",
+      "price": "50",
+      "dates": [
+        "2019-7-12",
+        "2019-7-13",
+        "2019-7-14",
+        "2019-7-15",
+        "2019-7-16",
+        "2019-7-17"
+      ],
+      "description": "Suitable for kid's around 135 cm tall"
     },
-    "5": {
-        "name": "Green city bike",
-        "city": "Gothenburg",
-        "lat": "57.692693",
-        "lng": "11.953718",
-        "frame": "unisex",
-        "type": "city",
-        "gears": "1",
-        "price": "100",
-        "dates": [
-            "2019-8-6",
-            "2019-8-7",
-            "2019-8-8",
-            "2019-8-9",
-            "2019-8-10",
-            "2019-8-11"
-        ],
-        "description": "Cheap alternative to StyrAndStall"
+    {
+      "id": "5",
+      "name": "Green city bike",
+      "city": "Gothenburg",
+      "lat": "57.692693",
+      "lng": "11.953718",
+      "frame": "unisex",
+      "type": "city",
+      "gears": "1",
+      "price": "100",
+      "dates": [
+        "2019-8-6",
+        "2019-8-7",
+        "2019-8-8",
+        "2019-8-9",
+        "2019-8-10",
+        "2019-8-11"
+      ],
+      "description": "Cheap alternative to StyrAndStall"
     }
+  ]
 }

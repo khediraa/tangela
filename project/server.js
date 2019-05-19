@@ -17,19 +17,17 @@ app.get('/express_backend', (req, res, next) => {
 
 app.post('/bike', textParser, (req, res) => {
   let id = req.body;
-  const jsonString = fs.readFileSync(bikePath, "utf-8");
-  const bikes = JSON.parse(jsonString);
-  res.send(bikes[id]);
-})
+  const bikes = getBikes();
+  const index = bikes.findIndex(bike => bike.id == id);
+  res.send(bikes[index]);
+});
 
 app.post('/filtered-bikes', jsonParser, (req, res) => {
   let city = req.body.city;
   let bikeType = req.body.bikeType;
   let dates = req.body.dates;
-  const jsonString = fs.readFileSync(bikePath, "utf-8");
-  const jsonObject = JSON.parse(jsonString);
-  let values = Object.values(jsonObject);
-  let filteredBikes = values.filter(bike => containsBike(bike, city, bikeType, dates));
+  const bikes = getBikes();  
+  let filteredBikes = bikes.filter(bike => containsBike(bike, city, bikeType, dates));
   res.send(filteredBikes);
 })
 
@@ -37,45 +35,93 @@ app.post('/rent-bike', jsonParser, (req, res) => {
   let id = req.body.id;
   let startDate = new Date(req.body.startDate);
   let endDate = new Date(req.body.endDate);
-  console.log(startDate);
   
-  const jsonString = fs.readFileSync(bikePath, "utf-8");
-  const bikes = JSON.parse(jsonString);
-  
+  const bikes = getBikes();
+  const index = bikes.findIndex(bike => bike.id == id);
   //Adds all dates in range to an array
   var dateArray = getDates(startDate, endDate);
  
   //If all dates are not available for the bike, return false.
   dateArray.forEach(element => {
-    if (!bikes[id].dates.includes(element)) {
+    if (!bikes[index].dates.includes(element)) {
       res.status(300).send('Dates not available.');
     }
   });
 
   //Make the dates unavailable for the bike.
   dateArray.forEach(element => {
-    if (bikes[id].dates.includes(element)) {
-      var index = bikes[id].dates.indexOf(element);
-      bikes[id].dates.splice(index, 1);
+    if (bikes[index].dates.includes(element)) {
+      var index = bikes[index].dates.indexOf(element);
+      bikes[index].dates.splice(index, 1);
     }
   });
-  success = updateDatabase(bikes, bikePath);
+  success = updateBikes(bikes);
   if (!success) {
     res.status(301).send('Could not write.');
   }
   res.status(200).send('Dates updated.');
-})
+});
+
+app.post('/add-bike', jsonParser, (req, res) => {
+  
+  let newBike = req.body;
+  newBike.id = getNextId();
+  incrementNextId();
+  const bikes = getBikes();
+  bikes.push(newBike);
+  let success = updateBikes(bikes);
+  success ? res.status(200).send('Added bike.') : res.status(300).send('Could not add bike.');
+});
 
 /* Helper functions */
 
-function updateDatabase(data, path) {
+/* Sets the bikes in bikes.json */
+function updateBikes(data) {
    try {
-     fs.writeFileSync(path, JSON.stringify(data, null, 4));
+    const jsonString = fs.readFileSync(bikePath, "utf-8");
+    var bikeJson = JSON.parse(jsonString);
+    bikeJson.bikes = data;
+     fs.writeFileSync(bikePath, JSON.stringify(bikeJson, null, 4));
      return true;
    } catch (error) {
      console.error(error);
      return false;
    }
+}
+
+function getBikes() {
+  try{
+    const jsonString = fs.readFileSync(bikePath, "utf-8");
+    jsonObject = JSON.parse(jsonString);
+    return jsonObject.bikes;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function getNextId() {
+  try{
+    const jsonString = fs.readFileSync(bikePath, "utf-8");
+    jsonObject = JSON.parse(jsonString);
+    return jsonObject.nextId;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function incrementNextId() {
+  try {
+    const jsonString = fs.readFileSync(bikePath, "utf-8");
+    let bikeJson = JSON.parse(jsonString);
+    let nextId = parseInt(bikeJson.nextId);
+    nextId += 1;
+    bikeJson.nextId = nextId.toString();
+    fs.writeFileSync(bikePath, JSON.stringify(bikeJson, null, 4));
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
 }
 
 /* Takes a bike object and checks if the bike object has "city", "bike_type", and "dates" */

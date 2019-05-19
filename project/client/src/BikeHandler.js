@@ -1,8 +1,5 @@
-//import data from "./resources/bikes.json";
-//var bikes = data; //TODO: Update json file periodically to make backup.
-var bikes = require('./resources/bikes.json');
-var myId=5;
-const serverURL = '/bikes'; // gets appended to the proxy from package.json
+/* -------- Server communication functions -------- */
+
 
 /* Fetches a bike based on id them. 
    Returns a Promise, access bike by chaining .then() to it.*/
@@ -42,47 +39,29 @@ export async function getBike(id) {
     });
   }
 
-/* Takes a bike object and checks if the bike object has "city", "bike_type", and "dates" */
-export function containsBike(bike, city, bike_type, dates) {
-  let todaysDate = DateToString(new Date());
-  let containsCity = city==="" ? true : city.toUpperCase()===bike.city.toUpperCase();
-  let containsDates = dates.length===0 ? bike.dates.some(d => todaysDate<=d) : dates.some(d => bike.dates.includes(d));
-  let containsType = bike_type==="all" ? true : bike.type===bike_type;
-  return containsCity && containsType && containsDates;
-}
-
-/* Returns array of dates within starDate and endDate */
-export function getDates(startDate, endDate) {
-  var dateArray = [];
-  var currentDate = startDate;
-  
-  //Put all dates between startDate and endDate in an array.
-  while (currentDate <= endDate) {
-    dateArray.push(DateToString(new Date(currentDate)));
-    currentDate = currentDate.addDays(1);
-  }
-  return dateArray;
-}
-
 /* Function that adds another bike to the json file */
 export function addBike(name, lat, long, frame, type, gears, price, startDate, endDate, description) {
-    var newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
+  let newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
 
-  myId=myId+1;
-  bikes[myId] = newBike;
-  console.log(bikes[myId]);
-  //console.log(bikes);
-  //TODO: bikes ska skicka till JSON-filen
-  return myId;
+  return fetch('add-bike', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newBike)
+  })
+  .then((response) => {
+    return response.status;
+  });
 }
 
-/* Removes the rented days from the bike specified by id*/
+/* Tells the server to remove the rented days from the bike specified by id.
+   Returns a Promise, access status by chaining .then() to it.
+   If status is 200, the dates were removed successfully. If not, an error occurred.*/
 export async function rentBike(id, startDate, endDate) {
   let startDateString = DateToString(startDate.toDate());
   let endDateString = DateToString(endDate.toDate());
-  console.log("sending to server");
-  console.log(startDateString);
-  console.log(endDateString);
   
   return fetch('/rent-bike', {
     method: 'POST',
@@ -99,26 +78,23 @@ export async function rentBike(id, startDate, endDate) {
   .then((response) => {
     return response.status;
   });
-  
-  // //Adds all dates in range to an array
-  // var dateArray = getDates(startDate, endDate);
- 
-  // //If all dates are not available for the bike, return false.
-  // //TODO: alert user on return false.
-  // dateArray.forEach(element => {
-  //   if (!bikes[id].dates.includes(element)) {
-  //     return false;
-  //   }
-  // });
+}
 
-  // //Make the dates unavailable for the bike.
-  // dateArray.forEach(element => {
-  //   if (bikes[id].dates.includes(element)) {
-  //     var index = bikes[id].dates.indexOf(element);
-  //     bikes[id].dates.splice(index, 1);
-  //   }
-  // });
-  // return true;
+/* -------- End server communication functions -------- */
+
+
+
+/* Returns array of dates within starDate and endDate */
+export function getDates(startDate, endDate) {
+  var dateArray = [];
+  var currentDate = startDate;
+  
+  //Put all dates between startDate and endDate in an array.
+  while (currentDate <= endDate) {
+    dateArray.push(DateToString(new Date(currentDate)));
+    currentDate = currentDate.addDays(1);
+  }
+  return dateArray;
 }
 
 export function DateToString(date) {
