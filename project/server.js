@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const fs = require('fs');
 const bikePath = './bikes.json';
+const usersPath = './users.json';
 
 const jsonParser = bodyParser.json();
 const textParser = bodyParser.text();
@@ -76,6 +77,15 @@ app.post('/add-bike', jsonParser, (req, res) => {
   success ? res.status(200).send('Added bike.') : res.status(300).send('Could not add bike.');
 });
 
+app.post('/add-user', jsonParser, (req, res) => {
+  //TODO Must check that the email doesn't exist already
+  var newUser = req.body.user;
+  var email = req.body.email;
+
+  addUser(newUser, email);
+  console.log(newUser);
+  console.log(users);
+});
 
 
 /* ------------ Helper functions ------------ */
@@ -92,6 +102,23 @@ function updateBikes(data) {
      console.error(error);
      return false;
    }
+}
+
+/* Takes a new user and an email and adds it to users.json */
+function addUser(newUser, email) {
+  try {
+    const usersString = fs.readFileSync(usersPath, "utf-8");
+    users = JSON.parse(usersString);
+    if (users.hasOwnProperty(email)) {
+      return false;
+    }
+    users[email] = newUser;
+    fs.writeFileSync(usersPath, JSON.stringify(users, null, 4));
+     return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
 }
 
 function getBikes() {
