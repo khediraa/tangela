@@ -74,19 +74,25 @@ app.post('/add-bike', jsonParser, (req, res) => {
   const bikes = getBikes();
   bikes.push(newBike);
   let success = updateBikes(bikes);
-  success ? res.status(200).send('Added bike.') : res.status(300).send('Could not add bike.');
+  success ? res.status(200).send(newBike.id) : res.status(300).send('Could not add bike.');
 });
 
 app.post('/add-user', jsonParser, (req, res) => {
   //TODO Must check that the email doesn't exist already
-  var newUser = req.body.user;
-  var email = req.body.email;
+  let newUser = req.body.user;
+  let email = req.body.email;
 
-  addUser(newUser, email);
-  console.log(newUser);
-  console.log(users);
+  let success = addUser(newUser, email);
+  success ? res.status(200).send('Added user.') : res.status(300).send('Could not add user.');
 });
 
+app.post('/assign-bike', jsonParser, (req, res) => {
+  let email = req.body.email;
+  let bikeId = req.body.bikeId;
+
+  let success = assignBikeToUser(bikeId, email);
+  success ? res.status(200).send('Assigned bike.') : res.status(300).send('Could not assign bike.');
+});
 
 /* ------------ Helper functions ------------ */
 
@@ -107,8 +113,7 @@ function updateBikes(data) {
 /* Takes a new user and an email and adds it to users.json */
 function addUser(newUser, email) {
   try {
-    const usersString = fs.readFileSync(usersPath, "utf-8");
-    users = JSON.parse(usersString);
+    users = getUsers();
     if (users.hasOwnProperty(email)) {
       return false;
     }
@@ -118,6 +123,29 @@ function addUser(newUser, email) {
   } catch (error) {
     console.error(error);
     return false;
+  }
+}
+
+/* Assigns the bike specified by bikeId to the user with the correct email. */
+function assignBikeToUser(bikeId, email) {
+  try {
+    users = getUsers();
+    users[email].bikes.push(bikeId.toString());
+    fs.writeFileSync(usersPath, JSON.stringify(users, null, 4));
+     return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+function getUsers() {
+  try{
+    const jsonString = fs.readFileSync(usersPath, "utf-8");
+    jsonObject = JSON.parse(jsonString);
+    return jsonObject;
+  } catch (error) {
+    console.error(error);
   }
 }
 
@@ -134,8 +162,8 @@ function getBikes() {
 function getNextId() {
   try{
     const jsonString = fs.readFileSync(bikePath, "utf-8");
-    jsonObject = JSON.parse(jsonString);
-    return jsonObject.nextId;
+    const bikes = JSON.parse(jsonString);
+    return bikes.nextId;
   } catch (error) {
     console.error(error);
   }

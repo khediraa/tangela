@@ -11,8 +11,8 @@ export function login(email, password) {
    }*/
 }
 
-// Adds a new user to the JSON
-//TODO the variable user never updates the JSON-file
+/* Sends a new user to the server to add it. 
+Returns a Promise. Access the status code by chaining .then() to this function call. */
 export async function addUser(email, fname, lname, tel, password) {
   var newUser = ({ fname: fname, lname: lname, tel: tel, bikes: [], password: password });
 
@@ -33,10 +33,17 @@ export async function addUser(email, fname, lname, tel, password) {
 }
 
 //This function connects a bike to a user.
-export function assignBikeToUser(email, id) {
-  users[email].bikes.push(id.toString());
-  console.log('Bike id ' + id + ' was successfully assigned to ' + email);
-  return true;
+export async function assignBikeToUser(email, id) {
+  return fetch('/assign-bike', {
+    method: 'POST',
+    body: JSON.stringify({
+      email: email,
+      bikeId: id
+    })
+  })
+  .then((response) => {
+    return response.status;
+  })
 }
 //Returns all bikes that belongs to a certain user
 export function getMyBikes(email) {
