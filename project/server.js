@@ -76,7 +76,9 @@ app.post('/add-bike', jsonParser, (req, res) => {
   success ? res.status(200).send('Added bike.') : res.status(300).send('Could not add bike.');
 });
 
-/* Helper functions */
+
+
+/* ------------ Helper functions ------------ */
 
 /* Sets the bikes in bikes.json */
 function updateBikes(data) {
