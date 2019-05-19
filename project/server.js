@@ -37,7 +37,8 @@ app.post('/rent-bike', jsonParser, (req, res) => {
   let endDate = new Date(req.body.endDate);
   
   const bikes = getBikes();
-  const index = bikes.findIndex(bike => bike.id == id);
+  var index = bikes.findIndex(bike => bike.id == id);
+  
   //Adds all dates in range to an array
   var dateArray = getDates(startDate, endDate);
  
@@ -47,14 +48,16 @@ app.post('/rent-bike', jsonParser, (req, res) => {
       res.status(300).send('Dates not available.');
     }
   });
-
+  console.log(index);
+  
   //Make the dates unavailable for the bike.
   dateArray.forEach(element => {
     if (bikes[index].dates.includes(element)) {
-      var index = bikes[index].dates.indexOf(element);
-      bikes[index].dates.splice(index, 1);
+      var dateIndex = bikes[index].dates.indexOf(element);
+      bikes[index].dates.splice(dateIndex, 1);
     }
   });
+
   success = updateBikes(bikes);
   if (!success) {
     res.status(301).send('Could not write.');
