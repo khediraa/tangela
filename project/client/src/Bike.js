@@ -83,7 +83,8 @@ class Bike extends Component {
                         {
                             "lat": bike.lat,
                             "lng": bike.lng,
-                            "id": bike.id
+                            "id": bike.id,
+                            "name": bike.name
                         }
                     ]}
                     zoom={13}

@@ -4,12 +4,12 @@ import {AppContext} from './App';
 import {Link} from 'react-router-dom';
 
 /* Function returning component with bikes available in the database */
-function MapListComponent({bikeKey}) {
+function MapListComponent({bikeKey, bikeName}) {
     const state = useContext(AppContext);
     let link = `/BikePage/${bikeKey}`;
     return (
         <div>
-            <Link to={link}>Go to this bike</Link>
+            <Link to={link}>{bikeName}</Link>
         </div>
     );
 }

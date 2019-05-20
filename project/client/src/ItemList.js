@@ -28,7 +28,7 @@ function ItemList() {
                     for (let i = 0; i < json.length; i++) {
                         bikes_list = [...bikes_list, 
                             <ItemListComponent bikeKey={json[i].id} title={json[i].name} price={json[i].price} />];
-                            bikeCoords.push({"lat":json[i].lat, "lng":json[i].lng, "id": json[i].id});
+                            bikeCoords.push({"lat":json[i].lat, "lng":json[i].lng, "id": json[i].id, "name": json[i].name});
                     }
                     setBikes(bikes_list);
                     setCoords(bikeCoords);

@@ -17,7 +17,7 @@ class MapContainer extends Component {
     let markers = coords.map( (coordinatePair) => {
       return <Marker position={coordinatePair}>
         <Popup>
-          <MapListComponent bikeKey={coordinatePair.id}/>
+          <MapListComponent bikeKey={coordinatePair.id} bikeName={coordinatePair.name}/>
         </Popup>
       </Marker>
     });
