@@ -4,6 +4,7 @@ import "./css/paymentPage.css";
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import Bike from './Bike';
 import PaymentPageComponent from './PaymentPageComponent';
+import history from './history';
 
 class PaymentPage extends Component {
     constructor(props) {
@@ -31,7 +32,7 @@ class PaymentPage extends Component {
             <Elements>
               <div className="checkout">
                
-              <PaymentPageComponent title={"hej"} price={"22"} />
+              
 
                 <h3>Would you like to complete the rental?</h3>
                 <br/>

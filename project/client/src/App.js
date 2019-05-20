@@ -18,7 +18,7 @@ class App extends Component {
         bike_type: "all",
         login:true,
         email:"henrik@hoi.com",
-        bikeKey:"",
+        bikeKey:"3",
         setState: this.setState.bind(this)
     };
 

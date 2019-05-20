@@ -7,7 +7,6 @@ import {Link} from 'react-router-dom';
 function ItemListComponent({bikeKey, title, price}) {
     const state = useContext(AppContext);
     let link = `/BikePage/${bikeKey}`;
-    state.setState(bikeKey);
     return (
         <div className="itemListComponent">
             <div>

@@ -65,6 +65,7 @@ class Bike extends Component {
                     minimumNights={0}
                     daySize={25}
                 />
+                
                 <button onClick={this.handleClick}>
                     Rent bike
                 </button>
