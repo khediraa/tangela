@@ -58,6 +58,10 @@ export async function addBike(name, lat, lng, frame, type, gears, price, startDa
   })
   .then((response) => {
     return response.text();
+  })
+  .catch( error => {
+    console.log(error);
+    
   });
 }
 

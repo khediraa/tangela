@@ -36,6 +36,10 @@ export async function addUser(email, fname, lname, tel, password) {
 export async function assignBikeToUser(email, id) {
   return fetch('/assign-bike', {
     method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({
       email: email,
       bikeId: id

@@ -130,6 +130,10 @@ function addUser(newUser, email) {
 function assignBikeToUser(bikeId, email) {
   try {
     users = getUsers();
+    console.log(email);
+    
+    console.log(users[email]);
+    
     users[email].bikes.push(bikeId.toString());
     fs.writeFileSync(usersPath, JSON.stringify(users, null, 4));
      return true;
