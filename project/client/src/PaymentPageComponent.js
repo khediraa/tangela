@@ -4,14 +4,13 @@ import {AppContext} from './App';
 import {Link} from 'react-router-dom';
 
 /* Function returning component with bikes available in the database */
-function ItemListComponent({bikeKey, title, price}) {
+function PaymentPageComponent({bikeKey, title, price}) {
     const state = useContext(AppContext);
-    let link = `/BikePage/${bikeKey}`;
-    state.setState(bikeKey);
+    
     return (
         <div className="itemListComponent">
             <div>
-                <Link to={link}>{title}</Link>
+                <h5>{state.bikeKey}</h5>
                 <h5>{price} kr/day</h5>
             </div>
         </div>
@@ -19,4 +18,4 @@ function ItemListComponent({bikeKey, title, price}) {
 }
 
 
-export default ItemListComponent;
+export default PaymentPageComponent;
