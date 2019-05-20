@@ -15,14 +15,15 @@ class PaymentPage extends Component {
       }
 
     render() {
+      const isEnabled = true;
         if (this.state.complete) return (
           <div class="payment">
           <h1>Payment by Stripe</h1>
           <h2>Rental Confirmed</h2>
-          <h3>The code for your bike is 0734</h3>
           </div>
         );
       return (
+       
         <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
           <div class="payment">
             <h1>Payment by Stripe</h1>
@@ -34,8 +35,35 @@ class PaymentPage extends Component {
             <h3>Would you like to complete the rental?</h3>
 
 
+            <form>
+               {/* BOX WITH INFORMATION ABOUT THE USER */}
+                <CardElement />
 
-            <CardElement />
+                 <div id="AddInfo">
+                            <label>
+                                First name:
+                                <input type="text" name="fname" required placeholder= "" value={this.state.fname} onChange={this.handleChange} />
+                            </label>
+                        </div>
+                        <div id="AddInfo">
+                            <label>
+                                Last name:
+                                <input type="text" name="lname" required placeholder= "" value={this.state.lname} onChange={this.handleChange} />
+                            </label>
+                        </div>
+                        <div id="AddInfo">
+                            <label>
+                                Cell phone number:
+                                <input type="tel" name="tel" required size="20" minLength="9" maxLength="14" placeholder= "Including country code" value={this.state.tel} onChange={this.handleChange} />
+                            </label>
+                        </div>
+                        <div id="AddInfo">
+                            <label>
+                                Email address:
+                                <input type="email" name="email" required placeholder= "" value={this.state.email} onChange={this.handleChange} />
+                            </label>
+                        </div>
+                  </form>
             <button onClick={this.submit}>Rent Bike</button>
             </div>
             </Elements>
