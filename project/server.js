@@ -4,7 +4,6 @@ const app = express();
 const port = process.env.PORT || 5000;
 const fs = require('fs');
 const bikePath = './bikes.json';
-var currentId = 6;
 
 const jsonParser = bodyParser.json();
 const textParser = bodyParser.text();
@@ -18,8 +17,7 @@ app.get('/express_backend', (req, res, next) => {
 
 app.post('/bike', textParser, (req, res) => {
   let id = req.body;
-  const jsonString = fs.readFileSync(bikePath, "utf-8");
-  const bikes = JSON.parse(jsonString);
+  const bikes = getBikes();
   const index = bikes.findIndex(bike => bike.id == id);
   res.send(bikes[index]);
 });
@@ -37,7 +35,6 @@ app.post('/rent-bike', jsonParser, (req, res) => {
   let id = req.body.id;
   let startDate = new Date(req.body.startDate);
   let endDate = new Date(req.body.endDate);
-  console.log(startDate);
   
   const bikes = getBikes();
   const index = bikes.findIndex(bike => bike.id == id);
@@ -58,7 +55,7 @@ app.post('/rent-bike', jsonParser, (req, res) => {
       bikes[index].dates.splice(index, 1);
     }
   });
-  success = updateDatabase(bikes, bikePath);
+  success = updateBikes(bikes);
   if (!success) {
     res.status(301).send('Could not write.');
   }
@@ -68,19 +65,23 @@ app.post('/rent-bike', jsonParser, (req, res) => {
 app.post('/add-bike', jsonParser, (req, res) => {
   
   let newBike = req.body;
-  newBike.id = currentId;
-  currentId += 1;
+  newBike.id = getNextId();
+  incrementNextId();
   const bikes = getBikes();
   bikes.push(newBike);
-  let success = updateDatabase(bikes, bikePath);
+  let success = updateBikes(bikes);
   success ? res.status(200).send('Added bike.') : res.status(300).send('Could not add bike.');
 });
 
 /* Helper functions */
 
-function updateDatabase(data, path) {
+/* Sets the bikes in bikes.json */
+function updateBikes(data) {
    try {
-     fs.writeFileSync(path, JSON.stringify(data, null, 4));
+    const jsonString = fs.readFileSync(bikePath, "utf-8");
+    var bikeJson = JSON.parse(jsonString);
+    bikeJson.bikes = data;
+     fs.writeFileSync(bikePath, JSON.stringify(bikeJson, null, 4));
      return true;
    } catch (error) {
      console.error(error);
@@ -91,9 +92,35 @@ function updateDatabase(data, path) {
 function getBikes() {
   try{
     const jsonString = fs.readFileSync(bikePath, "utf-8");
-    return JSON.parse(jsonString);
+    jsonObject = JSON.parse(jsonString);
+    return jsonObject.bikes;
   } catch (error) {
     console.error(error);
+  }
+}
+
+function getNextId() {
+  try{
+    const jsonString = fs.readFileSync(bikePath, "utf-8");
+    jsonObject = JSON.parse(jsonString);
+    return jsonObject.nextId;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function incrementNextId() {
+  try {
+    const jsonString = fs.readFileSync(bikePath, "utf-8");
+    let bikeJson = JSON.parse(jsonString);
+    let nextId = parseInt(bikeJson.nextId);
+    nextId += 1;
+    bikeJson.nextId = nextId.toString();
+    fs.writeFileSync(bikePath, JSON.stringify(bikeJson, null, 4));
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
   }
 }
 

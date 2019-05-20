@@ -24,23 +24,23 @@ class PaymentPage extends Component {
         );
       return (
         <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
-        <div class="payment">
-        <h1>Payment by Stripe</h1>
-          <Elements>
-            <div className="checkout">
-              <p> Rental information is presented here. </p>
-              <p> This info should be based on the previous page </p>
+          <div class="payment">
+            <h1>Payment by Stripe</h1>
+            <Elements>
+              <div className="checkout">
+                <p> Rental information is presented here. </p>
+                <p> This info should be based on the previous page </p>
 
-          <h3>Would you like to complete the rental?</h3>
+            <h3>Would you like to complete the rental?</h3>
 
 
 
-          <CardElement />
-          <button onClick={this.submit}>Rent Bike</button>
+            <CardElement />
+            <button onClick={this.submit}>Rent Bike</button>
+            </div>
+            </Elements>
           </div>
-          </Elements>
-        </div>
-      </StripeProvider>
+        </StripeProvider>
       );
     }
   }

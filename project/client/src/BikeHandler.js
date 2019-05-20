@@ -1,9 +1,3 @@
-//import data from "./resources/bikes.json";
-//var bikes = data; //TODO: Update json file periodically to make backup.
-var bikes = require('./resources/bikes.json');
-
-
-
 /* -------- Server communication functions -------- */
 
 

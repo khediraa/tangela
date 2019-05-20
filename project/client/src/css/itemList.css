@@ -1,16 +1,15 @@
 .item-list-wrapper {
-    /* display: inline-block; */
     display: flex;
-    margin: 20px 20px;
 }
 
 .item-list {
-    width: 60%;
-    margin-right: 10%;
+    margin: 0 5px 0 25px;
+    overflow-y: auto;
+    width: 50%;
+    height: 887px;
 }
 
 .item-list-wrapper .leaflet-container {
-    height: 400px;
-    width: 30%;
-    display: inline-block;
+    height: 887px;
+    width: 50%;
 }
