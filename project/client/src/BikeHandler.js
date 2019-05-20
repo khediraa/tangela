@@ -40,8 +40,13 @@ export async function getBike(id) {
   }
 
 /* Function that adds another bike to the json file */
-export function addBike(name, lat, long, frame, type, gears, price, startDate, endDate, description) {
-  let newBike= ({name:name, lat:lat, long:long, frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
+export async function addBike(name, lat, lng, frame, type, gears, price, startDate, endDate, description) {
+  let newBike= ({name:name, lat:lat, lng:lng, frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
+
+  // TODO: temporary hardcoded values. Remove when functionality added to Addbike.
+  newBike.lat = "57.69891";
+  newBike.lng = "11.97057";
+  newBike.city = "Gothenburg";
 
   return fetch('add-bike', {
     method: 'POST',
@@ -52,7 +57,11 @@ export function addBike(name, lat, long, frame, type, gears, price, startDate, e
     body: JSON.stringify(newBike)
   })
   .then((response) => {
-    return response.status;
+    return response.text();
+  })
+  .catch( error => {
+    console.log(error);
+    
   });
 }
 

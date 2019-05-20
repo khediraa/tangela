@@ -130,11 +130,19 @@ class AddBike extends Component {
                 + this.state.gears.toString() + ' ' + this.state.price.toString() + ' '
                 + this.state.title + ' ' + this.state.startDate.toString());
 
-            var id = BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude, this.state.frame, this.state.type,
-                this.state.gears, this.state.price, this.state.startDate.toDate(), this.state.endDate.toDate(), this.state.desc);
-
-            UserHandler.assignBikeToUser("henrik@hoi.com",id);
-            this.setState({ latitude: '', longitude: '', frame: 'wmn', type: 'mtb', gears: '', price: '', desc: '', title: '' });
+            BikeHandler.addBike(this.state.title, this.state.latitude, this.state.longitude, this.state.frame, this.state.type,
+                this.state.gears, this.state.price, this.state.startDate.toDate(), this.state.endDate.toDate(), this.state.desc)
+                .then((id) => {
+                    console.log("assigning");
+                    
+                    console.log("id: " + id);
+                    
+                    //TODO: fix this subsequent call to server
+                    // UserHandler.assignBikeToUser("henrik@hoi.com",id)
+                    // .then((status) => {
+                    //     this.setState({ latitude: '', longitude: '', frame: 'wmn', type: 'mtb', gears: '', price: '', desc: '', title: '' });
+                    // })
+                });
 
             return;
         }

@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const fs = require('fs');
 const bikePath = './bikes.json';
+const usersPath = './users.json';
 
 const jsonParser = bodyParser.json();
 const textParser = bodyParser.text();
@@ -37,7 +38,8 @@ app.post('/rent-bike', jsonParser, (req, res) => {
   let endDate = new Date(req.body.endDate);
   
   const bikes = getBikes();
-  const index = bikes.findIndex(bike => bike.id == id);
+  var index = bikes.findIndex(bike => bike.id == id);
+  
   //Adds all dates in range to an array
   var dateArray = getDates(startDate, endDate);
  
@@ -47,14 +49,16 @@ app.post('/rent-bike', jsonParser, (req, res) => {
       res.status(300).send('Dates not available.');
     }
   });
-
+  console.log(index);
+  
   //Make the dates unavailable for the bike.
   dateArray.forEach(element => {
     if (bikes[index].dates.includes(element)) {
-      var index = bikes[index].dates.indexOf(element);
-      bikes[index].dates.splice(index, 1);
+      var dateIndex = bikes[index].dates.indexOf(element);
+      bikes[index].dates.splice(dateIndex, 1);
     }
   });
+
   success = updateBikes(bikes);
   if (!success) {
     res.status(301).send('Could not write.');
@@ -70,10 +74,27 @@ app.post('/add-bike', jsonParser, (req, res) => {
   const bikes = getBikes();
   bikes.push(newBike);
   let success = updateBikes(bikes);
-  success ? res.status(200).send('Added bike.') : res.status(300).send('Could not add bike.');
+  success ? res.status(200).send(newBike.id) : res.status(300).send('Could not add bike.');
 });
 
-/* Helper functions */
+app.post('/add-user', jsonParser, (req, res) => {
+  //TODO Must check that the email doesn't exist already
+  let newUser = req.body.user;
+  let email = req.body.email;
+
+  let success = addUser(newUser, email);
+  success ? res.status(200).send('Added user.') : res.status(300).send('Could not add user.');
+});
+
+app.post('/assign-bike', jsonParser, (req, res) => {
+  let email = req.body.email;
+  let bikeId = req.body.bikeId;
+
+  let success = assignBikeToUser(bikeId, email);
+  success ? res.status(200).send('Assigned bike.') : res.status(300).send('Could not assign bike.');
+});
+
+/* ------------ Helper functions ------------ */
 
 /* Sets the bikes in bikes.json */
 function updateBikes(data) {
@@ -89,6 +110,49 @@ function updateBikes(data) {
    }
 }
 
+/* Takes a new user and an email and adds it to users.json */
+function addUser(newUser, email) {
+  try {
+    users = getUsers();
+    if (users.hasOwnProperty(email)) {
+      return false;
+    }
+    users[email] = newUser;
+    fs.writeFileSync(usersPath, JSON.stringify(users, null, 4));
+     return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+/* Assigns the bike specified by bikeId to the user with the correct email. */
+function assignBikeToUser(bikeId, email) {
+  try {
+    users = getUsers();
+    console.log(email);
+    
+    console.log(users[email]);
+    
+    users[email].bikes.push(bikeId.toString());
+    fs.writeFileSync(usersPath, JSON.stringify(users, null, 4));
+     return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+function getUsers() {
+  try{
+    const jsonString = fs.readFileSync(usersPath, "utf-8");
+    jsonObject = JSON.parse(jsonString);
+    return jsonObject;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 function getBikes() {
   try{
     const jsonString = fs.readFileSync(bikePath, "utf-8");
@@ -102,8 +166,8 @@ function getBikes() {
 function getNextId() {
   try{
     const jsonString = fs.readFileSync(bikePath, "utf-8");
-    jsonObject = JSON.parse(jsonString);
-    return jsonObject.nextId;
+    const bikes = JSON.parse(jsonString);
+    return bikes.nextId;
   } catch (error) {
     console.error(error);
   }
