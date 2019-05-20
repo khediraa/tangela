@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import './css/mapContainer.css';
+import {Link} from 'react-router-dom';
+import MapListComponent from './MapListComponent';
 
 class MapContainer extends Component {
   constructor(props) {
@@ -10,11 +12,12 @@ class MapContainer extends Component {
 
   render() {
     let coords = this.props.coords;
+    let bikeKeys = this.props.bikeKeys;
     const mapCenter = coords[0];
     let markers = coords.map( (coordinatePair) => {
       return <Marker position={coordinatePair}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
+          <MapListComponent bikeKey={coordinatePair.id} bikeName={coordinatePair.name}/>
         </Popup>
       </Marker>
     });
