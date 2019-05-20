@@ -32,23 +32,6 @@ export async function addUser(email, fname, lname, tel, password) {
   })
 }
 
-//This function connects a bike to a user.
-export async function assignBikeToUser(email, id) {
-  return fetch('/assign-bike', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      email: email,
-      bikeId: id
-    })
-  })
-  .then((response) => {
-    return response.status;
-  })
-}
 //Returns all bikes that belongs to a certain user
 export function getMyBikes(email) {
   return users[email].bikes;

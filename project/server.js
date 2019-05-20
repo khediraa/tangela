@@ -68,13 +68,15 @@ app.post('/rent-bike', jsonParser, (req, res) => {
 
 app.post('/add-bike', jsonParser, (req, res) => {
   
-  let newBike = req.body;
+  let newBike = req.body.bike;
+  let email = req.body.email;
   newBike.id = getNextId();
   incrementNextId();
   const bikes = getBikes();
   bikes.push(newBike);
-  let success = updateBikes(bikes);
-  success ? res.status(200).send(newBike.id) : res.status(300).send('Could not add bike.');
+  let addSuccess = updateBikes(bikes);
+  let assignSuccess = assignBikeToUser(newBike.id, email);
+  addSuccess && assignSuccess ? res.status(200).send('Added bike.') : res.status(300).send('Could not add bike.');
 });
 
 app.post('/add-user', jsonParser, (req, res) => {
@@ -86,13 +88,6 @@ app.post('/add-user', jsonParser, (req, res) => {
   success ? res.status(200).send('Added user.') : res.status(300).send('Could not add user.');
 });
 
-app.post('/assign-bike', jsonParser, (req, res) => {
-  let email = req.body.email;
-  let bikeId = req.body.bikeId;
-
-  let success = assignBikeToUser(bikeId, email);
-  success ? res.status(200).send('Assigned bike.') : res.status(300).send('Could not assign bike.');
-});
 
 /* ------------ Helper functions ------------ */
 

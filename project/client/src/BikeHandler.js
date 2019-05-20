@@ -20,27 +20,27 @@ export async function getBike(id) {
 
 /* Passes search parameters to server and fetches list of bikes that match them. 
    Returns a Promise, access bikes by chaining .then() to it.*/
-   export async function getFilteredBikes(city, bike_type, dates) {
-    return fetch('/filtered-bikes', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-  
-      body: JSON.stringify({
-        city: city,
-        bikeType: bike_type,
-        dates: dates
-      })
-    })
-    .then((response) => {
-      return response.json();
-    });
-  }
+export async function getFilteredBikes(city, bike_type, dates) {
+  return fetch('/filtered-bikes', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
 
-/* Function that adds another bike to the json file */
-export async function addBike(name, lat, lng, frame, type, gears, price, startDate, endDate, description) {
+    body: JSON.stringify({
+      city: city,
+      bikeType: bike_type,
+      dates: dates
+    })
+  })
+  .then((response) => {
+    return response.json();
+  });
+}
+
+/* Function that adds another bike to the json file, connecting it to the user specified with email. */
+export async function addBike(email, name, lat, lng, frame, type, gears, price, startDate, endDate, description) {
   let newBike= ({name:name, lat:lat, lng:lng, frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
 
   // TODO: temporary hardcoded values. Remove when functionality added to Addbike.
@@ -54,14 +54,14 @@ export async function addBike(name, lat, lng, frame, type, gears, price, startDa
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(newBike)
+    credentials: 'same-origin',
+    body: JSON.stringify({
+      bike: newBike,
+      email: email
+    })
   })
   .then((response) => {
     return response.text();
-  })
-  .catch( error => {
-    console.log(error);
-    
   });
 }
 
