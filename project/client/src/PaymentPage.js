@@ -3,7 +3,6 @@ import {CardElement, injectStripe} from 'react-stripe-elements';
 import "./css/paymentPage.css";
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import Bike from './Bike';
-import PaymentPageComponent from './PaymentPageComponent';
 import history from './history';
 
 class PaymentPage extends Component {
