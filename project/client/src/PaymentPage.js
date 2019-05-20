@@ -10,9 +10,17 @@ class PaymentPage extends Component {
       this.submit = this.submit.bind(this);
     }
 
+    /*  
+        LITE OSÄKER. FÅR DUBBELKOLLA 
+    */    
+
     async submit(ev) {
         this.setState({complete: true});
       }
+
+    /*  
+        WHEN THE RENT BUTTON IS PRESSED A CONFIRMATION PAGE IS RENDERED 
+    */
 
     render() {
       const isEnabled = true;
@@ -34,29 +42,49 @@ class PaymentPage extends Component {
 
             <h3>Would you like to complete the rental?</h3>
 
+            {/*  
+                FORM WITH THE CARD ELEMENT AND INPUT FIELDS FOR PAYEE INFORMATION 
+            */}
 
             <form>
-               {/* BOX WITH INFORMATION ABOUT THE USER */}
                 <CardElement />
-
+                {/*  
+                    FIRST NAME 
+                */}
+                            
                  <div id="AddInfo">
                             <label>
                                 First name:
                                 <input type="text" name="fname" required placeholder= "" value={this.state.fname} onChange={this.handleChange} />
                             </label>
                         </div>
+                        
+                        {/*  
+                            LAST NAME 
+                        */}
+                            
                         <div id="AddInfo">
                             <label>
                                 Last name:
                                 <input type="text" name="lname" required placeholder= "" value={this.state.lname} onChange={this.handleChange} />
                             </label>
                         </div>
+
+                        {/*  
+                            CELL NUMBER 
+                        */}
+                            
                         <div id="AddInfo">
                             <label>
                                 Cell phone number:
                                 <input type="tel" name="tel" required size="20" minLength="9" maxLength="14" placeholder= "Including country code" value={this.state.tel} onChange={this.handleChange} />
                             </label>
                         </div>
+
+                        {/*  
+                            EMAIL ADDRESS 
+                        */}
+
                         <div id="AddInfo">
                             <label>
                                 Email address:
