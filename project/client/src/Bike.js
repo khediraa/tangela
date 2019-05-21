@@ -27,10 +27,11 @@ class Bike extends Component {
     }
 
     handleClick() {
+        let link = `/PaymentPage/${this.props.bike.id}`;
         BikeHandler.rentBike(this.props.bike.id, this.state.startDate, this.state.endDate)
             .then((status) => {
                 if (status == 200) {
-                    history.push('/PaymentPage');
+                    history.push(link);
                 }
             });
     }

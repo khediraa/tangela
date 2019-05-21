@@ -33,7 +33,7 @@ class App extends Component {
                         <Route exact path='/Items' component={ItemList} />
                         <Route exact path='/BikePage/:id' component={BikePage} />
                         <Route exact path='/AddBike' component={AddBike} />
-                        <Route exact path='/PaymentPage' component={PaymentPage} />
+                        <Route exact path='/PaymentPage/:id' component={PaymentPage} />
                         <Route exact path='/AddUser' component={AddUser} />
                         <Route exact path='/UserProfile' component={UserProfile} />
                         <Route component={NoMatch} />
