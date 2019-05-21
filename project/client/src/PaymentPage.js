@@ -24,10 +24,9 @@ function PaymentPage(props) {
   const [lname, setLname] = useState();
   const [email, setEmail] = useState();
   const [tel, setTel] = useState();
-  const [disabled, setDisabled] = useState(true);
+  const [disabled, setDisabled] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
-
-
+  
 
   const [initialized, setInitialized] = useState(false);
   const [bike, setBike] = useState();
@@ -46,20 +45,25 @@ function PaymentPage(props) {
     }
   })
 
-  
-
   if (!bike)
     return (
       <div>Loading...</div>
     )
-  else if (confirmed)
-    return (
+
+  else if (confirmed) {
+  BikeHandler.rentBike(id, startDate, endDate) 
+  .then((status) => {
+    if (status == 200) {
+  return (
       <div class="payment">
         <h1>Payment by Stripe</h1>
         <h2>Rental Confirmed</h2>
-        <h3>The code for your bike is 0734</h3>
       </div>
-    )
+  )
+  }
+})
+  }
+
 
 
   else
@@ -78,12 +82,11 @@ function PaymentPage(props) {
           <h3>Would you like to complete the rental?</h3>
           <br />
 
-
           {/*  
                 FORM WITH THE CARD ELEMENT AND INPUT FIELDS FOR PAYEE INFORMATION 
             */}
 
-          <form >
+          <form onSubmit = {setConfirmed}>
 
             {/*  
                     FIRST NAME 
@@ -139,13 +142,12 @@ function PaymentPage(props) {
             </table>
 
 
-
             <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
               <Elements>
                 <CardElement />
               </Elements>
             </StripeProvider>
-            <button disabled={disabled} type="submit" value="Submit">Pay {totalPrice(bike.price, startDate, endDate)} </button>
+            <button type="submit" value="Submit">Pay {totalPrice(bike.price, startDate, endDate)} </button>
           </form>
         </div>
         <p class='terms'>Terms & Conditions: <br />A penalty fee of 1 000 SEK will be applied if the bike is
