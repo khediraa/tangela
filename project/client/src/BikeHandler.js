@@ -1,8 +1,8 @@
 /* -------- Server communication functions -------- */
 
 
-/* Fetches a bike based on id them. 
-   Returns a Promise, access bike by chaining .then() to it.*/
+/* Fetches a bike based on id them.
+Returns a Promise, access bike by chaining .then() to it.*/
 export async function getBike(id) {
   return fetch('/bike', {
     method: 'POST',
@@ -18,26 +18,26 @@ export async function getBike(id) {
   });
 }
 
-/* Passes search parameters to server and fetches list of bikes that match them. 
-   Returns a Promise, access bikes by chaining .then() to it.*/
-   export async function getFilteredBikes(city, bike_type, dates) {
-    return fetch('/filtered-bikes', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-  
-      body: JSON.stringify({
-        city: city,
-        bikeType: bike_type,
-        dates: dates
-      })
+/* Passes search parameters to server and fetches list of bikes that match them.
+Returns a Promise, access bikes by chaining .then() to it.*/
+export async function getFilteredBikes(city, bike_type, dates) {
+  return fetch('/filtered-bikes', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+
+    body: JSON.stringify({
+      city: city,
+      bikeType: bike_type,
+      dates: dates
     })
-    .then((response) => {
-      return response.json();
-    });
-  }
+  })
+  .then((response) => {
+    return response.json();
+  });
+}
 
 /* Function that adds another bike to the json file */
 export async function addBike(name, lat, lng, frame, type, gears, price, startDate, endDate, description) {
@@ -61,17 +61,17 @@ export async function addBike(name, lat, lng, frame, type, gears, price, startDa
   })
   .catch( error => {
     console.log(error);
-    
+
   });
 }
 
 /* Tells the server to remove the rented days from the bike specified by id.
-   Returns a Promise, access status by chaining .then() to it.
-   If status is 200, the dates were removed successfully. If not, an error occurred.*/
+Returns a Promise, access status by chaining .then() to it.
+If status is 200, the dates were removed successfully. If not, an error occurred.*/
 export async function rentBike(id, startDate, endDate) {
   let startDateString = DateToString(startDate.toDate());
   let endDateString = DateToString(endDate.toDate());
-  
+
   return fetch('/rent-bike', {
     method: 'POST',
     headers: {
@@ -97,7 +97,7 @@ export async function rentBike(id, startDate, endDate) {
 export function getDates(startDate, endDate) {
   var dateArray = [];
   var currentDate = startDate;
-  
+
   //Put all dates between startDate and endDate in an array.
   while (currentDate <= endDate) {
     dateArray.push(DateToString(new Date(currentDate)));

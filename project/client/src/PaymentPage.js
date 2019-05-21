@@ -1,48 +1,74 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
 import "./css/paymentPage.css";
 import {Elements, StripeProvider} from 'react-stripe-elements';
+import Bike from './Bike';
+import history from './history';
+import * as BikeHandler from './BikeHandler';
 
-class PaymentPage extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {complete: false};
-      this.submit = this.submit.bind(this);
+/*
+Function to calculate the total price of the chosen bike and rental period
+*/
+
+function totalPrice(price, startDate, endDate) {
+  var days = BikeHandler.getDates(new Date(startDate),new Date(endDate)).length;
+  //console.log(days);
+  return (
+    price*days
+  )
+}
+
+function PaymentPage(props) {
+
+  const [initialized, setInitialized] = useState(false);
+  const [bike, setBike] = useState();
+  const {id, startDate, endDate} = props.match.params;
+
+  useEffect(() => {
+    if(!initialized) {
+
+      BikeHandler.getBike(id)
+      .then((json) => {
+        setBike(json);
+      });
+
+      setInitialized(true);
+
     }
+  })
+  if (!bike)
+  return (
+    <div>Loading...</div>
+  )
+  else
 
-    async submit(ev) {
-        this.setState({complete: true});
-      }
+  return( (
 
-    render() {
-        if (this.state.complete) return (
-          <div class="payment">
-          <h1>Payment by Stripe</h1>
-          <h2>Rental Confirmed</h2>
-          <h3>The code for your bike is 0734</h3>
-          </div>
-        );
-      return (
+    <div class="payment">
+
+      <h1>Payment by Stripe</h1>
+      <div className="checkout">
+
+        <div class = 'bikeSummary'>
+
+          <h3>{bike.name}</h3>
+          <p>Rental period: {startDate} to {endDate}</p>
+          <p>Total price: {totalPrice(bike.price, startDate, endDate)} SEK</p>
+        </div>
+        <h3>Would you like to complete the rental?</h3>
+        <br/>
         <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
-          <div class="payment">
-            <h1>Payment by Stripe</h1>
-            <Elements>
-              <div className="checkout">
-                <p> Rental information is presented here. </p>
-                <p> This info should be based on the previous page </p>
-
-            <h3>Would you like to complete the rental?</h3>
-
-
-
+          <Elements>
             <CardElement />
-            <button onClick={this.submit}>Rent Bike</button>
-            </div>
-            </Elements>
-          </div>
+          </Elements>
         </StripeProvider>
-      );
-    }
-  }
+        <button>Pay {totalPrice(bike.price, startDate, endDate)} SEK</button>
+      </div>
+      <p class = 'terms'>Terms & Conditions: <br/>A penalty fee of 1 000 SEK will be applied if the bike is
+        returned in the wrong location and a fee of 15 000 SEK will be applied for severely
+        damaged or unreturned bikes</p>
+    </div>
 
-  export default PaymentPage;
+  )
+)
+}export default PaymentPage;

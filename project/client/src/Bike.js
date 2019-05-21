@@ -11,82 +11,84 @@ import './css/mapContainer.css';
 import history from './history';
 
 class Bike extends Component {
-    constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-        this.state = {};
-    }
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.state = {};
+  }
 
-    isBlocked = day => {
-        //const availableDates = ['2019-08-09', '2019-08-10'] //"2019-08-09", "2019-08-10", "2019-08-11", "2019-08-12"
-        return !this.props.bike.dates.some(date => day.isSame(date, 'day'))
-    }
+  isBlocked = day => {
+    //const availableDates = ['2019-08-09', '2019-08-10'] //"2019-08-09", "2019-08-10", "2019-08-11", "2019-08-12"
+    return !this.props.bike.dates.some(date => day.isSame(date, 'day'))
+  }
 
-    blocksDay(day) {
-        return day.isSame(moment(), "day");
-    }
+  blocksDay(day) {
+    return day.isSame(moment(), "day");
+  }
 
-    handleClick() {
-        BikeHandler.rentBike(this.props.bike.id, this.state.startDate, this.state.endDate)
-            .then((status) => {
-                if (status == 200) {
-                    history.push('/PaymentPage');
-                }
-            });
-    }
+  handleClick() {
+    let link = `/PaymentPage/${this.props.bike.id}/${BikeHandler.DateToString(new Date(this.state.startDate))}/${BikeHandler.DateToString(new Date(this.state.endDate))}`;
+    BikeHandler.rentBike(this.props.bike.id, this.state.startDate, this.state.endDate)
+    .then((status) => {
+      if (status == 200) {
+        history.push(link);
+      }
+    });
+  }
 
-    handleChange(){
-    }
+  handleChange(){
+  }
 
-    handleCalenderChange(startDate, endDate) {
-        this.setState({startDate, endDate});
-    }
+  handleCalenderChange(startDate, endDate) {
+    this.setState({startDate, endDate});
+  }
 
-    render() {
-        let bike = this.props.bike;
-        return (
-            <article className="bicycle">
-            <div className="left">
-                <h2>{bike.name}</h2>
-                <p>{bike.description}</p>
-                <p>Location: {bike.city}</p>
-                <p>Gears: {bike.gears}</p>
-                <p>Price: {bike.price} kr/day</p>
+  render() {
+    let bike = this.props.bike;
+    return (
+      <article className="bicycle">
+        <div className="left">
+          <h2>{bike.name}</h2>
+          <p>{bike.description}</p>
+          <p>Location: {bike.city}</p>
+          <p>Gears: {bike.gears}</p>
+          <p>Price: {bike.price} kr/day</p>
 
-                <DateRangePicker
-                    startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-                    startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-                    endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-                    endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-                    onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-                    focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-                    onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-                    isDayBlocked={this.isBlocked}
-                    minimumNights={0}
-                    daySize={25}
-                />
-                <button onClick={this.handleClick}>
-                    Rent bike
-                </button>
-            </div>
-            
-            <div className="right">
-                <MapContainer className="bike-map-container"
-                    coords={[
-                        {
-                            "lat": bike.lat,
-                            "lng": bike.lng,
-                            "id": bike.id,
-                            "name": bike.name
-                        }
-                    ]}
-                    zoom={13}
-                    //bkey={this.props.bike}
-                />
-            </div>
-            </article>
-        );
-    }
+          <DateRangePicker
+            startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+            startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+            endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+            endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+            focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+            onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+            isDayBlocked={this.isBlocked}
+            minimumNights={0}
+            daySize={25}
+            />
+
+          <button onClick={this.handleClick}>
+            Rent bike
+          </button>
+        </div>
+
+        <div className="right">
+          <MapContainer className="bike-map-container"
+            coords={[
+              {
+                "lat": bike.lat,
+                "lng": bike.lng,
+                "id": bike.id,
+                "name": bike.name
+              }
+            ]}
+            zoom={13}
+            //bkey={this.props.bike}
+            />
+        </div>
+      </article>
+    );
+  }
 }
 
 export default Bike;
