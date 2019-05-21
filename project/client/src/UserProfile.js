@@ -7,33 +7,33 @@ import ItemListComponent from './ItemListComponent';
 import MapContainer from './MapContainer';
 import './css/mapContainer.css';
 function UserProfile() {
-    const {email} = useContext(AppContext);
-    console.log("email: " + email);
-    var myBikes= UserHandler.getMyBikes(email);
+  const {email} = useContext(AppContext);
+  console.log("email: " + email);
+  var myBikes= UserHandler.getMyBikes(email);
 
-    var bikes_list = [];
-    var bikeCoords = [];
+  var bikes_list = [];
+  var bikeCoords = [];
+  
+  // Reused code from ItemList
+  for (let i = 0; i < myBikes.length; i++) {
+    let bkey = (parseInt(Object.keys(myBikes)[i]) + 1);
+    bikes_list = [...bikes_list,
+      <ItemListComponent bikeKey={bkey} title={BikeHandler.getBike(myBikes[i]).name} price={BikeHandler.getBike(myBikes[i]).price} />];
+        bikeCoords.push({"lat":BikeHandler.getBike(myBikes[i]).lat, "lng":BikeHandler.getBike(myBikes[i]).lng});
+      }
 
-    // Reused code from ItemList
-    for (let i = 0; i < myBikes.length; i++) {
-        let bkey = (parseInt(Object.keys(myBikes)[i]) + 1);        
-        bikes_list = [...bikes_list, 
-            <ItemListComponent bikeKey={bkey} title={BikeHandler.getBike(myBikes[i]).name} price={BikeHandler.getBike(myBikes[i]).price} />];
-            bikeCoords.push({"lat":BikeHandler.getBike(myBikes[i]).lat, "lng":BikeHandler.getBike(myBikes[i]).lng});
-    }
-    
-    return (
+      return (
         <div className="item-list-wrapper">
-        <div className="item-list">
-        <h1>Here your listings: </h1>
+          <div className="item-list">
+            <h1>Here your listings: </h1>
             {bikes_list}
-        </div>
-        <MapContainer
+          </div>
+          <MapContainer
             coords={bikeCoords}
             zoom={10}
-        />
-     </div>
-    );
-}
+            />
+        </div>
+      );
+    }
 
-export default UserProfile;
+    export default UserProfile;

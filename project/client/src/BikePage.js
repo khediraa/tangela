@@ -4,28 +4,28 @@ import * as BikeHandler from './BikeHandler';
 import {AppContext} from './App';
 
 function BikePage(props) {
-    //const {bikeKey} = useContext(AppContext);
+  //const {bikeKey} = useContext(AppContext);
 
-    //internal state.
-    const [initialized, setInitialized] = useState(false);
-    const [bike, setBike] = useState();
-    useEffect(() => {
-        if(!initialized) {
-            const {id} = props.match.params;
-            BikeHandler.getBike(id)
-                .then((json) => {
-                    setBike(json);
-                });
+  //internal state.
+  const [initialized, setInitialized] = useState(false);
+  const [bike, setBike] = useState();
+  useEffect(() => {
+    if(!initialized) {
+      const {id} = props.match.params;
+      BikeHandler.getBike(id)
+      .then((json) => {
+        setBike(json);
+      });
 
 
-            setInitialized(true);
-        }
-    })
-    return bike ? (
-        <Bike bike={bike}/>
-    ) : (
-        <div>Loading...</div>
-    );
+      setInitialized(true);
+    }
+  })
+  return bike ? (
+    <Bike bike={bike}/>
+  ) : (
+    <div>Loading...</div>
+  );
 }
 
 export default BikePage;
