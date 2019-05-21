@@ -52,16 +52,16 @@ function PaymentPage(props) {
 
   else if (confirmed) {
   BikeHandler.rentBike(id, startDate, endDate) 
-  .then((status) => {
-    if (status == 200) {
+  //.then((status) => {
+    //if (status == 200) {
   return (
       <div class="payment">
         <h1>Payment by Stripe</h1>
         <h2>Rental Confirmed</h2>
       </div>
   )
-  }
-})
+  //}
+//})
   }
 
 
