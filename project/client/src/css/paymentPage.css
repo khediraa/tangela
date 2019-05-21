@@ -27,13 +27,23 @@
 
   .payment{
     width: 550px;
-    height: 620px;
+    height: 590px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
     border: 1px #ccc solid;
     padding: 10px;
+    padding-top:0px;
   }
+
+#AddInfo{
+  font-size: 15px;
+  
+}
+#AddInfo input{
+  font-size: 15px;
+  width: 220px;
+}
 
 .payment h1{
   font-size: 60px;
@@ -102,13 +112,12 @@ button:active {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10%;
-  margin-top: 5%;
+  margin-top: 0%;
   border: 1px #ccc solid;
   padding: 10px;
 }
 
 .terms {
   font-size: 7.5px;
-  position: absolute;
-  bottom: 33px;
+
 }

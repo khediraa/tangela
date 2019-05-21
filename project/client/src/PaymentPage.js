@@ -20,6 +20,13 @@ function totalPrice(price, startDate, endDate) {
 
 function PaymentPage(props) {
 
+  const [fname, setFname] = useState();
+  const [lname, setLname] = useState();
+  const [email, setEmail] = useState();
+  const [tel, setTel] = useState();
+
+
+
   const [initialized, setInitialized] = useState(false);
   const [bike, setBike] = useState();
   const {id, startDate, endDate} = props.match.params;
@@ -45,11 +52,10 @@ function PaymentPage(props) {
   return( (
 
     <div class="payment">
-      <h1>Payment by Stripe</h1>
+      {/*<h1>Payment by Stripe</h1>*/}
       <div className="checkout">
 
         <div class = 'bikeSummary'>
-
           <h3>{bike.name}</h3>
           <p>Rental period: {startDate} to {endDate}</p>
           <p>Total price: {totalPrice(bike.price, startDate, endDate)} SEK</p>
@@ -62,52 +68,62 @@ function PaymentPage(props) {
                 FORM WITH THE CARD ELEMENT AND INPUT FIELDS FOR PAYEE INFORMATION 
             */}
 
-<form>
+            <form>
                 
                 {/*  
                     FIRST NAME 
                 */}
-                            
+                 <table>       
+                 <tr>
+                   <td>
                  <div id="AddInfo">
                             <label>
                                 First name:
-                                <input type="text" name="fname" required placeholder= "" value={this.state.fname} onChange={this.handleChange} />
+                                <input type="text" name="fname" required placeholder= "" value={fname} />
                             </label>
                         </div>
+                        </td>
                         
                         {/*  
                             LAST NAME 
                         */}
-                            
+                        <td>
                         <div id="AddInfo">
                             <label>
                                 Last name:
-                                <input type="text" name="lname" required placeholder= "" value={this.state.lname} onChange={this.handleChange} />
+                                <input type="text" name="lname" required placeholder= "" value={lname}  />
                             </label>
                         </div>
-
+                        </td>
+                        </tr>
+                        <tr>
                         {/*  
                             CELL NUMBER 
                         */}
-                            
+                        <td>
                         <div id="AddInfo">
                             <label>
                                 Cell phone number:
-                                <input type="tel" name="tel" required size="20" minLength="9" maxLength="14" placeholder= "Including country code" value={this.state.tel} onChange={this.handleChange} />
+                                <input type="tel" name="tel" required size="20" minLength="9" maxLength="14" placeholder= "Including country code" value={tel}  />
                             </label>
                         </div>
+                        </td>
 
                         {/*  
                             EMAIL ADDRESS 
                         */}
-
+                        <td>
                         <div id="AddInfo">
                             <label>
                                 Email address:
-                                <input type="email" name="email" required placeholder= "" value={this.state.email} onChange={this.handleChange} />
+                                <input type="email" name="email" required placeholder= "" value={email}  />
                             </label>
                         </div>
+                        </td>
+                        </tr>
+                        </table> 
                   </form>
+                 
         
         
         
