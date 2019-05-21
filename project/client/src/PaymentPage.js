@@ -23,18 +23,26 @@ function PaymentPage(props) {
 
 
             setInitialized(true);
+            
 
         }
     })
-    
-    return( 
+    if (!bike)
+    return (
+      <div>Loading...</div>
+    )
+    else
+    return( (
         <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
           <div class="payment">
             <h1>Payment by Stripe</h1>
             <Elements>
               <div className="checkout">
                
-              
+              <h1>{bike.name}</h1>
+              <p>{bike.price}</p>
+              <p>{bike.dates}</p>
+
 
                 <h3>Would you like to complete the rental?</h3>
                 <br/>
@@ -47,4 +55,5 @@ function PaymentPage(props) {
           </div>
         </StripeProvider>
       )
+    )
   }export default PaymentPage;
