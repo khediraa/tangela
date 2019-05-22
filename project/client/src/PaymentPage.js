@@ -161,7 +161,7 @@ function PaymentPage(props) {
             </form>
           </div>
           <p class='terms'>Terms & Conditions: <br />A penalty fee of 1 000 SEK will be applied if the bike is
-            returned in the wrong location and a fee of 15 000 SEK will be applied for severely
+            returned in the wrong location. <br/> A fee of up to 15 000 SEK will be applied for severely
         damaged or unreturned bikes</p>
         </div>
         </div>
