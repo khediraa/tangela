@@ -24,7 +24,6 @@ function PaymentPage(props) {
   const [lname, setLname] = useState();
   const [email, setEmail] = useState();
   const [tel, setTel] = useState();
-  const [disabled, setDisabled] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
   
 
@@ -147,7 +146,7 @@ function PaymentPage(props) {
                 <CardElement />
               </Elements>
             </StripeProvider>
-            <button type="submit" value="Submit">Pay {totalPrice(bike.price, startDate, endDate)} </button>
+            <button type="submit" value="Submit">Pay {totalPrice(bike.price, startDate, endDate)} SEK </button>
           </form>
         </div>
         <p class='terms'>Terms & Conditions: <br />A penalty fee of 1 000 SEK will be applied if the bike is

@@ -46,6 +46,7 @@ class AddUser extends Component{
     const isEnabled = true;
     return(
       <div id="Wrapper">
+        <h1>Register</h1>
         {/* BOX WITH INFORMATION ABOUT THE USER */}
         <form onSubmit={this.handleSubmit}>
           <div id="Info">
