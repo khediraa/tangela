@@ -8,8 +8,11 @@ import "./css/addBike.css";
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import MapForAdding from './MapForAdding';
+import './css/mapContainer.css';
 
 import { Route, Link } from 'react-router-dom';
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
 
 const modalStyles = {
@@ -258,6 +261,12 @@ class AddBike extends Component {
               <label>
                 Description
                 <textarea type="text" name="desc" placeholder="(Optional)" value={this.state.desc} onChange={this.handleChange} />
+              </label>
+            </div>
+            <div id="AddCoordinates">
+              <label>
+                Choose the location
+                <MapForAdding />
               </label>
             </div>
             <div id="AddSubmit">
