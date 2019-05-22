@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, Component } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 import "./css/paymentPage.css";
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import Bike from './Bike';
 import history from './history';
 import * as BikeHandler from './BikeHandler';
+import stripelogo from './Stripe-Payment-logo.png';
+
 
 /*
 Function to calculate the total price of the chosen bike and rental period
@@ -24,7 +26,7 @@ function PaymentPage(props) {
   const [lname, setLname] = useState();
   const [email, setEmail] = useState();
   const [tel, setTel] = useState();
-  const [confirmed, setConfirmed] = useState(false);
+  const [confirmed, setConfirmed] = useState(true);
 
 
   const [initialized, setInitialized] = useState(false);
@@ -55,8 +57,12 @@ function PaymentPage(props) {
     //if (status == 200) {
     return (
       <div class="payment">
-        <h1>Payment by Stripe</h1>
+        <h1>Rental confirmed</h1>
+        
         <h2>Rental Confirmed</h2>
+        <div class='logowrapper'>
+        <img align='right' vertical-align='bottom' src={stripelogo} alt="Logo" />
+        </div>
       </div>
     )
     //}

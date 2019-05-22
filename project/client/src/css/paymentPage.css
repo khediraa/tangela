@@ -113,3 +113,18 @@
 .terms {
   font-size: 7.4px;
 }
+.logowrapper img{
+  
+  width: 230px;
+  height: 70px;
+  margin-top:75%;
+  
+}
+
+.wrapper {
+  background-image: url(../images/background3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 900px;
+  overflow: auto;
+}
