@@ -25,7 +25,7 @@ function PaymentPage(props) {
   const [email, setEmail] = useState();
   const [tel, setTel] = useState();
   const [confirmed, setConfirmed] = useState(false);
-  
+
 
   const [initialized, setInitialized] = useState(false);
   const [bike, setBike] = useState();
@@ -50,17 +50,17 @@ function PaymentPage(props) {
     )
 
   else if (confirmed) {
-  BikeHandler.rentBike(id, startDate, endDate) 
-  //.then((status) => {
+    BikeHandler.rentBike(id, startDate, endDate)
+    //.then((status) => {
     //if (status == 200) {
-  return (
+    return (
       <div class="payment">
         <h1>Payment by Stripe</h1>
         <h2>Rental Confirmed</h2>
       </div>
-  )
-  //}
-//})
+    )
+    //}
+    //})
   }
 
 
@@ -85,7 +85,7 @@ function PaymentPage(props) {
                 FORM WITH THE CARD ELEMENT AND INPUT FIELDS FOR PAYEE INFORMATION 
             */}
 
-          <form onSubmit = {setConfirmed}>
+          <form onSubmit={setConfirmed}>
 
             {/*  
                     FIRST NAME 
@@ -121,7 +121,7 @@ function PaymentPage(props) {
                   <div id="AddInfo">
                     <label>
                       Cell phone number:
-                                <input type="tel" name="tel" required size="20" minLength="9" maxLength="14" placeholder="Including country code" value={tel} />
+                                <input type="tel" name="tel" required  minLength="9" maxLength="14" placeholder="Including country code" value={tel} />
                     </label>
                   </div>
                 </td>
