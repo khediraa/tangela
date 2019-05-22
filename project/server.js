@@ -90,8 +90,6 @@ app.post('/add-user', jsonParser, (req, res) => {
 
 app.post('/user-bikes', textParser, (req, res) => {
   let email = req.body;
-  console.log(email);
-  
   
   const users = getUsers();
   const bikes = getBikes();
