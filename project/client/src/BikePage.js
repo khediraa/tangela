@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import Bike from './Bike';
 import * as BikeHandler from './BikeHandler';
 import {AppContext} from './App';
+import "./css/addBike.css";
 
 function BikePage(props) {
   //const {bikeKey} = useContext(AppContext);
@@ -22,7 +23,9 @@ function BikePage(props) {
     }
   })
   return bike ? (
+    <div class="background">
     <Bike bike={bike}/>
+    </div>
   ) : (
     <div>Loading...</div>
   );

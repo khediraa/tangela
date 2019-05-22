@@ -51,7 +51,9 @@ class Bike extends Component {
           <p>Type: {bike.type}</p>
           <p>Frame: {bike.frame}</p>
           <p>Price: {bike.price} kr/day</p>
-          <form onSubmit={this.handleClick}>
+          <br/>
+
+          <form class="datePicker" onSubmit={this.handleClick}>
             <DateRangePicker
               startDate={this.state.startDate} // momentPropTypes.momentObj or null,
               startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
@@ -66,10 +68,12 @@ class Bike extends Component {
               required
             />
 
-            <button >
+          <button >
               Rent bike
           </button>
+          
           </form>
+
 
         </div>
 
@@ -87,6 +91,7 @@ class Bike extends Component {
           //bkey={this.props.bike}
           />
         </div>
+
       </article>
     );
   }
