@@ -26,5 +26,41 @@
         "tel": "+46777443322",
         "bikes": [],
         "password": "333333"
+    },
+    "liv@hoi.com": {
+        "fname": "Liv",
+        "lname": "Xson",
+        "tel": "+46777332211",
+        "bikes": ["15"],
+        "password": "444444"
+    },
+    "hakan@hoi.com": {
+      "fname": "Håkan",
+      "lname": "Yson",
+      "tel": "+46777221100",
+      "bikes": ["7"],
+      "password": "555555"
+    },
+    "dummy@hoi.com": {
+      "fname": "Dummy",
+      "lname":"Dumbson",
+      "tel": "+45777110099",
+      "bikes": [
+        "6",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21"
+      ],
+      "password": "666666"
     }
 }
