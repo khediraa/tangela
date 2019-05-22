@@ -1,5 +1,3 @@
-var users = require('./resources/users.json');
-
 //TODO: This function is under development
 export function login(email, password) {
   /*state.setState({email:state.email});
