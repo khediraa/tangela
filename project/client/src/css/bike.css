@@ -19,25 +19,28 @@
     margin-top: 0;
 }
 
-.bicycle button {
-    background-color: rgb(231, 112, 0);
-    border-radius: 6px;
-    border: 2px solid whitesmoke;
-    padding: 20px 20px;
-    margin: 15px 0 0 0;
+.left button {
+  background: salmon;
+  background-color: salmon;
+  color: white;
+  cursor: pointer;
+  float: right;
+  padding: 10px 0;
+  width: 100px;
 }
 
-.bicycle button:hover {
-    background-color: rgb(255, 135, 22);
-}
 
-.bicycle button:active {
-    background-color: rgb(231, 112, 0);
+.left button:hover {
+    box-shadow: 0 0 5px #ccc;
 }
 
 .bicycle .left {
     width: 50%;
 }
+
+.bicycle a:hover, .search a:visited, .bicycle a:link, .bicycle a:active {
+    text-decoration: none
+  }
 
 .bicycle .right {
     width: 50%;

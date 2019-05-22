@@ -32,7 +32,7 @@ form button {
     width: 100%;
     appearance: none;
     border-radius: 5px;
-    background-color: #84c00c;
+    background-color: salmon;
     color: #fff;
     border: none;
     font-size: 16px;
@@ -40,9 +40,6 @@ form button {
     margin-top: 30px;
 }
   
-form button:hover {
-    background-color: #669509;
-}
   
 form button:disabled {
     background-color: #dbf99f;
