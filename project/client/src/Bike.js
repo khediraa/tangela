@@ -48,6 +48,8 @@ class Bike extends Component {
           <p>{bike.description}</p>
           <p>Location: {bike.city}</p>
           <p>Gears: {bike.gears}</p>
+          <p>Type: {bike.type}</p>
+          <p>Frame: {bike.frame}</p>
           <p>Price: {bike.price} kr/day</p>
           <form onSubmit={this.handleClick}>
             <DateRangePicker
