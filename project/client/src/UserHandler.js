@@ -1,6 +1,3 @@
-import React, { useContext } from 'react';
-import { AppContext } from './App';
-
 var users = require('./resources/users.json');
 
 //TODO: This function is under development
@@ -27,12 +24,25 @@ export async function addUser(email, fname, lname, tel, password) {
       email: email
     })
   })
-  .then((response) => {
-    return response.status;
+  .then(response => {
+    return response.json();
   })
+  .then(json => {
+    return json.addedUser;
+  });
 }
 
 //Returns all bikes that belongs to a certain user
-export function getMyBikes(email) {
-  return users[email].bikes;
+export async function getMyBikes(email) {
+  return fetch('/user-bikes', {
+    method: 'POST',
+    headers: {
+      'Accept': 'text/plain',
+      'Content-Type': 'text/plain'
+    },
+    body: email
+  })
+  .then(response => {
+    return response.json();
+  });
 }

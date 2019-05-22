@@ -85,7 +85,29 @@ app.post('/add-user', jsonParser, (req, res) => {
   let email = req.body.email;
 
   let success = addUser(newUser, email);
-  success ? res.status(200).send('Added user.') : res.status(300).send('Could not add user.');
+  success ? res.send({addedUser: true}) : res.send({addedUser: false});
+});
+
+app.post('/user-bikes', textParser, (req, res) => {
+  let email = req.body;
+  console.log(email);
+  
+  
+  const users = getUsers();
+  const bikes = getBikes();
+  if (!users.hasOwnProperty(email)) {
+    console.log('email ' + email + ' not found')
+    res.send({
+      result: false
+    })
+    return;
+  }
+  let ids = users[email].bikes;
+  let userBikes = bikes.filter(bike => {
+    return ids.includes(bike.id);
+  });
+  res.send(userBikes);
+
 });
 
 
