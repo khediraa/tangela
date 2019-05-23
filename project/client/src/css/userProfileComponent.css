@@ -1,0 +1,35 @@
+.userProfileComponent {
+    background: rgba(255, 255, 255, 0.90);
+    border: 1px #ccc solid;
+    border-radius: 3px;
+    padding-left: 15px;
+    height: 70px;
+    width: 80%;
+    margin: 20px 0;
+    position: relative;
+}
+
+.userProfileComponent:hover {
+    box-shadow: 0 0 5px #ccc;
+}
+
+.userProfileComponent .title:hover {
+    text-decoration: underline;
+}
+
+.remove-button {
+  background: salmon;
+  color: white;
+  cursor: pointer;
+  float: right;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+}
+
+.remove-button:hover {
+    
+}
