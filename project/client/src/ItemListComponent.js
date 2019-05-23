@@ -10,7 +10,7 @@ function ItemListComponent({bikeKey, title, price}) {
   return (
     <div className="itemListComponent">
       <div>
-        <Link to={link}>{title}</Link>
+        <Link style={{ textDecoration: 'none' }}to={link}>{title}</Link>
         <h5>{price} kr/day</h5>
       </div>
     </div>

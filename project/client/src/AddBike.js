@@ -137,6 +137,8 @@ class AddBike extends Component {
 
           console.log("id: " + id);
 
+          this.openModal();
+
           //TODO: fix this subsequent call to server
           // UserHandler.assignBikeToUser("henrik@hoi.com",id)
           // .then((status) => {
@@ -260,7 +262,7 @@ class AddBike extends Component {
             </div>
             <div id="AddSubmit">
               {/*<Link to='/Items' >*/}
-              <button disabled={isDisabled} type="submit" value="Submit" onClick={this.openModal}>Submit</button>
+              <button type="submit" value="Submit" >Submit</button>
               {/*</Link>*/}
             </div>
           </form>

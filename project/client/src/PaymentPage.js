@@ -24,9 +24,8 @@ function PaymentPage(props) {
   const [lname, setLname] = useState();
   const [email, setEmail] = useState();
   const [tel, setTel] = useState();
-  const [disabled, setDisabled] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
-  
+
 
   const [initialized, setInitialized] = useState(false);
   const [bike, setBike] = useState();
@@ -51,17 +50,17 @@ function PaymentPage(props) {
     )
 
   else if (confirmed) {
-  BikeHandler.rentBike(id, startDate, endDate) 
-  //.then((status) => {
+    BikeHandler.rentBike(id, startDate, endDate)
+    //.then((status) => {
     //if (status == 200) {
-  return (
+    return (
       <div class="payment">
         <h1>Payment by Stripe</h1>
         <h2>Rental Confirmed</h2>
       </div>
-  )
-  //}
-//})
+    )
+    //}
+    //})
   }
 
 
@@ -86,7 +85,7 @@ function PaymentPage(props) {
                 FORM WITH THE CARD ELEMENT AND INPUT FIELDS FOR PAYEE INFORMATION 
             */}
 
-          <form onSubmit = {setConfirmed}>
+          <form onSubmit={setConfirmed}>
 
             {/*  
                     FIRST NAME 
@@ -123,7 +122,7 @@ function PaymentPage(props) {
                   <div id="AddInfo">
                     <label>
                       Cell phone number:
-                                <input type="tel" name="tel" required size="20" minLength="9" maxLength="14" placeholder="Including country code" value={tel} />
+                                <input type="tel" name="tel" required  minLength="9" maxLength="14" placeholder="Including country code" value={tel} />
                     </label>
                   </div>
                 </td>
@@ -149,7 +148,7 @@ function PaymentPage(props) {
                 <CardElement />
               </Elements>
             </StripeProvider>
-            <button type="submit" value="Submit">Pay {totalPrice(bike.price, startDate, endDate)} </button>
+            <button type="submit" value="Submit">Pay {totalPrice(bike.price, startDate, endDate)} SEK </button>
           </form>
         </div>
         <p class='terms'>Terms & Conditions: <br />A penalty fee of 1 000 SEK will be applied if the bike is
