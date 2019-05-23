@@ -20,16 +20,6 @@ nav img:hover {
   cursor: pointer;
 }
 
-nav .transparent.navbar-inverse .navbar-inner {
-  border-width: 0px;
-  -webkit-box-shadow: 0px 0px;
-  box-shadow: 0px 0px;
-  background-color: rgba(0,0,0,0.0);
-  background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
-  background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
-  background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
-}
-
 @-webkit-keyframes rt1 {0% {color: hsl(354, 100%, 70%);} 15% {color: hsl(300, 100%, 70%);} 30% {color: hsl(255, 100%, 70%);} 45% {color: hsl(212, 100%, 70%);} 60% {color: hsl(172, 100%, 70%);} 75% {color: hsl(130, 100%, 70%);} 90% {color: hsl(55, 100%, 70%);} 100% {color: hsl(21, 100%, 70%);}}
 @-moz-keyframes rt1 {0% {color: hsl(354, 100%, 70%);} 15% {color: hsl(300, 100%, 70%);} 30% {color: hsl(255, 100%, 70%);} 45% {color: hsl(212, 100%, 70%);} 60% {color: hsl(172, 100%, 70%);} 75% {color: hsl(130, 100%, 70%);} 90% {color: hsl(55, 100%, 70%);} 100% {color: hsl(21, 100%, 70%);}}
 @keyframes rt1 {0% {color: hsl(354, 100%, 70%);} 15% {color: hsl(300, 100%, 70%);} 30% {color: hsl(255, 100%, 70%);} 45% {color: hsl(212, 100%, 70%);} 60% {color: hsl(172, 100%, 70%);} 75% {color: hsl(130, 100%, 70%);} 90% {color: hsl(55, 100%, 70%);} 100% {color: hsl(21, 100%, 70%);}}
@@ -55,7 +45,7 @@ nav li:hover {
 nav .login-container {
   text-align: center;
   text-shadow: #000 2px -2px;
-  padding: 35px 40px;
+  padding: 25px 25px;
   text-decoration: none;
   height: 100%;
   display: block;
@@ -64,8 +54,10 @@ nav .login-container {
 
 
 nav input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
+  float: left;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
   font-size: 17px;
   border: none;
   width: 150px; 
@@ -73,16 +65,16 @@ nav input[type=text] {
 
 
 nav .login-container button {
-  float: right;
-  padding: 6px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
+  float: left;
+  padding: 5px;
+  margin: 5px;
+  background: #aaa;
   font-size: 17px;
   border: none;
   cursor: pointer;
+  width: 150px;
 }
 
 nav .login-container button:hover {
-  background: #ccc;
+  background: #666;
 }
