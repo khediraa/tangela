@@ -18,17 +18,25 @@ const modalStyles = {
 
 function UserProfileComponent({bikeKey, title, price}) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  
+  const [visible, setVisible] = useState(true);
+
   const handleModalClose = (shouldRemoveBike) => {
     if (shouldRemoveBike) {
-      BikeHandler.removeBike(bikeKey);
+      BikeHandler.removeBike(bikeKey)
+      .then(ok => {
+        //ok from server that everything went well (status 200).
+        if (ok) {
+          setVisible(false);
+        }
+        
+      });
     }
   
     setModalIsOpen(false);
   }
   let link = `/BikePage/${bikeKey}`;
   return (
-    <div className="userProfileComponent">
+    <div className="userProfileComponent" style={{display: visible ? "block" : "none"}}>
       <Modal
         style={modalStyles} 
         isOpen={modalIsOpen}

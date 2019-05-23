@@ -103,7 +103,7 @@ export async function removeBike(id) {
     body: id
   })
   .then((response) => {
-    return response.json();
+    return response.ok;
   })
 }
 
