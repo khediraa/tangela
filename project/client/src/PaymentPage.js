@@ -26,7 +26,7 @@ function PaymentPage(props) {
   const [lname, setLname] = useState();
   const [email, setEmail] = useState();
   const [tel, setTel] = useState();
-  const [confirmed, setConfirmed] = useState(true);
+  const [confirmed, setConfirmed] = useState(false);
 
 
   const [initialized, setInitialized] = useState(false);
