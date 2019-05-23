@@ -56,17 +56,20 @@ function PaymentPage(props) {
     //.then((status) => {
     //if (status == 200) {
     return (
-      <div class='wrapper'>
-        <div class="payment">
-          <div class='textbox'>
-
+      <div className='wrapper'>
+        <div className="payment">
+        
+          <div className='textbox'>
+          
             <h3> Thank you for your business!</h3>
-            <br />
+            
             <p> You will recive an email with receipt and contact information.</p>
-            </div>
             <div class='logowrapper'>
-              <img align='right' vertical-align='bottom' src={stripelogo} alt="Logo" />
+              <img align='right' src={stripelogo} alt="Logo" />
             </div>
+            
+            </div>
+            
           </div>
         </div>
         )
