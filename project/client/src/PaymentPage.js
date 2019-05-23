@@ -101,12 +101,13 @@ function PaymentPage(props) {
               {/*  
                     FIRST NAME 
                 */}
-              <table>
-                <tr>
-                  <td>
-                    <div id="AddInfo">
-                      <label>
-                        First name:
+            <table>
+              <tbody>
+              <tr>
+                <td>
+                  <div id="AddInfo">
+                    <label>
+                      First name:
                                 <input type="text" name="fname" required placeholder="" value={fname} />
                       </label>
                     </div>
@@ -145,20 +146,21 @@ function PaymentPage(props) {
                       <label>
                         Email address:
                                 <input type="email" name="email" required placeholder="" value={email} />
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-              </table>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
 
 
-              <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
-                <Elements>
-                  <CardElement />
-                </Elements>
-              </StripeProvider>
-              <button type="submit" value="Submit">Pay {totalPrice(bike.price, startDate, endDate)} SEK </button>
-            </form>
+            <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
+              <Elements>
+                <CardElement />
+              </Elements>
+            </StripeProvider>
+            <button type="submit" value="Submit">Pay {totalPrice(bike.price, startDate, endDate)} SEK </button>
+          </form>
           </div>
           <p className='terms'>Terms & Conditions: <br />A penalty fee of 1 000 SEK will be applied if the bike is
             returned in the wrong location. <br/> A fee of up to 15 000 SEK will be applied for severely
@@ -168,4 +170,6 @@ function PaymentPage(props) {
 
         )
         )
-    } export default PaymentPage;
+    } 
+    
+export default PaymentPage;

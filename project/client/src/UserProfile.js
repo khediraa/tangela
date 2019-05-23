@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import Bike from './Bike';
 import * as BikeHandler from './BikeHandler';
 import * as UserHandler from './UserHandler';
@@ -6,34 +6,50 @@ import {AppContext} from './App';
 import ItemListComponent from './ItemListComponent';
 import MapContainer from './MapContainer';
 import './css/mapContainer.css';
+
 function UserProfile() {
-  const {email} = useContext(AppContext);
-  console.log("email: " + email);
-  var myBikes= UserHandler.getMyBikes(email);
+  const {email: loggedInUser} = useContext(AppContext);
+  console.log("email: " + loggedInUser);
 
-  var bikes_list = [];
-  var bikeCoords = [];
-  
-  // Reused code from ItemList
-  for (let i = 0; i < myBikes.length; i++) {
-    let bkey = (parseInt(Object.keys(myBikes)[i]) + 1);
-    bikes_list = [...bikes_list,
-      <ItemListComponent bikeKey={bkey} title={BikeHandler.getBike(myBikes[i]).name} price={BikeHandler.getBike(myBikes[i]).price} />];
-        bikeCoords.push({"lat":BikeHandler.getBike(myBikes[i]).lat, "lng":BikeHandler.getBike(myBikes[i]).lng});
-      }
+  const [initialized, setInitialized] = useState(false);
+  const [userBikes, setUserBikes] = useState();
+  const [bikeCoords, setBikeCoords] = useState();
 
-      return (
-        <div className="item-list-wrapper">
-          <div className="item-list">
-            <h1>Here your listings: </h1>
-            {bikes_list}
-          </div>
-          <MapContainer
-            coords={bikeCoords}
-            zoom={10}
-            />
-        </div>
-      );
+  useEffect(() => {
+    if(!initialized) {
+      UserHandler.getMyBikes(loggedInUser)
+      .then(json => {
+        if (!json.hasOwnProperty('result')) {
+          let userBikesHTML = [];
+          let bikeCoords = [];
+          json.forEach(bike => {
+            
+            userBikesHTML.push(<ItemListComponent bikeKey={bike.id} title={bike.name} price={bike.price} />);
+            bikeCoords.push({"lat":bike.lat, "lng":bike.lng, "id": bike.id, "name": bike.name});
+          });
+          setUserBikes(userBikesHTML);
+          setBikeCoords(bikeCoords);
+
+        }
+      })
+      setInitialized(true);
     }
+  })
+
+    return userBikes && bikeCoords ? (
+      <div className="item-list-wrapper">
+        <div className="item-list">
+          <h1 style={{color:'white'}}>Here are your listings: </h1>
+          {userBikes}
+        </div>
+        <MapContainer
+          coords={bikeCoords}
+          zoom={10}
+          />
+      </div>
+    ) : (
+      <div>Loading...</div>
+    );
+  }
 
     export default UserProfile;
