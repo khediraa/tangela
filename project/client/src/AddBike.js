@@ -160,6 +160,7 @@ class AddBike extends Component {
         return hasError ? shouldShow : false;
       };
       return (
+        <div class="background">
         <div id="Wrapper">
           <div id="ModalContainer">
             <Modal
@@ -177,8 +178,8 @@ class AddBike extends Component {
           </div>
           {/*  BOX WITH LOCATION AND DATE */}
           <form onSubmit={this.handleSubmit}>
-            <h2>Add your bike to hoi</h2>
-            <div id="AddInfo">
+            <h2>Add your bike to Hoi!</h2>
+            <div id="AddDates">
               <label> Available dates </label>
               <DateRangePicker
                 startDate={this.state.startDate} // momentPropTypes.momentObj or null,
@@ -266,6 +267,7 @@ class AddBike extends Component {
               {/*</Link>*/}
             </div>
           </form>
+        </div>
         </div>
       )
     }
