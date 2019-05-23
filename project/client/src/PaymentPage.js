@@ -72,7 +72,7 @@ function PaymentPage(props) {
 
       <div class="payment">
         {/*<h1>Payment by Stripe</h1>*/}
-        <div className="checkout">
+        <div class="checkout">
 
           <div class='bikeSummary'>
             <h3>{bike.name}</h3>
@@ -92,6 +92,7 @@ function PaymentPage(props) {
                     FIRST NAME 
                 */}
             <table>
+              <tbody>
               <tr>
                 <td>
                   <div id="AddInfo">
@@ -139,6 +140,7 @@ function PaymentPage(props) {
                   </div>
                 </td>
               </tr>
+              </tbody>
             </table>
 
 
