@@ -79,12 +79,12 @@ function PaymentPage(props) {
       else
     
         return ((
-    <div class='wrapper'>
-      <div class="payment">
+    <div className='wrapper'>
+      <div className="payment">
           {/*<h1>Payment by Stripe</h1>*/}
           <div className="checkout">
 
-            <div class='bikeSummary'>
+            <div className='bikeSummary'>
               <h3>{bike.name}</h3>
               <p>Rental period: {startDate} to {endDate}</p>
               <p>Total price: {totalPrice(bike.price, startDate, endDate)} SEK</p>
@@ -160,9 +160,9 @@ function PaymentPage(props) {
               <button type="submit" value="Submit">Pay {totalPrice(bike.price, startDate, endDate)} SEK </button>
             </form>
           </div>
-          <p class='terms'>Terms & Conditions: <br />A penalty fee of 1 000 SEK will be applied if the bike is
+          <p className='terms'>Terms & Conditions: <br />A penalty fee of 1 000 SEK will be applied if the bike is
             returned in the wrong location. <br/> A fee of up to 15 000 SEK will be applied for severely
-        damaged or unreturned bikes</p>
+            damaged or unreturned bikes.</p>
         </div>
         </div>
 
