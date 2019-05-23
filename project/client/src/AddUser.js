@@ -45,10 +45,11 @@ class AddUser extends Component {
   render() {
 
     return (
+      <div class="background">
       <div id="Wrapper">
-        <h1>Register</h1>
         {/* BOX WITH INFORMATION ABOUT THE USER */}
         <form onSubmit={this.handleSubmit}>
+        <h2>Register new user</h2>
           <div id="Info">
             <div id="AddInfo">
               <label>
@@ -95,6 +96,7 @@ class AddUser extends Component {
           </div>
         </form>
 
+      </div>
       </div>
     )
   }

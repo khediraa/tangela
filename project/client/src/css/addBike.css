@@ -1,3 +1,12 @@
+.background{
+    background-image: url(../images/background3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 900px;
+    overflow: auto;
+    display: flex;
+}
+
 form {
     padding: 0 40px;
 }
@@ -49,9 +58,11 @@ form button:disabled {
 #Wrapper {
     width: 500px;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 1.5%;
     border: 1px #ccc solid;
     padding: 40px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
 }
 
 #Wrapper h2 {
@@ -62,10 +73,13 @@ form button:disabled {
     margin-top: 20px;
 }
 
+#AddDates{
+    font-size: 15px;
+}
+
 #AddInfo input {
     margin: 0;
     box-sizing: border-box;
-
 }
 
 #Wrapper .DateInput.DateInput_1 {
