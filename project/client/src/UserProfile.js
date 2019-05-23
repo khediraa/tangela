@@ -39,7 +39,7 @@ function UserProfile() {
     return userBikes && bikeCoords ? (
       <div className="item-list-wrapper">
         <div className="item-list">
-          <h1>Here are your listings: </h1>
+          <h1 style={{color:'white'}}>Here are your listings: </h1>
           {userBikes}
         </div>
         <MapContainer
