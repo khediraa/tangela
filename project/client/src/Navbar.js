@@ -9,6 +9,12 @@ function logout(){
   
 }
 
+function handleSubmit(event) {
+
+  event.preventDefault();
+
+}
+
 function  Navbar(props) {
 
   const state = useContext(AppContext);
@@ -61,7 +67,7 @@ function  Navbar(props) {
           </li>
         </Link>
         <div class="login-container">
-          <form>
+          <form onSubmit={handleSubmit}>
             <input type="text" placeholder="Username" name="username"/>
             <input type="text" placeholder="Password" name="psw"/>
             <button type="submit">Login</button>
