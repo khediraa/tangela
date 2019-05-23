@@ -44,8 +44,10 @@ function UserProfileComponent({bikeKey, title, price}) {
         contentLabel='removal confirmation'
       >
         <h5>Are you sure you want to remove this listing?</h5>
-        <button onClick={() => handleModalClose(true)}>Yes</button>
-        <button onClick={() => handleModalClose(false)}>No</button>
+        <div className='buttons'>
+          <button className='modal-yes' onClick={() => handleModalClose(true)}>Yes</button>
+          <button className='modal-no' onClick={() => handleModalClose(false)}>No</button>
+        </div>
       </Modal>
       <div className="info">
         <Link style={{ textDecoration: 'none' }}to={link}>{title}</Link>
