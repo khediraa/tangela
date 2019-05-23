@@ -130,7 +130,7 @@ class AddBike extends Component {
       + this.state.gears.toString() + ' ' + this.state.price.toString() + ' '
       + this.state.title + ' ' + this.state.startDate.toString());
       
-      BikeHandler.addBike('henrik@hoi.com',this.state.title, this.state.latitude, this.state.longitude, this.state.frame, this.state.type,
+      BikeHandler.addBike(this.props.location.state.email,this.state.title, this.state.latitude, this.state.longitude, this.state.frame, this.state.type,
         this.state.gears, this.state.price, this.state.startDate.toDate(), this.state.endDate.toDate(), this.state.desc)
         .then((id) => {
           console.log("assigning");

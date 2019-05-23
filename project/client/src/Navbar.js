@@ -1,20 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import logo from './hoi.png';
 import "./css/navbar.css";
 
 import {Route, Link} from 'react-router-dom';
+import {AppContext} from './App';
 
 
 
-class Navbar extends Component {
-  render(){
+function Navbar() {
+
+  const state = useContext(AppContext);
+  
+
     return(
       <nav>
         <Link to='/Home'>
           <img src={logo} alt="Hoi logo"/>
         </Link>
 
-        <Link to='/AddBike'>
+
+        <Link to={{ pathname:'/AddBike', state:{email:state.email}}}>
           <li>
             Add bike
           </li>
@@ -34,6 +39,6 @@ class Navbar extends Component {
 
       </nav>
     )
-  }
+  
 }
 export default Navbar;
