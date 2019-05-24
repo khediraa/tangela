@@ -7,6 +7,7 @@
     width: 80%;
     margin: 20px 0;
     position: relative;
+
 }
 
 .userProfileComponent:hover {
@@ -82,4 +83,9 @@
 
 .modal-no:active {
   background: rgb(81, 133, 230);
+}
+
+.item-list-wrapper{
+  background-attachment: fixed;
+
 }

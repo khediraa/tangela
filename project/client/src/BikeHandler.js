@@ -44,8 +44,8 @@ export async function addBike(email, name, lat, lng, frame, type, gears, price, 
   let newBike= ({name:name, lat:lat, lng:lng, frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description, rating:[] });
 
   // TODO: temporary hardcoded values. Remove when functionality added to Addbike.
-  newBike.lat = "57.69891";
-  newBike.lng = "11.97057";
+  //newBike.lat = "57.69891";
+  //newBike.lng = "11.97057";
   newBike.city = "Gothenburg";
 
   return fetch('add-bike', {
