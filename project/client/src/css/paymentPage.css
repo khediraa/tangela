@@ -126,9 +126,10 @@
 
 .logowrapper img{
   
-  width: 230px;
-  height: 60px;
-  margin-top: 302px;
+  width: 115px;
+  height: 30px;
+  margin-top:5%;
+
   
 }
 
@@ -136,10 +137,13 @@
   background-image: url(../images/background3.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 900px;
   overflow: auto;
 }
 
 .textbox{
-  margin-top:20%; 
+  margin-top:5%;
+  padding-bottom: 10%; 
 }
+

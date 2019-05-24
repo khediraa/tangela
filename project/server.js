@@ -79,6 +79,23 @@ app.post('/add-bike', jsonParser, (req, res) => {
   addSuccess && assignSuccess ? res.status(200).send('Added bike.') : res.status(300).send('Could not add bike.');
 });
 
+app.post('/remove-bike', textParser, (req, res) => {
+  let id = req.body;
+  const bikes = getBikes();
+  
+  for (let i = 0; i < bikes.length; i++) {
+    console.log(bikes[i].id + " : " + id);
+    
+    if (bikes[i].id == id) {
+      bikes.splice(i, 1);
+      break;
+    }
+  }
+  let success = updateBikes(bikes);
+
+  success ? res.sendStatus(200) : res.sendStatus(500);
+});
+
 app.post('/add-user', jsonParser, (req, res) => {
   //TODO Must check that the email doesn't exist already
   let newUser = req.body.user;
