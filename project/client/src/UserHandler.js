@@ -1,9 +1,19 @@
-//TODO: This function is under development
-export function login(email, password) {
-  /*state.setState({email:state.email});
-  if (users[state.email].password===password){
-  state.setState({login:true});
-  }*/
+/* Tries to log in. returns a Promise. If password was correct, response.ok is true. */
+export async function login(email, password) {
+  return fetch('/login', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password
+    })
+  })
+  .then( response => {
+    return response.text();
+  });
 }
 
 export function logout() {
