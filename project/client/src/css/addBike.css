@@ -8,7 +8,7 @@
 }
 
 form {
-    padding: 0 40px;
+    padding:  40px;
 }
   
 form input {
@@ -59,6 +59,8 @@ form button:disabled {
     width: 500px;
     margin: auto;
     margin-top: 1.5%;
+  
+
     border: 1px #ccc solid;
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.95);
@@ -85,3 +87,25 @@ form button:disabled {
 #Wrapper .DateInput.DateInput_1 {
     width: 197px;
 }
+
+.paypallogowrapper img{
+  
+    width: 120px;
+    height: 110px;
+
+    margin-bottom:0;
+    margin-top: -20px;
+  
+    
+  }
+
+  .usepaypal {
+    font-size: 10px;
+    text-align: center;
+    margin-top: -25px;
+    /* background: rgba(255, 255, 255, 0.95); */
+    /* border-radius: 10px; */
+    /* padding: 5px; */
+    /* border: 1px #ccc solid; */
+  }
+  
