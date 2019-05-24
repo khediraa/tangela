@@ -41,7 +41,7 @@ function UserProfile() {
         </div>
         <MapContainer
           coords={bikeCoords}
-          zoom={10}
+          zoom={12}
           />
       </div>
     ) : (
