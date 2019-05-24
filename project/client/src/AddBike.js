@@ -266,7 +266,7 @@ class AddBike extends Component {
             <div id="AddCoordinates">
               <label>
                 Choose the location
-                <MapForAdding />
+                <MapForAdding center={[57.708870, 11.974560]} zoom={13}/>
               </label>
             </div>
             <div id="AddSubmit">
