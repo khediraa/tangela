@@ -63,6 +63,16 @@ nav input[type=text] {
   width: 150px; 
 }
 
+nav input[type=password] {
+  float: left;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
+  font-size: 17px;
+  border: none;
+  width: 150px; 
+}
+
 
 nav .login-container button {
   float: left;
