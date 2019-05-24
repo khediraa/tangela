@@ -38,15 +38,17 @@ function ItemList() {
       });
 
       return bikes && coords ? (
-        <div className="item-list-wrapper">
+      
+       <div className="item-list-wrapper">
           <div className="item-list">
             {bikes}
           </div>
 
-          <MapContainer
+          <MapContainer className="bike-map-container"
             coords={coords}
-            zoom={10}
+            zoom={12}
             />
+
         </div>
       ) : (
         <div>Loading...</div>

@@ -39,8 +39,8 @@ export async function getFilteredBikes(city, bike_type, dates) {
   });
 }
 
-/* Function that adds another bike to the json file */
-export async function addBike(name, lat, lng, frame, type, gears, price, startDate, endDate, description) {
+/* Function that adds another bike to the json file, connecting it to the user specified with email. */
+export async function addBike(email, name, lat, lng, frame, type, gears, price, startDate, endDate, description) {
   let newBike= ({name:name, lat:lat, lng:lng, frame:frame, type:type, gears:gears, price:price, dates:getDates(startDate, endDate), description:description });
 
   // TODO: temporary hardcoded values. Remove when functionality added to Addbike.
@@ -54,7 +54,11 @@ export async function addBike(name, lat, lng, frame, type, gears, price, startDa
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(newBike)
+    credentials: 'same-origin',
+    body: JSON.stringify({
+      bike: newBike,
+      email: email
+    })
   })
   .then((response) => {
     return response.text();
@@ -87,6 +91,20 @@ export async function rentBike(id, startDate, endDate) {
   .then((response) => {
     return response.status;
   });
+}
+
+export async function removeBike(id) {
+  return fetch('/remove-bike', {
+    method: 'POST',
+    headers: {
+      'Accept': 'text/plain',
+      'Content-Type': 'text/plain'
+    },
+    body: id
+  })
+  .then((response) => {
+    return response.ok;
+  })
 }
 
 /* -------- End server communication functions -------- */

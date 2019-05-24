@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as UserHandler from "./UserHandler.js";
 import "./css/addBike.css";
+import paypallogo from './paypal-logo.png';
+
 
 //import {Route, Link} from 'react-router-dom';
 
@@ -45,10 +47,11 @@ class AddUser extends Component {
   render() {
 
     return (
+      <div class="background">
       <div id="Wrapper">
-        <h1>Register</h1>
         {/* BOX WITH INFORMATION ABOUT THE USER */}
         <form onSubmit={this.handleSubmit}>
+        <h2>Register new renter</h2>
           <div id="Info">
             <div id="AddInfo">
               <label>
@@ -83,7 +86,7 @@ class AddUser extends Component {
             <div id="AddInfo">
               <label>
                 Confirm password
-                <input type="password" name="confPassword" minLength="6" required placeholder="" value={this.state.confPassword} onChange={this.handleChange} />
+                <input  type="password" name="confPassword" minLength="6" required placeholder="" value={this.state.confPassword} onChange={this.handleChange} />
               </label>
             </div>
             <div id="AddSubmit">
@@ -91,10 +94,18 @@ class AddUser extends Component {
               <button type="submit" value="Submit">Submit</button>
               {/*</Link>*/}
             </div>
-
           </div>
         </form>
+        <p className='usepaypal'>Payouts: <br/>A Paypal-connected email is required in order 
+        to receive payouts. <br/> If you choose to use another email address your earnings will be donated to WWF. </p>
 
+        <div class='paypallogowrapper'>
+              <img align='right' src={paypallogo} alt="Logo" />
+            </div>
+        
+
+      </div>
+      
       </div>
     )
   }

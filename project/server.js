@@ -68,13 +68,32 @@ app.post('/rent-bike', jsonParser, (req, res) => {
 
 app.post('/add-bike', jsonParser, (req, res) => {
   
-  let newBike = req.body;
+  let newBike = req.body.bike;
+  let email = req.body.email;
   newBike.id = getNextId();
   incrementNextId();
   const bikes = getBikes();
   bikes.push(newBike);
+  let addSuccess = updateBikes(bikes);
+  let assignSuccess = assignBikeToUser(newBike.id, email);
+  addSuccess && assignSuccess ? res.status(200).send('Added bike.') : res.status(300).send('Could not add bike.');
+});
+
+app.post('/remove-bike', textParser, (req, res) => {
+  let id = req.body;
+  const bikes = getBikes();
+  
+  for (let i = 0; i < bikes.length; i++) {
+    console.log(bikes[i].id + " : " + id);
+    
+    if (bikes[i].id == id) {
+      bikes.splice(i, 1);
+      break;
+    }
+  }
   let success = updateBikes(bikes);
-  success ? res.status(200).send(newBike.id) : res.status(300).send('Could not add bike.');
+
+  success ? res.sendStatus(200) : res.sendStatus(500);
 });
 
 app.post('/add-user', jsonParser, (req, res) => {
@@ -83,16 +102,29 @@ app.post('/add-user', jsonParser, (req, res) => {
   let email = req.body.email;
 
   let success = addUser(newUser, email);
-  success ? res.status(200).send('Added user.') : res.status(300).send('Could not add user.');
+  success ? res.send({addedUser: true}) : res.send({addedUser: false});
 });
 
-app.post('/assign-bike', jsonParser, (req, res) => {
-  let email = req.body.email;
-  let bikeId = req.body.bikeId;
+app.post('/user-bikes', textParser, (req, res) => {
+  let email = req.body;
+  
+  const users = getUsers();
+  const bikes = getBikes();
+  if (!users.hasOwnProperty(email)) {
+    console.log('email ' + email + ' not found')
+    res.send({
+      result: false
+    })
+    return;
+  }
+  let ids = users[email].bikes;
+  let userBikes = bikes.filter(bike => {
+    return ids.includes(bike.id);
+  });
+  res.send(userBikes);
 
-  let success = assignBikeToUser(bikeId, email);
-  success ? res.status(200).send('Assigned bike.') : res.status(300).send('Could not assign bike.');
 });
+
 
 /* ------------ Helper functions ------------ */
 
