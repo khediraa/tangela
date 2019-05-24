@@ -68,22 +68,6 @@ function Navbar (){
         <Link to='/Home'>
           <img src={logo} alt="Hoi logo"/>
         </Link>
-        <Link to='/AddUser'>
-          <li>
-            Add bike
-          </li>
-        </Link>
-        <Link to='/AddUser'>
-          <li>
-            Profile
-          </li>
-        </Link>
-        <Link to='/AddUser'>
-          <li>
-            Register
-          </li>
-        </Link>
-        <button onClick={printValues}/>
         <div className="login-container">
           <form onSubmit={login(form.email, form.password)}>
             <input type="text" placeholder="Email" name="email" value={form.email} 
@@ -93,6 +77,24 @@ function Navbar (){
             <button type="submit">Login</button>
           </form>
         </div>
+        <div className="links">
+          <Link to='/AddUser'>
+            <li>
+              Add bike
+            </li>
+          </Link>
+          <Link to='/AddUser'>
+            <li>
+              Profile
+            </li>
+          </Link>
+          <Link to='/AddUser'>
+            <li>
+              Register
+            </li>
+          </Link>
+        </div>
+        {/* <button onClick={printValues}/> */}
       </nav>
     )
   } 
