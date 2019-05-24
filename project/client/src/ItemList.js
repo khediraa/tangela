@@ -23,7 +23,7 @@ function ItemList() {
       BikeHandler.getFilteredBikes(city, bike_type, dates)
       .then((json) => {
         let bikes_list = [];
-        let bikeCoords = [];
+        let bikeCoords = []; 
 
         for (let i = 0; i < json.length; i++) {
           bikes_list = [...bikes_list,
