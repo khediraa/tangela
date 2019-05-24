@@ -6,14 +6,22 @@ import {Route, Link} from 'react-router-dom';
 import {AppContext} from './App';
 import {login, logout} from './UserHandler';
 
+/*
 
+    When the user is not logged in the navbar will display two fields for 
+    email and password, and a login-button. When clicking login, login(email, password) from 
+    UserHandler is called. They will also not be able to access "profile" and "abb bike" but
+    will instead be redirected to the "register user" -page.
+
+    When logged in the navbar will display a logout-button which will call logout() from
+    UserHandler.
+    
+*/
 
 
 function Navbar (){
 
   const globalStates = useContext(AppContext);
-  /*const [emailInput, setEmail] = useState('');
-  const [passwordInput, setPassword] = useState('');*/
   const [form, setValues] = useState({email:'', password:''});
 
   const printValues = e => {
@@ -89,11 +97,5 @@ function Navbar (){
     )
   } 
 }
-
-/*setInputs({email: event.target.value})
-state.email = event.target.value;
-state.password = event.target.value;*/
-
-Navbar.contextType = AppContext;
 
 export default Navbar;
