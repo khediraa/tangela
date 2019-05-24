@@ -93,6 +93,20 @@ export async function rentBike(id, startDate, endDate) {
   });
 }
 
+export async function removeBike(id) {
+  return fetch('/remove-bike', {
+    method: 'POST',
+    headers: {
+      'Accept': 'text/plain',
+      'Content-Type': 'text/plain'
+    },
+    body: id
+  })
+  .then((response) => {
+    return response.ok;
+  })
+}
+
 /* -------- End server communication functions -------- */
 
 

@@ -1,15 +1,12 @@
 import React, {useContext, useState, useEffect} from 'react';
-import Bike from './Bike';
-import * as BikeHandler from './BikeHandler';
 import * as UserHandler from './UserHandler';
 import {AppContext} from './App';
-import ItemListComponent from './ItemListComponent';
 import MapContainer from './MapContainer';
+import UserProfileComponent from './UserProfileComponent';
 import './css/mapContainer.css';
 
 function UserProfile() {
   const {email: loggedInUser} = useContext(AppContext);
-  console.log("email: " + loggedInUser);
 
   const [initialized, setInitialized] = useState(false);
   const [userBikes, setUserBikes] = useState();
@@ -24,7 +21,7 @@ function UserProfile() {
           let bikeCoords = [];
           json.forEach(bike => {
             
-            userBikesHTML.push(<ItemListComponent bikeKey={bike.id} title={bike.name} price={bike.price} />);
+            userBikesHTML.push(<UserProfileComponent bikeKey={bike.id} title={bike.name} price={bike.price} />);
             bikeCoords.push({"lat":bike.lat, "lng":bike.lng, "id": bike.id, "name": bike.name});
           });
           setUserBikes(userBikesHTML);
