@@ -118,28 +118,14 @@
 .terms {
   font-size: 10px;
   text-align: center;
-  /* background: rgba(255, 255, 255, 0.95); */
-  /* border-radius: 10px; */
-  /* padding: 5px; */
-  /* border: 1px #ccc solid; */
 }
 
 .logowrapper img{
-  
   width: 115px;
   height: 30px;
   margin-top:5%;
-
-  
 }
 
-.wrapper {
-  background-image: url(../images/background3.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 900px;
-  overflow: auto;
-}
 
 .textbox{
   margin-top:5%;

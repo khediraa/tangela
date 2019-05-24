@@ -1,5 +1,5 @@
 import React, { Component, useContext } from 'react';
-import logo from './hoi.png';
+import logo from './hoiWhite.png';
 import "./css/navbar.css";
 
 import {Route, Link} from 'react-router-dom';

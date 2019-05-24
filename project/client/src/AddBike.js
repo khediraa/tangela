@@ -160,7 +160,6 @@ class AddBike extends Component {
         return hasError ? shouldShow : false;
       };
       return (
-        <div class="background">
         <div id="Wrapper">
           <div id="ModalContainer">
             <Modal
@@ -267,7 +266,6 @@ class AddBike extends Component {
               {/*</Link>*/}
             </div>
           </form>
-        </div>
         </div>
       )
     }
