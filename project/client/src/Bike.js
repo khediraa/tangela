@@ -7,8 +7,10 @@ import 'react-dates/lib/css/_datepicker.css';
 //import isInclusivelyAfterDay from '../utils/isInclusivelyAfterDay';
 import * as moment from 'moment';
 import MapContainer from './MapContainer';
+import MapBikePage from './MapBikePage';
 import './css/mapContainer.css';
 import history from './history';
+import Rating from './Rating';
 
 class Bike extends Component {
   constructor(props) {
@@ -32,9 +34,6 @@ class Bike extends Component {
 
   }
 
-  handleChange() {
-  }
-
   handleCalenderChange(startDate, endDate) {
     this.setState({ startDate: startDate, endDate: endDate });
   }
@@ -45,6 +44,7 @@ class Bike extends Component {
       <article className="bicycle">
         <div className="left">
           <h2>{bike.name}</h2>
+          <Rating ratings={bike.ratings} />
           <p>{bike.description}</p>
           <p>Location: {bike.city}</p>
           <p>Gears: {bike.gears}</p>
@@ -78,7 +78,7 @@ class Bike extends Component {
         </div>
 
         <div className="right">
-          <MapContainer className="bike-map-container"
+          <MapBikePage className="bike-map-container"
             coords={[
               {
                 "lat": bike.lat,
@@ -90,6 +90,7 @@ class Bike extends Component {
             zoom={13}
           //bkey={this.props.bike}
           />
+          <h6>The bike will be placed within the blue circle's area</h6>
         </div>
 
       </article>

@@ -14,7 +14,6 @@ Function to calculate the total price of the chosen bike and rental period
 
 function totalPrice(price, startDate, endDate) {
   var days = BikeHandler.getDates(new Date(startDate), new Date(endDate)).length;
-  //console.log(days);
   return (
     price * days
   )
@@ -53,8 +52,7 @@ function PaymentPage(props) {
 
   else if (confirmed) {
     BikeHandler.rentBike(id, startDate, endDate)
-    //.then((status) => {
-    //if (status == 200) {
+
     return (
       <div className='wrapper'>
         <div className="payment">
@@ -73,8 +71,6 @@ function PaymentPage(props) {
           </div>
         </div>
         )
-        //}
-        //})
       }
     
     

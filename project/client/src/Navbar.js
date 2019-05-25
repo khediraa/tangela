@@ -1,5 +1,5 @@
 import React, { Component, useContext, useState } from 'react';
-import logo from './hoi.png';
+import logo from './hoiWhite.png';
 import "./css/navbar.css";
 import history from './history'
 
