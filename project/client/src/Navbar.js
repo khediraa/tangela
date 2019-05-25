@@ -4,7 +4,7 @@ import "./css/navbar.css";
 
 import {Route, Link} from 'react-router-dom';
 import {AppContext} from './App';
-import {login, logout} from './UserHandler';
+import * as UserHandler from './UserHandler';
 
 /*
 
@@ -27,6 +27,25 @@ function Navbar (){
   const printValues = e => {
     e.preventDefault();
     console.log(form.email, form.password);
+  };
+
+  const handleLogin = () => {
+    UserHandler.login(form.email, form.password)
+    .then(response => {
+      switch(response) {
+        case 'ok': 
+          
+          break;
+        case 'wrong email':
+          break;
+        case 'wrong password':
+          break;
+      }
+    })
+  };
+
+  const handleLogout = () => {
+
   };
 
   const updateField = e => {
@@ -57,7 +76,7 @@ function Navbar (){
             Register
           </li>
         </Link>
-        <li onClick={logout()}>
+        <li onClick={handleLogout}>
             Logout
         </li>
       </nav>
@@ -69,7 +88,7 @@ function Navbar (){
           <img src={logo} alt="Hoi logo"/>
         </Link>
         <div className="login-container">
-          <form onSubmit={login(form.email, form.password)}>
+          <form onSubmit={handleLogin}>
             <input type="text" placeholder="Email" name="email" value={form.email} 
                 onChange={updateField}/>
             <input type="password" placeholder="Password" name="password" value={form.password} 
