@@ -43,7 +43,7 @@ class Bike extends Component {
       <article className="bicycle">
         <div className="left">
           <h2>{bike.name}</h2>
-          <Rating rating={bike.ratings} />
+          <Rating ratings={bike.ratings} />
           <p>{bike.description}</p>
           <p>Location: {bike.city}</p>
           <p>Gears: {bike.gears}</p>
