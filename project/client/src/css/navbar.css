@@ -50,14 +50,14 @@ nav li:hover {
 
 
 nav .login-container {
-  text-align: center;
-  text-shadow: #000 2px -2px;
+  position: relative;
   padding: 12px 15px;
-  margin-left: 200px;
+  margin-left: 300px;
   text-decoration: none;
   height: 100%;
   display: block;
   /* float: right; */
+  text-align: left;
 }
 
 nav form {
@@ -66,24 +66,22 @@ nav form {
   height: 100%;
 }
 
-nav input[type=text] {
+nav input {
   /* float: left; */
   padding: 5px;
-  margin: 5px;
-  margin-top: 10px;
-  font-size: 17px;
+  margin: 10px 5px 0px 5px;
+  font-size: 12px;
   border: none;
   width: 150px; 
+  border: 1px solid #aaa;
 }
 
-nav input[type=password] {
-  /* float: left; */
-  padding: 5px;
-  margin: 5px;
-  margin-top: 10px;
-  font-size: 17px;
-  border: none;
-  width: 150px; 
+.login-container .error {
+  position: absolute;
+  font-size: 12px;
+  color: red;
+  padding-left: 5px;
+  margin: 0px;
 }
 
 
@@ -92,9 +90,11 @@ nav .login-container button {
   padding: 5px;
   margin: 5px;
   background: #aaa;
-  font-size: 17px;
+  margin-top: 10px;
+  font-size: 12px;
   border: none;
   cursor: pointer;
+  height: 29px;
   width: 150px;
 }
 
