@@ -10,6 +10,7 @@ import MapContainer from './MapContainer';
 import MapBikePage from './MapBikePage';
 import './css/mapContainer.css';
 import history from './history';
+import Rating from './Rating';
 
 class Bike extends Component {
   constructor(props) {
@@ -33,9 +34,6 @@ class Bike extends Component {
 
   }
 
-  handleChange() {
-  }
-
   handleCalenderChange(startDate, endDate) {
     this.setState({ startDate: startDate, endDate: endDate });
   }
@@ -46,6 +44,7 @@ class Bike extends Component {
       <article className="bicycle">
         <div className="left">
           <h2>{bike.name}</h2>
+          <Rating ratings={bike.ratings} />
           <p>{bike.description}</p>
           <p>Location: {bike.city}</p>
           <p>Gears: {bike.gears}</p>
