@@ -1,5 +1,5 @@
 {
-    "nextId": "26",
+    "nextId": "27",
     "bikes": [
         {
             "id": "1",
@@ -20,7 +20,29 @@
                 "2019-7-8"
             ],
             "description": "Good bike if you are a tourist in Gothenburg. The bike can be moved to Gothenburg C if you like.",
-            "ratings": [4,4,3,4,5,5,4,5,4,2,4,3,4,5,5,4,5,4,5,4,5]
+            "ratings": [
+                4,
+                4,
+                3,
+                4,
+                5,
+                5,
+                4,
+                5,
+                4,
+                2,
+                4,
+                3,
+                4,
+                5,
+                5,
+                4,
+                5,
+                4,
+                5,
+                4,
+                5
+            ]
         },
         {
             "id": "2",
@@ -41,7 +63,37 @@
                 "2019-6-28"
             ],
             "description": "Charger is available if you need it",
-            "ratings": [4,2,4,3,4,5,2,2,2,2,1,4,3,4,5,2,2,2,2,1,4,3,4,5,2,2,2,2,1]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5,
+                2,
+                2,
+                2,
+                2,
+                1,
+                4,
+                3,
+                4,
+                5,
+                2,
+                2,
+                2,
+                2,
+                1,
+                4,
+                3,
+                4,
+                5,
+                2,
+                2,
+                2,
+                2,
+                1
+            ]
         },
         {
             "id": "3",
@@ -62,7 +114,11 @@
                 "2019-6-11"
             ],
             "description": "This bike is brand new",
-            "ratings": [4,2,4]
+            "ratings": [
+                4,
+                2,
+                4
+            ]
         },
         {
             "id": "4",
@@ -83,7 +139,19 @@
                 "2019-7-17"
             ],
             "description": "Suitable for kid's around 135 cm tall",
-            "ratings": [4,2,4,3,3,3,3,4,3,4,1]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                3,
+                3,
+                3,
+                4,
+                3,
+                4,
+                1
+            ]
         },
         {
             "id": "5",
@@ -104,7 +172,21 @@
                 "2019-8-11"
             ],
             "description": "Cheap alternative to StyrAndStall",
-            "ratings": [4,2,4,3,4,3,4,5,2,2,2,2,1]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                3,
+                4,
+                5,
+                2,
+                2,
+                2,
+                2,
+                1
+            ]
         },
         {
             "id": "6",
@@ -238,7 +320,20 @@
             "description": "For people going places",
             "city": "Gothenburg",
             "id": "7",
-            "ratings": [4,2,4,3,4,5,4,2,4,3,4,5]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5,
+                4,
+                2,
+                4,
+                3,
+                4,
+                5
+            ]
         },
         {
             "name": "Mountainbike for dirty adventures",
@@ -345,7 +440,32 @@
             "description": "No need to wash it afterwards",
             "city": "Molndal",
             "id": "8",
-            "ratings": [4,2,4,3,4,5,4,2,4,3,4,5,3,4,5,4,2,4,3,4,5,4,2,4]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5,
+                4,
+                2,
+                4,
+                3,
+                4,
+                5,
+                3,
+                4,
+                5,
+                4,
+                2,
+                4,
+                3,
+                4,
+                5,
+                4,
+                2,
+                4
+            ]
         },
         {
             "name": "Electric Bike for summer trips",
@@ -407,7 +527,14 @@
             "description": "Who wants to sit on a packed tram when you can take me to the archipelago?!",
             "city": "Gothenburg",
             "id": "9",
-            "ratings": [4,2,4,3,4,5]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5
+            ]
         },
         {
             "name": "24\" kids bike",
@@ -464,7 +591,14 @@
             "description": "Suitable for kids around 140 cm tall",
             "city": "Gothenburg",
             "id": "10",
-            "ratings": [4,2,4,3,4,5]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5
+            ]
         },
         {
             "name": "Old trusty",
@@ -507,7 +641,14 @@
             "description": "Works perfectly, looks less perfect",
             "city": "Gothenburg",
             "id": "11",
-            "ratings": [4,2,4,3,4,5]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5
+            ]
         },
         {
             "name": "Box bike",
@@ -553,7 +694,14 @@
             "description": "Run errands, go on a weekend camping trip, take the kids to daycare. The uses are plentiful!",
             "city": "Gothenburg",
             "id": "12",
-            "ratings": [4,2,4,3,4,5]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5
+            ]
         },
         {
             "name": "Box bike",
@@ -597,7 +745,14 @@
             "description": "When you need space, but don't want to pollute our Earth",
             "city": "Gothenburg",
             "id": "13",
-            "ratings": [4,2,4,3,4,5]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5
+            ]
         },
         {
             "name": "Foldable Brompton",
@@ -665,7 +820,14 @@
             "description": "Bring it with you on vacation! Allowed on trams, busses, and trains",
             "city": "Gothenburg",
             "id": "14",
-            "ratings": [4,2,4,3,4,5]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5
+            ]
         },
         {
             "name": "Liv's Life cycle",
@@ -732,7 +894,14 @@
             "description": "Trusty rusty!",
             "city": "Gothenburg",
             "id": "15",
-            "ratings": [4,2,4,3,4,5]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5
+            ]
         },
         {
             "name": "Unicycle!",
@@ -791,7 +960,14 @@
             "description": "Helmet, pads, airbag, and life insurance included. No, just kidding. Have fun!",
             "city": "Gothenburg",
             "id": "16",
-            "ratings": [4,2,4,3,4,5]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5
+            ]
         },
         {
             "name": "Works like a charm!",
@@ -823,7 +999,14 @@
             "description": "Just an ordinary bike",
             "city": "Gothenburg",
             "id": "17",
-            "ratings": [4,2,4,3,4,5]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5
+            ]
         },
         {
             "name": "Works like a charm too!",
@@ -855,7 +1038,19 @@
             "description": "Just another ordinary bike",
             "city": "Gothenburg",
             "id": "18",
-            "ratings": [4,2,4,3,4,5,3,3,3,3,4]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5,
+                3,
+                3,
+                3,
+                3,
+                4
+            ]
         },
         {
             "name": "Blue bike with a basket",
@@ -958,7 +1153,18 @@
             "description": "Works well!",
             "city": "Gothenburg",
             "id": "19",
-            "ratings": [4,2,4,3,4,5,4,4,4,5]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5,
+                4,
+                4,
+                4,
+                5
+            ]
         },
         {
             "name": "Electric bike for lazy days",
@@ -990,7 +1196,52 @@
             "description": "",
             "city": "Gothenburg",
             "id": "20",
-            "ratings": [4,2,4,3,4,5,4,3,4,5,2,2,2,2,1,3,4,5,4,3,4,5,4,2,4,3,4,5,4,3,4,5,2,2,2,2,1,3,4,5,4,3,4,5]
+            "ratings": [
+                4,
+                2,
+                4,
+                3,
+                4,
+                5,
+                4,
+                3,
+                4,
+                5,
+                2,
+                2,
+                2,
+                2,
+                1,
+                3,
+                4,
+                5,
+                4,
+                3,
+                4,
+                5,
+                4,
+                2,
+                4,
+                3,
+                4,
+                5,
+                4,
+                3,
+                4,
+                5,
+                2,
+                2,
+                2,
+                2,
+                1,
+                3,
+                4,
+                5,
+                4,
+                3,
+                4,
+                5
+            ]
         },
         {
             "name": "Electric kid's bike",
@@ -1079,7 +1330,7 @@
             "description": "Perfect for parents who want to bike with their kids without the constant complaints and nagging...",
             "city": "Gothenburg",
             "id": "21",
-            "ratings":[]
+            "ratings": []
         },
         {
             "name": "My Test bike",
@@ -1101,7 +1352,32 @@
             "description": "",
             "city": "Gothenburg",
             "id": "22",
-            "ratings":[4,3,4,2,5,3,4,3,4,3,4,3,4,3,4,4,4,4,4,4,4,3,3,4]
+            "ratings": [
+                4,
+                3,
+                4,
+                2,
+                5,
+                3,
+                4,
+                3,
+                4,
+                3,
+                4,
+                3,
+                4,
+                3,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                3,
+                3,
+                4
+            ]
         },
         {
             "name": "AAAAAA",
@@ -1123,7 +1399,18 @@
             "description": "",
             "city": "Gothenburg",
             "id": "23",
-            "ratings":[2,2,2,2,2,2,2,1,1,2]
+            "ratings": [
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                1,
+                1,
+                2
+            ]
         },
         {
             "name": "Test3",
@@ -1173,7 +1460,7 @@
             "description": "",
             "city": "Gothenburg",
             "id": "24",
-            "ratings":[]
+            "ratings": []
         },
         {
             "name": "Test4",
@@ -1223,7 +1510,90 @@
             "description": "",
             "city": "Gothenburg",
             "id": "25",
-            "ratings":[]
+            "ratings": []
+        },
+        {
+            "name": "Something, something, dark side, something",
+            "lat": 57.70980029596491,
+            "lng": 11.984367370605469,
+            "frame": "men",
+            "type": "electric",
+            "gears": "66",
+            "price": "66",
+            "dates": [
+                "2019-5-25",
+                "2019-5-26",
+                "2019-5-27",
+                "2019-5-28",
+                "2019-5-29",
+                "2019-5-30",
+                "2019-5-31",
+                "2019-6-1",
+                "2019-6-2",
+                "2019-6-3",
+                "2019-6-4",
+                "2019-6-5",
+                "2019-6-6",
+                "2019-6-7",
+                "2019-6-8",
+                "2019-6-9",
+                "2019-6-10",
+                "2019-6-11",
+                "2019-6-12",
+                "2019-6-13",
+                "2019-6-14",
+                "2019-6-15",
+                "2019-6-16",
+                "2019-6-17",
+                "2019-6-18",
+                "2019-6-19",
+                "2019-6-20",
+                "2019-6-21",
+                "2019-6-22",
+                "2019-6-23",
+                "2019-6-24",
+                "2019-6-25",
+                "2019-6-26",
+                "2019-6-27",
+                "2019-6-28",
+                "2019-6-29",
+                "2019-6-30",
+                "2019-7-1",
+                "2019-7-2",
+                "2019-7-3",
+                "2019-7-4",
+                "2019-7-5",
+                "2019-7-6",
+                "2019-7-7",
+                "2019-7-8",
+                "2019-7-9",
+                "2019-7-10",
+                "2019-7-11",
+                "2019-7-12",
+                "2019-7-13",
+                "2019-7-14",
+                "2019-7-15",
+                "2019-7-16",
+                "2019-7-17",
+                "2019-7-18",
+                "2019-7-19",
+                "2019-7-20",
+                "2019-7-21",
+                "2019-7-22",
+                "2019-7-23",
+                "2019-7-24",
+                "2019-7-25",
+                "2019-7-26",
+                "2019-7-27",
+                "2019-7-28",
+                "2019-7-29",
+                "2019-7-30",
+                "2019-7-31"
+            ],
+            "description": "",
+            "ratings": [],
+            "city": "Gothenburg",
+            "id": "26"
         }
     ]
 }
