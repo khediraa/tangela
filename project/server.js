@@ -125,6 +125,21 @@ app.post('/user-bikes', textParser, (req, res) => {
 
 });
 
+app.post('/login', jsonParser, (req, res) => {
+  let email = req.body.email;
+  let password = req.body.password;
+
+  users = getUsers();
+
+  // if users contains email
+  if (users.hasOwnProperty(email)) {
+    users[email].password == password ? res.status(200).send('ok') : res.status(418).send('wrong password')
+  } 
+  else {
+    res.status(418).send('wrong email')
+  }
+})
+
 
 /* ------------ Helper functions ------------ */
 
