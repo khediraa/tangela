@@ -7,6 +7,7 @@ import 'react-dates/lib/css/_datepicker.css';
 //import isInclusivelyAfterDay from '../utils/isInclusivelyAfterDay';
 import * as moment from 'moment';
 import MapContainer from './MapContainer';
+import MapBikePage from './MapBikePage';
 import './css/mapContainer.css';
 import history from './history';
 
@@ -78,7 +79,7 @@ class Bike extends Component {
         </div>
 
         <div className="right">
-          <MapContainer className="bike-map-container"
+          <MapBikePage className="bike-map-container"
             coords={[
               {
                 "lat": bike.lat,
