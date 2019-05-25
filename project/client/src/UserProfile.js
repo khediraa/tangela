@@ -21,7 +21,7 @@ function UserProfile() {
           let bikeCoords = [];
           json.forEach(bike => {
             
-            userBikesHTML.push(<UserProfileComponent bikeKey={bike.id} title={bike.name} price={bike.price} />);
+            userBikesHTML.push(<UserProfileComponent bikeKey={bike.id} title={bike.name} price={bike.price} ratings={bike.ratings} />);
             bikeCoords.push({"lat":bike.lat, "lng":bike.lng, "id": bike.id, "name": bike.name});
           });
           setUserBikes(userBikesHTML);

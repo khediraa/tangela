@@ -4,6 +4,7 @@ import './css/userProfileComponent.css';
 import {AppContext} from './App';
 import {Link} from 'react-router-dom';
 import * as BikeHandler from "./BikeHandler.js";
+import Rating from './Rating';
 
 const modalStyles = {
   content : {
@@ -16,7 +17,7 @@ const modalStyles = {
   }
 };
 
-function UserProfileComponent({bikeKey, title, price}) {
+function UserProfileComponent({bikeKey, title, price, ratings}) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [visible, setVisible] = useState(true);
 
@@ -52,6 +53,7 @@ function UserProfileComponent({bikeKey, title, price}) {
       <div className="info">
         <Link style={{ textDecoration: 'none' }}to={link}>{title}</Link>
         <h5>{price} kr/day</h5>
+        <Rating ratings={ratings} />
       </div>
       <button className='remove-button'onClick={() => setModalIsOpen(true)}>&times;</button>
     </div>
