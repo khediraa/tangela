@@ -1,6 +1,7 @@
 import React, { Component, useContext, useState } from 'react';
 import logo from './hoi.png';
 import "./css/navbar.css";
+import history from './history'
 
 import {Route, Link} from 'react-router-dom';
 import {AppContext} from './App';
@@ -23,29 +24,38 @@ function Navbar (){
 
   const globalStates = useContext(AppContext);
   const [form, setValues] = useState({email:'', password:''});
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+
 
   const printValues = e => {
     e.preventDefault();
     console.log(form.email, form.password);
   };
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     UserHandler.login(form.email, form.password)
     .then(response => {
       switch(response) {
         case 'ok': 
-          
+          globalStates.setState({login: true, email: form.email});
           break;
         case 'wrong email':
+          setEmailError(true);
+          setPasswordError(false);
           break;
         case 'wrong password':
+          setPasswordError(true);
+          setEmailError(false);
           break;
       }
     })
   };
 
   const handleLogout = () => {
-
+    globalStates.setState({login: false, email: ''});
+    history.push('/home');
   };
 
   const updateField = e => {
@@ -61,6 +71,7 @@ function Navbar (){
         <Link to='/Home'>
           <img src={logo} alt="Hoi logo"/>
         </Link>
+        <div className="links">
         <Link to={{ pathname:'/AddBike', state:{email:globalStates.email}}}>
           <li>
             Add bike
@@ -71,14 +82,10 @@ function Navbar (){
             Profile
           </li>
         </Link>
-        <Link to='/AddUser'>
-          <li>
-            Register
-          </li>
-        </Link>
         <li onClick={handleLogout}>
             Logout
         </li>
+       </div>
       </nav>
     )
   } else{
@@ -89,10 +96,16 @@ function Navbar (){
         </Link>
         <div className="login-container">
           <form onSubmit={handleLogin}>
-            <input type="text" placeholder="Email" name="email" value={form.email} 
-                onChange={updateField}/>
-            <input type="password" placeholder="Password" name="password" value={form.password} 
-                onChange={updateField}/>
+            <div>
+              <input type="email" placeholder="Email" name="email" value={form.email} 
+                  onChange={updateField}/>
+              <label className="error" style={{visibility: emailError ? "visible" : "hidden"}}>Can not find this email.</label>
+            </div>
+            <div>
+              <input type="password" placeholder="Password" name="password" value={form.password} 
+                  onChange={updateField}/>
+              <label className="error" style={{visibility: passwordError ? "visible" : "hidden"}}>Wrong password.</label>
+            </div>
             <button type="submit">Login</button>
           </form>
         </div>
@@ -100,11 +113,6 @@ function Navbar (){
           <Link to='/AddUser'>
             <li>
               Add bike
-            </li>
-          </Link>
-          <Link to='/AddUser'>
-            <li>
-              Profile
             </li>
           </Link>
           <Link to='/AddUser'>
