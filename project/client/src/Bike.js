@@ -91,6 +91,7 @@ class Bike extends Component {
             zoom={13}
           //bkey={this.props.bike}
           />
+          <h6>The bike will be placed within the blue circle's area</h6>
         </div>
 
       </article>
