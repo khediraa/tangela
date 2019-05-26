@@ -3,6 +3,7 @@ html, body, #root, .app {
     background-image: url(../images/background3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    overflow:auto;
     font-family: Cereal, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
     margin: 0px;
