@@ -5,8 +5,8 @@ import "./css/addBike.css";
 
 
 function AddUser(props) {
-  const {email: loggedInUser} = useContext(AppContext);
-
+  const globalStates = useContext(AppContext);
+  
   // internal state
   const [email, setEmail] = useState('');
   const [fname, setFname] = useState('');
@@ -21,7 +21,7 @@ function AddUser(props) {
       UserHandler.addUser(email, fname, lname, tel, password, confPassword)
       .then((addedUser) => {
         if (addedUser) {
-          loggedInUser = email;
+          globalStates.setState({email:email});
         }
         else {
           alert('There is already a user with this email.');

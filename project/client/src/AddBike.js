@@ -68,7 +68,21 @@ class AddBike extends Component {
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false});
+    this.setState({
+      lat: '', lng: '',
+      setLat : this.setLat, setLng: this.setLng,
+      frame: 'wmn', type: 'mtb',
+      gears: '', price: '',
+      desc: '', title: '',
+      startDate: moment(),
+      endDate: moment(),
+      touched: {
+        gears: false,
+        price: false,
+        title: false
+      },
+      modalIsOpen: false
+    });
   }
 
   setLat = lat => {
