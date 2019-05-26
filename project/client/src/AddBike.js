@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import Modal from 'react-modal';
 import * as BikeHandler from "./BikeHandler.js";
-import * as UserHandler from "./UserHandler.js";
 import "./css/addBike.css";
 
 import 'react-dates/initialize';
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import MapForAdding from './MapForAdding';
 import './css/mapContainer.css';
-
-import { Route, Link } from 'react-router-dom';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
 export const AddBikeContext = React.createContext();
 
@@ -27,16 +23,7 @@ const modalStyles = {
   }
 };
 
-//Modal.setAppElement('#root')
-
-
 function validate(gears, price, title) {
-
-  //      TESTS
-  /*const a = gears > 0;
-  const b = price > 0;
-  const c = title.length > 0;
-  console.log(a + " " + b + " " + c + " " + title)*/
   return {
     gears: gears <= 0,
     price: price <= 0,
@@ -135,10 +122,6 @@ class AddBike extends Component {
   };
 
   handleSubmit(event) {
-    // alert('Searched: ' + 'CITY: ' +  this.state.city + 'START DATE: ' + this.state.startDate.toString()
-    // + 'END DATE: '+ this.state.endDate.toString() + 'TYPE: ' + this.state.bike_type );
-    // this.props.history.push('/Items');
-    //alert(this.state.startDate.toString() + "  " + this.state.endDate.toString());
     event.preventDefault();
 
     if (this.canBeSubmitted()) {
@@ -155,12 +138,6 @@ class AddBike extends Component {
           console.log("id: " + id);
 
           this.openModal();
-
-          //TODO: fix this subsequent call to server
-          // UserHandler.assignBikeToUser("henrik@hoi.com",id)
-          // .then((status) => {
-          //     this.setState({ latitude: '', longitude: '', frame: 'wmn', type: 'mtb', gears: '', price: '', desc: '', title: '' });
-          // })
         });
 
         return;

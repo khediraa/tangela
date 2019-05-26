@@ -43,12 +43,10 @@ function ItemList() {
           <div className="item-list">
             {bikes}
           </div>
-
           <MapContainer className="bike-map-container"
             coords={coords}
             zoom={12}
             />
-
         </div>
       ) : (
         <div>Loading...</div>

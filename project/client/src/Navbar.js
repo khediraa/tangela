@@ -27,12 +27,6 @@ function Navbar (){
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-
-  const printValues = e => {
-    e.preventDefault();
-    console.log(form.email, form.password);
-  };
-
   const handleLogin = (e) => {
     e.preventDefault();
     UserHandler.login(form.email, form.password)
@@ -121,7 +115,6 @@ function Navbar (){
             </li>
           </Link>
         </div>
-        {/* <button onClick={printValues}/> */}
       </nav>
     )
   } 

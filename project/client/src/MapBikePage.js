@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Map, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
 import './css/mapContainer.css';
-import {Link} from 'react-router-dom';
-import MapListComponent from './MapListComponent';
 
 class MapBikePage extends Component {
   constructor(props) {

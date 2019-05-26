@@ -73,8 +73,6 @@ export async function addBike(email, name, lat, lng, frame, type, gears, price, 
 Returns a Promise, access status by chaining .then() to it.
 If status is 200, the dates were removed successfully. If not, an error occurred.*/
 export async function rentBike(id, startDate, endDate) {
-  //let startDateString = DateToString(startDate.toDate());
-  //let endDateString = DateToString(endDate.toDate());
 
   return fetch('/rent-bike', {
     method: 'POST',

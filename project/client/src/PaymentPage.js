@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext, Component } from 'react';
-import { CardElement, injectStripe } from 'react-stripe-elements';
+import React, { useState, useEffect } from 'react';
+import { CardElement } from 'react-stripe-elements';
 import "./css/paymentPage.css";
 import { Elements, StripeProvider } from 'react-stripe-elements';
-import Bike from './Bike';
-import history from './history';
+
 import * as BikeHandler from './BikeHandler';
 import stripelogo from './Stripe-Payment-logo.png';
 

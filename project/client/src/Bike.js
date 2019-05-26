@@ -4,9 +4,7 @@ import 'react-dates/initialize';
 import * as BikeHandler from "./BikeHandler.js";
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
-//import isInclusivelyAfterDay from '../utils/isInclusivelyAfterDay';
 import * as moment from 'moment';
-import MapContainer from './MapContainer';
 import MapBikePage from './MapBikePage';
 import './css/mapContainer.css';
 import history from './history';
@@ -20,7 +18,6 @@ class Bike extends Component {
   }
 
   isBlocked = day => {
-    //const availableDates = ['2019-08-09', '2019-08-10'] //"2019-08-09", "2019-08-10", "2019-08-11", "2019-08-12"
     return !this.props.bike.dates.some(date => day.isSame(date, 'day'))
   }
 
@@ -67,14 +64,10 @@ class Bike extends Component {
               daySize={25}
               required
             />
-
           <button >
               Rent bike
           </button>
-          
           </form>
-
-
         </div>
 
         <div className="right">
@@ -88,7 +81,6 @@ class Bike extends Component {
               }
             ]}
             zoom={13}
-          //bkey={this.props.bike}
           />
           <h6>The bike will be placed within the blue circle's area</h6>
         </div>

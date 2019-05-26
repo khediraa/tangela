@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Bike from './Bike';
 import * as BikeHandler from './BikeHandler';
-import {AppContext} from './App';
 import "./css/addBike.css";
 
 function BikePage(props) {
-  //const {bikeKey} = useContext(AppContext);
 
   //internal state.
   const [initialized, setInitialized] = useState(false);

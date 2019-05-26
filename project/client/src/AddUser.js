@@ -2,10 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { AppContext } from './App';
 import * as UserHandler from "./UserHandler.js";
 import "./css/addBike.css";
-import paypallogo from './paypal-logo.png';
 
-
-//import {Route, Link} from 'react-router-dom';
 
 function AddUser(props) {
   const {email: loggedInUser} = useContext(AppContext);
@@ -48,6 +45,7 @@ function AddUser(props) {
     <div id="Wrapper">
       {/* BOX WITH INFORMATION ABOUT THE USER */}
       <form onSubmit={handleSubmit}>
+          <h2>Register an account</h2>
         <div id="Info">
           <div id="AddInfo">
             <label>
@@ -129,7 +127,6 @@ function AddUser(props) {
           <div id="AddSubmit">
             {/*<Link to='/Items' >*/}
             <button disabled={!isEnabled} type="submit" value="Submit">Submit</button>
-            {/*</Link>*/}
           </div>
 
         </div>

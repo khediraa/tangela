@@ -1,7 +1,6 @@
-import React, {useContext, useState} from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import './css/userProfileComponent.css';
-import {AppContext} from './App';
 import {Link} from 'react-router-dom';
 import * as BikeHandler from "./BikeHandler.js";
 import Rating from './Rating';

@@ -7,7 +7,6 @@ nav {
     top: 0;
     overflow: hidden;
     font-size: 25px;
-    /* height: 80px; */
     z-index: 2;
   }
 
@@ -27,7 +26,6 @@ nav .links {
 }
 
 nav li {
-  /* float: right; */
   display: inline-block;
   color: red;
   text-align: center;
@@ -50,7 +48,6 @@ nav .login-container {
   text-decoration: none;
   height: 100%;
   display: block;
-  /* float: right; */
   text-align: left;
 }
 
@@ -61,7 +58,6 @@ nav form {
 }
 
 nav input {
-  /* float: left; */
   padding: 5px;
   margin: 10px 5px 0px 5px;
   font-size: 12px;
@@ -80,7 +76,6 @@ nav input {
 
 
 nav .login-container button {
-  /* float: left; */
   padding: 5px;
   margin: 5px;
   background: #aaa;

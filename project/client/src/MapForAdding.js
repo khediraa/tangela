@@ -1,15 +1,11 @@
 import React, { useState, useContext } from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import './css/mapContainer.css';
-import {Link} from 'react-router-dom';
-import MapListComponent from './MapListComponent';
 import {AddBikeContext} from './AddBike';
 
 function MapForAdding(props) {
   const {lng, lat, setLat, setLng} = useContext(AddBikeContext);
   const [currentPos, setCurrentPos] = useState();
-
-   // static MapForAddingContext = AddBikeContext;  
   
     function handleClick(e){
       setLat(e.latlng.lat);
