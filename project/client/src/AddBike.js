@@ -155,7 +155,6 @@ class AddBike extends Component {
       };
         return (
           <AddBikeContext.Provider value={this.state}>
-             <div class="background">
             <div id="Wrapper">
               <div id="ModalContainer">
                 <Modal
@@ -268,7 +267,6 @@ class AddBike extends Component {
                   {/*</Link>*/}
                 </div>
               </form>
-            </div>
             </div>
         </AddBikeContext.Provider>
       )
