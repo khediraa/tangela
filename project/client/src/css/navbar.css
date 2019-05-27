@@ -89,3 +89,7 @@ nav .login-container button {
 nav .login-container button:hover {
   background: #666;
 }
+
+nav:hover {
+  background-color: rgba(1,1,1,0.5);
+}
