@@ -27,9 +27,8 @@ nav .links {
 
 nav li {
   display: inline-block;
-  color: red;
+  color: white;
   text-align: center;
-  text-shadow: #000 2px -2px;
   padding: 22px 40px;
   text-decoration: none;
   height: 100%;
