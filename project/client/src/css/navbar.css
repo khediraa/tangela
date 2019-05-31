@@ -1,0 +1,95 @@
+nav {
+    list-style-type:none; 
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
+    font-size: 25px;
+    z-index: 2;
+  }
+
+nav img {
+  float: left;
+  width: 70px;
+  height: 70px;
+  padding: 5px;
+}
+
+nav img:hover {
+  cursor: pointer;
+}
+
+nav .links {
+  display: flex;
+}
+
+nav li {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 22px 40px;
+  text-decoration: none;
+  height: 100%;
+}
+
+nav li:hover {
+  cursor: pointer;
+  background-color: #19f;
+}
+
+
+nav .login-container {
+  position: relative;
+  padding: 12px 15px;
+  margin-left: 300px;
+  text-decoration: none;
+  height: 100%;
+  display: block;
+  text-align: left;
+}
+
+nav form {
+  display: flex;
+  padding: 0;
+  height: 100%;
+}
+
+nav input {
+  padding: 5px;
+  margin: 10px 5px 0px 5px;
+  font-size: 12px;
+  border: none;
+  width: 150px; 
+  border: 1px solid #aaa;
+}
+
+.login-container .error {
+  position: absolute;
+  font-size: 12px;
+  color: red;
+  padding-left: 5px;
+  margin: 0px;
+}
+
+
+nav .login-container button {
+  padding: 5px;
+  margin: 5px;
+  background: #aaa;
+  margin-top: 10px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  height: 29px;
+  width: 150px;
+}
+
+nav .login-container button:hover {
+  background: #666;
+}
+
+nav:hover {
+  background-color: rgba(1,1,1,0.5);
+}

@@ -1,0 +1,55 @@
+.bicycle {
+    height: 450px;
+    width: 75%;
+    padding: 15px;
+    border: 1px #ccc solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px; 
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+}
+
+.bicycle p {
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.bicycle button {
+  background: salmon;
+  background-color: salmon;
+  color: white;
+  cursor: pointer;
+  float: right;
+  padding: 10px 0;
+  width: 100px;
+  margin-top: 25px;
+}
+
+
+.left button:hover {
+    box-shadow: 0 0 5px #ccc;
+}
+
+.bicycle .left {
+    width: 50%;
+}
+
+.bicycle a:hover, .search a:visited, .bicycle a:link, .bicycle a:active {
+    text-decoration: none
+  }
+
+.bicycle .right {
+    width: 50%;
+}
+
+.bicycle .leaflet-container {
+    height: 315px;
+    width: 100%;
+    border: 1px solid black;
+}
+
+form.datePicker {
+    margin-left: 55px;
+}

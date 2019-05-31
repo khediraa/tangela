@@ -1,0 +1,42 @@
+.item-list-wrapper {
+    height: 900px;
+    overflow: auto; 
+    display: flex;
+}
+
+.item-list {
+    margin: 0 5px 0 25px;
+    overflow-y: auto;
+    width: 50%;
+    height: 887px;
+}
+
+.item-list-wrapper .leaflet-container {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 75%;
+    width: 70%;
+    border: 1px solid rgb(240, 231, 214);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(240, 231, 214); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(240, 231, 214);
+  }

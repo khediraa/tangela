@@ -1,0 +1,94 @@
+form {
+    padding:  40px;
+}
+  
+form input {
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    padding: 5px 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+form textarea {
+    width: 100%;
+    font-size: 20px;
+    padding: 5px 10px;
+    margin: 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+
+}
+  
+form input.error {
+    border-color: red;
+}
+  
+form button {
+    display: block;
+    width: 100%;
+    appearance: none;
+    border-radius: 5px;
+    background-color: salmon;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    height: 40px;
+    margin-top: 30px;
+}
+  
+  
+form button:disabled {
+    background-color: #dbf99f;
+    color: #333;
+}
+
+#Wrapper {
+    width: 500px;
+    margin: auto;
+    margin-top: 1.5%;
+  
+
+    border: 1px #ccc solid;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+}
+
+#Wrapper h2 {
+    margin-bottom: 10px;
+}
+
+#AddInfo {
+    margin-top: 20px;
+}
+
+#AddDates{
+    font-size: 15px;
+}
+
+#AddInfo input {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#Wrapper .DateInput.DateInput_1 {
+    width: 197px;
+}
+
+.paypallogowrapper img{
+    width: 120px;
+    height: 110px;
+    margin-bottom:0;
+    margin-top: -20px;
+  }
+
+  .usepaypal {
+    font-size: 10px;
+    text-align: center;
+    margin-top: -25px;
+  }
+  

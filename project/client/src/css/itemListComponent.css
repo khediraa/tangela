@@ -1,0 +1,17 @@
+.itemListComponent {
+    background: rgba(255, 255, 255, 0.90);
+    border: 1px #ccc solid;
+    border-radius: 3px;
+    padding-left: 15px;
+    height: 70px;
+    width: 80%;
+    margin: 20px 0;
+}
+
+.itemListComponent:hover {
+    box-shadow: 0 0 5px #ccc;
+}
+
+.itemListComponent .title:hover {
+    text-decoration: underline;
+}

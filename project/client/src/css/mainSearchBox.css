@@ -1,0 +1,65 @@
+.search {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  margin-left: 80px;
+  margin-top: 80px;
+  width: 450px;
+}
+
+.search .form {
+  display: flex;
+  flex-direction: column;
+}
+
+.search .form .box {
+  font-size: 18px;
+  margin: 20px 0px;
+}
+
+.search .form .box-button {
+  margin-top: 30px;
+}
+
+.search .DateInput.DateInput_1 {
+  width: 172px;
+}
+
+#your_unique_start_date_id, #your_unique_end_date_id {
+  cursor: pointer;
+  margin: 4px 0px;
+  padding: 0;
+  text-align: center;
+}
+
+.search input {
+  background: white;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.search input[type="submit"] {
+  background: salmon;
+  color: white;
+  cursor: pointer;
+  float: right;
+  padding: 10px 0;
+  width: 100px;
+}
+
+.search input[type="submit"]:hover {
+  box-shadow: 0 0 5px #ccc;
+}
+
+.search a:hover, .search a:visited, .search a:link, .search a:active {
+  text-decoration: none
+}
+
+.search .type select, #AddInfo select {
+  background: white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px 10px;
+  width: 100%;
+}

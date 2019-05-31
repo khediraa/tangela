@@ -1,0 +1,66 @@
+{
+    "henrik@hoi.com": {
+      "fname": "Henrik",
+      "lname": "Edstrand",
+      "tel": "+46777665544",
+      "bikes": [
+        "1",
+        "2",
+        "5"
+      ],
+      "password": "111111"
+    },
+    "jeppe@hoi.com": {
+        "fname": "Jesper",
+        "lname": "Berglind",
+        "tel": "+46777554433",
+        "bikes": [
+          "3",
+          "4"
+        ],
+        "password": "222222"
+    },
+    "karin@hoi.com": {
+        "fname": "Karin",
+        "lname": "Sjödin",
+        "tel": "+46777443322",
+        "bikes": [],
+        "password": "333333"
+    },
+    "liv@hoi.com": {
+        "fname": "Liv",
+        "lname": "Xson",
+        "tel": "+46777332211",
+        "bikes": ["15"],
+        "password": "444444"
+    },
+    "hakan@hoi.com": {
+      "fname": "Håkan",
+      "lname": "Yson",
+      "tel": "+46777221100",
+      "bikes": ["7"],
+      "password": "555555"
+    },
+    "dummy@hoi.com": {
+      "fname": "Dummy",
+      "lname":"Dumbson",
+      "tel": "+45777110099",
+      "bikes": [
+        "6",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21"
+      ],
+      "password": "666666"
+    }
+}
