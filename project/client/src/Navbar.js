@@ -1,9 +1,9 @@
-import React, { Component, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from './hoiWhite.png';
 import "./css/navbar.css";
 import history from './history'
 
-import {Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {AppContext} from './App';
 import * as UserHandler from './UserHandler';
 
@@ -42,6 +42,9 @@ function Navbar (){
         case 'wrong password':
           setPasswordError(true);
           setEmailError(false);
+          break;
+        default:
+          alert('unacknowledged error');
           break;
       }
     })
