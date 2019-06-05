@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import Bike from './Bike';
 import * as BikeHandler from './BikeHandler';
 import "./css/addBike.css";

@@ -20,10 +20,10 @@ function totalPrice(price, startDate, endDate) {
 
 function PaymentPage(props) {
 
-  const [fname, setFname] = useState();
-  const [lname, setLname] = useState();
-  const [email, setEmail] = useState();
-  const [tel, setTel] = useState();
+  const [fname] = useState();
+  const [lname] = useState();
+  const [email] = useState();
+  const [tel] = useState();
   const [confirmed, setConfirmed] = useState(false);
 
 

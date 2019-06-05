@@ -11,7 +11,6 @@ class MapContainer extends Component {
 
   render() {
     let coords = this.props.coords;
-    let bikeKeys = this.props.bikeKeys;
     const mapCenter = coords[0];
     let markers = coords.map( (coordinatePair) => {
       return <Marker position={coordinatePair}>
