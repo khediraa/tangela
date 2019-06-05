@@ -4,7 +4,7 @@ import './css/mapContainer.css';
 import {AddBikeContext} from './AddBike';
 
 function MapForAdding(props) {
-  const {lng, lat, setLat, setLng} = useContext(AddBikeContext);
+  const {setLat, setLng} = useContext(AddBikeContext);
   const [currentPos, setCurrentPos] = useState();
   
     function handleClick(e){

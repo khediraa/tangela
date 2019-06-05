@@ -160,7 +160,6 @@ class AddBike extends Component {
 
     render() {
       const errors = validate(this.state.gears, this.state.price, this.state.title);
-      const isDisabled = Object.keys(errors).some(x => errors[x]);
 
       const shouldMarkError = field => {
         const hasError = errors[field];

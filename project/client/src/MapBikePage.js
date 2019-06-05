@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Map, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
+import { Map, TileLayer, Circle } from 'react-leaflet';
 import './css/mapContainer.css';
 
 class MapBikePage extends Component {
@@ -10,7 +10,6 @@ class MapBikePage extends Component {
 
   render() {
     let coords = this.props.coords;
-    let bikeKeys = this.props.bikeKeys;
     const mapCenter = coords[0];
     let markers = coords.map( (coordinatePair) => {
       return <Circle 
