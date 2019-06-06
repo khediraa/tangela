@@ -1,0 +1,31 @@
+-what do I want to learn or understand better?
+ 
+ I want to learn about the parts of the project not pertaining directly 
+ to software development from my business management teammates. 
+ I also hope to learn more about how to be a part of a team that 
+ is working together on some sort of project, and how such a team 
+ maintains balance.
+
+
+-how can I help someone else, or the entire team, to learn something new?
+ 
+ By providing a positive attitude and investing myself in the questions and 
+ concerns of my teammates, I can be the most helpful to them. By always sharing
+ what I know and not expecting that people figure out solutions to problems on 
+ their own when they ask for help, I contribute to our collaborative effort and
+ can help drive the project forward. 
+
+
+-what is my contribution towards the team’s use of Scrum?
+ 
+ I have attended excercises in scrum workflow along with my team, and I plan to
+ learn more about scrum as we start working on our project.
+
+
+-what is my contribution towards the team’s deliveries?
+
+ I have helped out in constructing the social contract of our group, and in
+ discussing ideas for what we are going to produce in our project. I plan to
+ continue to collaborate with my group next week so we can establish more 
+ details about what we are going to do, such as what type of software we will
+ make (mobile app or web service, for example).
